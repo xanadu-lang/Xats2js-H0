@@ -4,7 +4,7 @@ For compiling from the H0-level syntax of ATS3/Xanadu to JS
 
 ## Build Status
 
-* [![Build Status](https://travis-ci.org/xanadu-lang/xats2js.svg?branch=master)](https://travis-ci.org/xanadu-lang/xats2js) Ubuntu
+* [![Build Status](https://travis-ci.org/xanadu-lang/Xats2js-H0.svg?branch=master)](https://travis-ci.org/xanadu-lang/Xats2js-H0) Ubuntu
 
 ## Download
 
