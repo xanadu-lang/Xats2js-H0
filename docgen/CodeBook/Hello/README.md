@@ -4,7 +4,7 @@ I assume that you have already installed XATS2JS at this point.
 
 The path to the directory where XATS2JS is located should be stored in
 the environment variable of the name XATS2JSD. And I often write
-${XATS2JSD} (which means the content of XATS2JD) to refer to this
+${XATS2JSD} (which means the content of XATS2JSD) to refer to this
 directory.
 
 If you have not installed XATS2JS, I suggest as follows a simple and
@@ -222,6 +222,6 @@ above library file, the code in hello.cats, and the generated JS code from
 hello.dats, we have finally completed the task of building the
 [webpage](https://xanadu-lang.github.io/xats2js/docgen/CodeBook/Hello/2020-11-22/hello.html)
 by simply adding a line for loading hello_dats.js (in the html file
-created for the webpage). Please find the provided Makefile for streamlining this process of compiling and assembling..
+created for the webpage). Please find the provided Makefile for streamlining this process of compiling and assembling.
 
 Happy programming in ATS3!!!
