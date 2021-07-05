@@ -7,10 +7,9 @@ the environment variable of the name XATS2JSD. And I often write
 ${XATS2JSD} (which means the content of XATS2JSD) to refer to this
 directory.
 
-If you have not installed XATS2JS, I suggest as follows a simple and
-clean way to just play with it a bit.
-The repository for the XATS2JS package is publicly accessible at the
-following URL:
+If you have not yet installed XATS2JS, I suggest as follows a simple
+and clean way to just play with it a bit.  The repository for the
+XATS2JS package is publicly accessible at the following URL:
 
 https://github.com/xanadu-lang/xats2js
 
@@ -73,8 +72,8 @@ manually written ATS3 code.  Note that the filename extension `cats`
 is not significant; it is chosen here for a historic reason as this
 extension used to indicate a file containing external C code in
 so-called co-programming with ATS2 and C. On the other hand, the
-filename `dats` is signifcant as it is recognized by xats2js for some
-special usage.
+filename extension `dats` is signifcant as it is recognized by xats2js
+for some special usage.
 
 In the rest of the presentation, if a command-line is to be executed,
 it is supposed to be done in the directory containing the aforementioned
