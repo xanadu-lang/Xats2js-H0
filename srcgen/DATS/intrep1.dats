@@ -545,7 +545,7 @@ l1dcl_tbox = $rec
 , l1dcl_node= l1dcl_node
 } (* end of [absimpl] *)
 
-in
+in(*in-of-local*)
 
 implement
 l1dcl_make_node
