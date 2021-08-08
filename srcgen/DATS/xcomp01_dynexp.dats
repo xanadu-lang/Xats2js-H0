@@ -96,10 +96,9 @@ rcd.comped of
 //
 val
 ldcls =
-xcomp01_h0dclist(env0, hdcls)
+xcomp01_h0dclist_dcl(env0, hdcls)
 //
-val
-ltmps = compenv_free_top(env0)
+val ltmps = compenv_free_top(env0)
 //
 } (* end of [xcomp01_package] *)
 
@@ -1467,11 +1466,11 @@ auxlst_h0dcl(env0, dcls)
 {
 val
 ldcl =
-xcomp01_h0dcl(env0, hdcl)
+xcomp01_h0dcl_dcl(env0, hdcl)
 val
 lcmd =
 l1cmd_make_node
-(hdcl.loc(), L1CMDdcl(ldcl))
+( hdcl.loc(), L1CMDdcl(ldcl) )
 val () =
 xcomp01_lcmdadd_lcmd(env0, lcmd)
 }
@@ -2994,13 +2993,13 @@ H0Clocal
 , body) = dcl0.node()
 //
 val head =
-xcomp01_h0dclist(env0, head)
+xcomp01_h0dclist_dcl(env0, head)
 val body =
-xcomp01_h0dclist(env0, body)
+xcomp01_h0dclist_dcl(env0, body)
 //
 in
 l1dcl_make_node
-( loc0, L1DCLlocal(head, body) )
+( loc0, L1DCLlocal( head, body ) )
 end // end of [aux_local]
 
 (* ****** ****** *)
@@ -3033,7 +3032,7 @@ None((*void*))
 Some(dcls) =>
 Some
 (
-xcomp01_h0dclist(env0, dcls)
+xcomp01_h0dclist_dcl(env0, dcls)
 )
 ) : l1dclistopt // end-of-val
 //
@@ -3429,8 +3428,10 @@ end // end of [aux_impdecl3_some]
 
 in(*in-of-local*)
 
+(* ****** ****** *)
+
 implement
-xcomp01_h0dcl
+xcomp01_h0dcl_dcl
   (env0, dcl0) =
 let
 (*
@@ -3445,12 +3446,12 @@ dcl0.node() of
 |
 H0Cstatic
 (tok0, dcl1) =>
-xcomp01_h0dcl
+xcomp01_h0dcl_dcl
 ( env0, dcl1 )
 |
 H0Cextern
 (tok0, dcl1) =>
-xcomp01_h0dcl
+xcomp01_h0dcl_dcl
 ( env0, dcl1 )
 //
 |
@@ -3487,7 +3488,7 @@ aux_impdecl3(env0, dcl0)
   l1dcl_make_node(loc0, L1DCLnone1(dcl0))
   end
 //
-end // end of [xcomp01_h0dcl]
+end // end of [xcomp01_h0dcl_dcl]
 
 (* ****** ****** *)
 
@@ -3516,12 +3517,14 @@ end // end of [non-H0Cfundecl]
 //
 ) (* end of [xcomp01_h0dcl_timp] *)
 
+(* ****** ****** *)
+
 end // end of [local]
 
 (* ****** ****** *)
 
 implement
-xcomp01_h0dclist
+xcomp01_h0dclist_dcl
   (env0, dcls) =
 (
 case+ dcls of
@@ -3529,18 +3532,19 @@ case+ dcls of
 list_nil() =>
 list_nil()
 |
-list_cons(dcl1, dcls) =>
+list_cons
+(dcl1, dcls) =>
 let
 val dcl1 =
-xcomp01_h0dcl(env0, dcl1)
+xcomp01_h0dcl_dcl(env0, dcl1)
 in
-list_cons(dcl1, dcls) where
+list_cons( dcl1, dcls ) where
 {
-  val dcls =
-  xcomp01_h0dclist(env0, dcls)
+val dcls =
+xcomp01_h0dclist_dcl(env0, dcls)
 }
 end
-) (* end of [xcomp01_h0dclist] *)
+) (* end of [xcomp01_h0dclist_dcl] *)
 
 (* ****** ****** *)
 

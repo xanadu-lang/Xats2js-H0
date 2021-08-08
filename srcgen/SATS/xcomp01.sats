@@ -241,19 +241,20 @@ xcomp01_h0exp_set
 , h0e0: h0exp, tres: l1tmp): void
 
 (* ****** ****** *)
-
+//
 fun
 xcomp01_h0explst_val
 ( env0:
 ! compenv
-, h0es: h0explst(*arg*)): l1valist
+, h0es: h0explst): l1valist
+//
 fun
 xcomp01_h0explst_arg
 ( env0:
 ! compenv
 , npf: int
 , h0es: h0explst(*arg*)): l1valist
-
+//
 (* ****** ****** *)
 //
 fun
@@ -270,11 +271,11 @@ xcomp01_h0expopt_blk
 (* ****** ****** *)
 //
 fun
-xcomp01_h0dcl
+xcomp01_h0dcl_dcl
 ( env0:
 ! compenv, dcl0: h0dcl): l1dcl
 fun
-xcomp01_h0dclist
+xcomp01_h0dclist_dcl
 ( env0:
 ! compenv, dcls: h0dclist): l1dclist
 //
