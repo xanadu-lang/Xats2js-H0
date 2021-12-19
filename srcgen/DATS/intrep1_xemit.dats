@@ -1179,7 +1179,7 @@ else // boxed
 fprint!(out, "[",  0)
 //
 val () = loop( 1, l1vs )
-val () = xemit01_txt00(out, "];")
+val () = xemit01_txt00(out, "]")
 //
 end (* end of [local] *)
 //
