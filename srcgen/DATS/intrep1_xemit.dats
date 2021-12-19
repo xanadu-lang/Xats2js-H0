@@ -2989,10 +2989,10 @@ list_cons(x0, xs) =>
 (
   auxtmps(xs)) where
 {
-  val () =
-  xemit01_txt00(out, "var ")
-  val () = xemit01_l1tmp(out, x0)
-  val () = xemit01_txtln(out, ";")
+val () =
+xemit01_txt00(out, "var ")
+val () = xemit01_l1tmp(out, x0)
+val () = xemit01_txtln(out, ";")
 } (* list_cons *)
 ) (* end of [auxtmps] *)
 //
