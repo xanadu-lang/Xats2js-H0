@@ -76,12 +76,12 @@ implement
 the_XATSHOME_get() =
 $GLO.the_XATSHOME_get((*void*))
 (* ****** ****** *)
-
+//
 #staload
 _(*TMP*) = "./intrep1_print.dats"
 #staload
 _(*TMP*) = "./intrep1_xemit.dats"
-
+//
 (* ****** ****** *)
 //
 datatype

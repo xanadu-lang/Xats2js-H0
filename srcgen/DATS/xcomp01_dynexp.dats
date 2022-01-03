@@ -2807,7 +2807,7 @@ val () =
 auxset_llazy(env0, h0e0, tres)
 } (* end of [H0Ellazy] *)
 //
-| _ (* else *) =>
+| _ (* rest-of-h0exp *) =>
 (
 l1val_make_node(loc0, L1VALnone1(h0e0))
 )
@@ -2960,7 +2960,7 @@ xcomp01_lcmdpop0_blk(env0)
   val () =
   xcomp01_h0exp_set(env0, h0e0, tres)
 } (* end of [xcomp01_h0exp_blk] *)
-
+//
 (* ****** ****** *)
 //
 implement
@@ -3074,13 +3074,13 @@ H0Cfundecl
 in
 case+ tqas of
 | list_nil() => // function
-  aux_fundecl_none(env0, dcl0)
+  aux_fundecl_fun(env0, dcl0)
 | list_cons _ => // template
-  aux_fundecl_some(env0, dcl0)
+  aux_fundecl_tmp(env0, dcl0)
 end // end of [aux_fundecl]
 //
 and
-aux_fundecl_none
+aux_fundecl_fun
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3147,10 +3147,10 @@ val () = xcomp01_dvarpop_fun0(env0)
 in
 l1dcl_make_node
 (loc0, L1DCLfundecl(knd0, mopt, lfds))
-end // end of [aux_fundecl_none]
+end // end of [aux_fundecl_fun]
 //
 and
-aux_fundecl_some
+aux_fundecl_tmp
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3162,7 +3162,7 @@ HX: should template be compiled?
 *)
 in
 l1dcl_make_node(loc0, L1DCLnone0(*void*))
-end // end of [aux_fundecl_some]
+end // end of [aux_fundecl_tmp]
 //
 (* ****** ****** *)
 //
@@ -3501,7 +3501,7 @@ dcl0.node() of
 //
 |
 H0Cfundecl _ =>
-aux_fundecl_none(env0, dcl0)
+aux_fundecl_fun(env0, dcl0)
 //
 |
 H0Cimpdecl3 _ =>
@@ -3755,7 +3755,8 @@ in
     loc=loc
   , pat=pat, def=res, def_blk=blk
   } (* LVALDECL *)
-end // end of [xcomp01_hvaldecl]
+end
+(*let*) // end of [xcomp01_hvaldecl]
 
 (* ****** ****** *)
 

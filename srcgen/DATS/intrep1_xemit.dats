@@ -125,17 +125,17 @@ fprint!(out, txt, '\n')
 )
 (* ****** ****** *)
 implement
-xemit01_blnk1
-( out ) =
-(
-  fprint(out, ' ')
-)
-(* ****** ****** *)
-implement
 xemit01_newln
 ( out ) =
 (
-  fprint(out, '\n')
+  fprint_char(out, '\n')
+)
+(* ****** ****** *)
+implement
+xemit01_blnk1
+( out ) =
+(
+  fprint_char( out, ' ' )
 )
 (* ****** ****** *)
 
@@ -192,6 +192,7 @@ else
 fprint(out, hdc.sym())
 end // end of [xemit01_hdcon]
 (* ****** ****** *)
+
 local
 
 (* ****** ****** *)
@@ -318,6 +319,7 @@ X2NAMsome(gnm) =>
 end // end of [xemit01_hdcst]
 //
 end // end of [local]
+
 (* ****** ****** *)
 implement
 xemit01_ltcst
@@ -339,7 +341,6 @@ fprint(out, stmp)
 *)
 } (*where*) // [xemit01_ltcst]
 (* ****** ****** *)
-
 implement
 xemit01_ldcon
 (out, ldc) =
@@ -350,7 +351,6 @@ case+ ldc of
 | LDCONval(l1v) =>
   xemit01_l1val(out, l1v)
 ) (* end of [xemit01_ldcon] *)
-
 (* ****** ****** *)
 
 implement
@@ -2280,8 +2280,10 @@ L1CMDfix _ => aux_fix(out, lcmd)
 //
 |
 L1CMDblk _ => aux_blk(out, lcmd)
+//
 |
 L1CMDdcl _ => aux_dcl(out, lcmd)
+//
 |
 L1CMDift1 _ => aux_ift1(out, lcmd)
 //
@@ -2340,7 +2342,6 @@ _ (* else *) => fprint!(out, "//", lcmd)
 ) (*xemit01_l1cmd*) end // end of [local]
 
 (* ****** ****** *)
-
 implement
 xemit01_l1cmdlst
   (out, cmds) =
@@ -2368,7 +2369,6 @@ xemit01_txtln(out, ";")
 }
 )
 } (*end*) // xemit01_l1cmdlst
-
 (* ****** ****** *)
 implement
 xemit01_l1blk
@@ -3016,7 +3016,8 @@ val () = xemit01_newln(out)
 val () = xemit01_newln(out) in auxdcls(xs)
 end // list_cons
 ) (* end of [auxdcls] *)
-} (* end of [xemit01_program] *)
+//
+} (*where*) // end of [xemit01_program]
 
 (* ****** ****** *)
 //

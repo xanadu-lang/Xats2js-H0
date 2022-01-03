@@ -219,6 +219,19 @@ ltcst_get_stamp(ltcst): stamp
 overload .stamp with ltcst_get_stamp
 (* ****** ****** *)
 //
+fun
+print_ltcst: print_type(ltcst)
+fun
+prerr_ltcst: prerr_type(ltcst)
+fun
+fprint_ltcst: fprint_type(ltcst)
+//
+overload print with print_ltcst
+overload prerr with prerr_ltcst
+overload fprint with fprint_ltcst
+//
+(* ****** ****** *)
+//
 datatype ldcon =
 | LDCONcon of hdcon // non-ext
 | LDCONval of l1val // ext-con
@@ -235,19 +248,6 @@ fprint_ldcon: fprint_type(ldcon)
 overload print with print_ldcon
 overload prerr with prerr_ldcon
 overload fprint with fprint_ldcon
-//
-(* ****** ****** *)
-//
-fun
-print_ltcst: print_type(ltcst)
-fun
-prerr_ltcst: prerr_type(ltcst)
-fun
-fprint_ltcst: fprint_type(ltcst)
-//
-overload print with print_ltcst
-overload prerr with prerr_ltcst
-overload fprint with fprint_ltcst
 //
 (* ****** ****** *)
 //
@@ -352,11 +352,13 @@ l1val_node =
 // For boxed
 // HX: ctag: con_tag
 // HX: carg: con_arg
+//
 | L1VALctag of (l1val)
 | L1VALcarg of (l1val, int(*idx*))
 | L1VALcofs of (l1val, int(*idx*))
 //
 // For flat (tuples)
+//
 | L1VALtarg of (l1val, int(*idx*))
 | L1VALtptr of (l1val, int(*idx*))
 //
@@ -1037,10 +1039,8 @@ fun
 xemit01_lvstr(FILEref, token): void
 //
 (* ****** ****** *)
-//
 fun
 xemit01_lvtop(FILEref, token): void
-//
 (* ****** ****** *)
 fun
 xemit01_lvnam(FILEref, lvnam): void
@@ -1051,10 +1051,10 @@ fun
 xemit01_l1tmp(FILEref, l1tmp): void
 (* ****** ****** *)
 fun
-xemit01_l1pck(FILEref, l1pck): void
+xemit01_l1val(FILEref, l1val): void
 (* ****** ****** *)
 fun
-xemit01_l1val(FILEref, l1val): void
+xemit01_l1pck(FILEref, l1pck): void
 (* ****** ****** *)
 //
 fun

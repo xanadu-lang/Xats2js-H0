@@ -546,7 +546,7 @@ val+
 val xs =
 l1cmdstk_pop0_lst(rcd.l1cmdstk)
 //
-} (* end of [xcomp01_lcmdadd] *)
+} (* end of [xcomp01_lcmdpop0] *)
 
 (* ****** ****** *)
 

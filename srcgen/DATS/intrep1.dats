@@ -66,6 +66,7 @@ $STM.stamper_getinc(stamper)
 end // end of [local]
 
 (* ****** ****** *)
+
 local
 
 absimpl
@@ -96,6 +97,7 @@ l1exn_get_stamp(ltc) = ltc.l1exn_stamp
 (* ****** ****** *)
 
 end // end of [local]
+
 (* ****** ****** *)
 
 local
@@ -225,6 +227,7 @@ $STM.stamper_getinc(stamper)
 end // end of [local]
 
 (* ****** ****** *)
+
 local
 
 absimpl
@@ -261,6 +264,7 @@ ltcst_get_stamp(ltc) = ltc.ltcst_stamp
 (* ****** ****** *)
 
 end // end of [local]
+
 (* ****** ****** *)
 
 local
