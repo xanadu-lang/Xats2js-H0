@@ -759,18 +759,20 @@ fprint!(out, "L1BLKsome(", cmds, ")")
 (* ****** ****** *)
 
 local
-
+//
 implement
 fprint_val<l1dcl> = fprint_l1dcl
-implement
-fprint_val<limpdecl> = fprint_limpdecl
+//
 implement
 fprint_val<lfundecl> = fprint_lfundecl
 implement
 fprint_val<lvaldecl> = fprint_lvaldecl
 implement
 fprint_val<lvardecl> = fprint_lvardecl
-
+//
+implement
+fprint_val<limpdecl> = fprint_limpdecl
+//
 in
 
 implement
@@ -817,10 +819,6 @@ fprint!
 } (* end of [L1DCLinclude] *)
 //
 |
-L1DCLimpdecl
-(knd0, mopt, limp) =>
-fprint!(out, "L1DCLimpdecl(", limp, ")")
-|
 L1DCLfundecl
 (knd0, mopt, lfds) =>
 fprint!(out, "L1DCLfundecl(", lfds, ")")
@@ -832,6 +830,11 @@ fprint!(out, "L1DCLvaldecl(", lvds, ")")
 L1DCLvardecl
 (knd0, mopt, lvds) =>
 fprint!(out, "L1DCLvardecl(", lvds, ")")
+//
+|
+L1DCLimpdecl
+(knd0, mopt, limp) =>
+fprint!(out, "L1DCLimpdecl(", limp, ")")
 //
 |
 L1DCLexcptcon
@@ -909,36 +912,6 @@ fprint!
 , "def_blk=", rcd.def_blk, "; ", "}")
 //
 end // end of [fprint_l1fixexp]
-//
-(* ****** ****** *)
-//
-implement
-print_limpdecl(x0) =
-fprint_limpdecl(stdout_ref, x0)
-implement
-prerr_limpdecl(x0) =
-fprint_limpdecl(stderr_ref, x0)
-//
-implement
-fprint_limpdecl
-  (out, x0) = let
-//
-val+LIMPDECL(rcd) = x0
-//
-in
-//
-fprint!
-( out
-, "LIMPDECL@{"
-, "hdc=", rcd.hdc, "; "
-, "hag=", rcd.hag, "; "
-, "def=", rcd.def, "; "
-, "lev=(", rcd.lev, "); "
-, "lts=(", rcd.lts, "); "
-, "hag_blk=", rcd.hag_blk, "; "
-, "def_blk=", rcd.def_blk, "; ", "}")
-//
-end // end of [fprint_limpdecl]
 //
 (* ****** ****** *)
 //
@@ -1028,6 +1001,36 @@ in
   , ", hdv_tmp=", rcd.hdv_tmp
   , ", ini_blk=", rcd.ini_blk, "}")
 end // end of [fprint_lvardecl]
+//
+(* ****** ****** *)
+//
+implement
+print_limpdecl(x0) =
+fprint_limpdecl(stdout_ref, x0)
+implement
+prerr_limpdecl(x0) =
+fprint_limpdecl(stderr_ref, x0)
+//
+implement
+fprint_limpdecl
+  (out, x0) = let
+//
+val+LIMPDECL(rcd) = x0
+//
+in
+//
+fprint!
+( out
+, "LIMPDECL@{"
+, "hdc=", rcd.hdc, "; "
+, "hag=", rcd.hag, "; "
+, "def=", rcd.def, "; "
+, "lev=(", rcd.lev, "); "
+, "lts=(", rcd.lts, "); "
+, "hag_blk=", rcd.hag_blk, "; "
+, "def_blk=", rcd.def_blk, "; ", "}")
+//
+end // end of [fprint_limpdecl]
 //
 (* ****** ****** *)
 

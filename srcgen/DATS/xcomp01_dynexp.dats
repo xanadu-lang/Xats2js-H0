@@ -3216,92 +3216,6 @@ end // end of [aux_vardecl]
 (* ****** ****** *)
 
 fun
-aux_excptcon
-( env0:
-! compenv
-, dcl0: h0dcl): l1dcl =
-let
-val
-loc0 = dcl0.loc()
-val-
-H0Cexcptcon
-( hdcs ) = dcl0.node()
-//
-val
-blk0 = let
-val () =
-xcomp01_lcmdpush_nil(env0)
-in
-let
-val () =
-auxhdcs(env0, hdcs) where
-{
-fun
-auxhdcs
-( env0:
-! compenv
-, hdcs: hdconlst): void =
-(
-case+ hdcs of
-|
-list_nil() => ()
-|
-list_cons
-(hdc1, hdcs) =>
-(
-  auxhdcs(env0, hdcs)
-) where
-{
-//
-val
-loc1 = hdc1.loc()
-val
-tmp1 =
-xltmpnew_tmp0(env0, loc1)
-//
-val
-hdv1 =
-hdcon_get_dvar(hdc1)
-//
-(*
-val () =
-println!
-("aux_excptcon: hdc1 = ", hdc1)
-val () =
-println!
-("aux_excptcon: hdv1 = ", hdv1)
-*)
-//
-val () =
-xcomp01_dvaradd_bind
-(env0, hdv1, l1val_tmp(tmp1))
-//
-local
-val
-cmd1 =
-l1cmd_make_node
-(loc1, L1CMDexcon(tmp1))
-in
-val () =
-xcomp01_lcmdadd_lcmd(env0, cmd1)
-end // end of [local]
-//
-} (* end of [where] *)
-) (* end of [auxhdcs] *)
-} (* where *) // end-of-val
-in
-  xcomp01_lcmdpop0_blk(env0)
-end
-end // end of [val()=auxhdcs()]
-//
-in
-l1dcl_make_node
-(loc0, L1DCLexcptcon(hdcs, blk0(*init*)))
-end // end of [aux_excptcon]
-
-(* ****** ****** *)
-
-fun
 aux_impdecl3
 ( env0:
 ! compenv
@@ -3426,6 +3340,92 @@ end // end of [aux_impdecl3_some]
 
 (* ****** ****** *)
 
+fun
+aux_excptcon
+( env0:
+! compenv
+, dcl0: h0dcl): l1dcl =
+let
+val
+loc0 = dcl0.loc()
+val-
+H0Cexcptcon
+( hdcs ) = dcl0.node()
+//
+val
+blk0 = let
+val () =
+xcomp01_lcmdpush_nil(env0)
+in
+let
+val () =
+auxhdcs(env0, hdcs) where
+{
+fun
+auxhdcs
+( env0:
+! compenv
+, hdcs: hdconlst): void =
+(
+case+ hdcs of
+|
+list_nil() => ()
+|
+list_cons
+(hdc1, hdcs) =>
+(
+  auxhdcs(env0, hdcs)
+) where
+{
+//
+val
+loc1 = hdc1.loc()
+val
+tmp1 =
+xltmpnew_tmp0(env0, loc1)
+//
+val
+hdv1 =
+hdcon_get_dvar(hdc1)
+//
+(*
+val () =
+println!
+("aux_excptcon: hdc1 = ", hdc1)
+val () =
+println!
+("aux_excptcon: hdv1 = ", hdv1)
+*)
+//
+val () =
+xcomp01_dvaradd_bind
+(env0, hdv1, l1val_tmp(tmp1))
+//
+local
+val
+cmd1 =
+l1cmd_make_node
+(loc1, L1CMDexcon(tmp1))
+in
+val () =
+xcomp01_lcmdadd_lcmd(env0, cmd1)
+end // end of [local]
+//
+} (* end of [where] *)
+) (* end of [auxhdcs] *)
+} (* where *) // end-of-val
+in
+  xcomp01_lcmdpop0_blk(env0)
+end
+end // end of [val()=auxhdcs()]
+//
+in
+l1dcl_make_node
+(loc0, L1DCLexcptcon(hdcs, blk0(*init*)))
+end // end of [aux_excptcon]
+
+(* ****** ****** *)
+
 in(*in-of-local*)
 
 (* ****** ****** *)
@@ -3474,12 +3474,12 @@ H0Cvardecl _ =>
 aux_vardecl(env0, dcl0)
 //
 |
-H0Cexcptcon _ =>
-aux_excptcon(env0, dcl0)
-//
-|
 H0Cimpdecl3 _ =>
 aux_impdecl3(env0, dcl0)
+//
+|
+H0Cexcptcon _ =>
+aux_excptcon(env0, dcl0)
 //
 | _ (* else *) =>
   let

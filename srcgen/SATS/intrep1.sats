@@ -742,41 +742,6 @@ overload fprint with fprint_l1blk
 (* ****** ****** *)
 //
 datatype
-limpdecl =
-LIMPDECL of @{
-  loc= loc_t
-, hdc= hdcst
-//
-, hag= hfarglst
-//
-, def= l1valopt
-//
-, lev= int//fun
-, lts= l1tmplst
-//
-, hag_blk= l1blk
-, def_blk= l1blk
-}
-//
-(* ****** ****** *)
-//
-fun
-print_limpdecl:
-print_type(limpdecl)
-fun
-prerr_limpdecl:
-prerr_type(limpdecl)
-fun
-fprint_limpdecl:
-fprint_type(limpdecl)
-//
-overload print with print_limpdecl
-overload prerr with prerr_limpdecl
-overload fprint with fprint_limpdecl
-//
-(* ****** ****** *)
-//
-datatype
 lfundecl =
 LFUNDECL of
 @{
@@ -879,6 +844,41 @@ overload fprint with fprint_lvardecl
 (* ****** ****** *)
 //
 datatype
+limpdecl =
+LIMPDECL of @{
+  loc= loc_t
+, hdc= hdcst
+//
+, hag= hfarglst
+//
+, def= l1valopt
+//
+, lev= int//fun
+, lts= l1tmplst
+//
+, hag_blk= l1blk
+, def_blk= l1blk
+}
+//
+(* ****** ****** *)
+//
+fun
+print_limpdecl:
+print_type(limpdecl)
+fun
+prerr_limpdecl:
+prerr_type(limpdecl)
+fun
+fprint_limpdecl:
+fprint_type(limpdecl)
+//
+overload print with print_limpdecl
+overload prerr with prerr_limpdecl
+overload fprint with fprint_limpdecl
+//
+(* ****** ****** *)
+//
+datatype
 l1pkg =
 L1PKG of
 (l1tmplst, l1dclist)
@@ -903,18 +903,20 @@ L1DCLinclude of
 , filpathopt, l1dclistopt)
 //
 |
-L1DCLimpdecl of
-(token, decmodopt, limpdecl)
-//
-|
 L1DCLfundecl of
 (token, decmodopt, lfundeclist)
+//
 |
 L1DCLvaldecl of
 (token, decmodopt, lvaldeclist)
 |
 L1DCLvardecl of
 (token, decmodopt, lvardeclist)
+//
+|
+L1DCLimpdecl of
+( token
+, decmodopt, limpdecl(*single*))
 //
 |
 L1DCLexcptcon of (hdconlst, l1blk)
