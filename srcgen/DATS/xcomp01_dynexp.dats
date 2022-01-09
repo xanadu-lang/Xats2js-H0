@@ -1251,7 +1251,7 @@ ltc1 =
 ltcst_new_hdc( loc0, hdc1 )
 val
 ldcl =
-xcomp01_h0dcl_timp(env0, hdcl)
+xcomp01_h0dcl_timp(env0, ltc1, hdcl)
 //
 val () =
 (
@@ -3494,28 +3494,41 @@ end // end of [xcomp01_h0dcl_dcl]
 
 implement
 xcomp01_h0dcl_timp
-  (env0, dcl0) =
-(
+(env0, ltc1, dcl2) =
+let
+val
+loc0 = dcl2.loc()
+in(* in-of-let *)
+//
 case+
-dcl0.node() of
+dcl2.node() of
 //
 |
 H0Cfundecl _ =>
-aux_fundecl_fun(env0, dcl0)
+let
+val
+dcl2 =
+aux_fundecl_fun(env0, dcl2)
+in
+  l1dcl_make_node
+  (loc0, L1DCLtimpcst(ltc1, dcl2))
+end // end of [H0Cfundecl]
 //
 |
 H0Cimpdecl3 _ =>
-aux_impdecl3_none(env0, dcl0)
-//
-|
-_ (* else *) =>
 let
-  val loc0 = dcl0.loc()
+val
+dcl2 =
+aux_impdecl3_none(env0, dcl2)
 in
-l1dcl_make_node(loc0, L1DCLnone1(dcl0))
-end // end of [non-H0Cfundecl]
+  l1dcl_make_node
+  (loc0, L1DCLtimpcst(ltc1, dcl2))
+end // end of [H0Cimpdecl3]
 //
-) (* end of [xcomp01_h0dcl_timp] *)
+| _ (* else *) =>
+l1dcl_make_node(loc0, L1DCLnone1(dcl2))
+//
+end (*let*) // end of [xcomp01_h0dcl_timp]
 
 (* ****** ****** *)
 
@@ -3653,7 +3666,8 @@ println!
 in
   LFUNDECL@{
     loc=loc
-  , nam=nam, hdc=hdc
+  , nam=nam
+  , hdc=hdc
   , hag=hag
   , def=res
   , lev=flev

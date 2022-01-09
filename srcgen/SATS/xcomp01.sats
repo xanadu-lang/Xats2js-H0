@@ -283,7 +283,8 @@ xcomp01_h0dclist_dcl
 fun
 xcomp01_h0dcl_timp
 ( env0:
-! compenv, dcl0: h0dcl): l1dcl
+! compenv
+, ltc1: ltcst, dcl2: h0dcl): l1dcl
 (* ****** ****** *)
 //
 fun

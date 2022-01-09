@@ -916,7 +916,10 @@ L1DCLvardecl of
 |
 L1DCLimpdecl of
 ( token
-, decmodopt, limpdecl(*single*))
+, decmodopt, limpdecl(*sing*))
+//
+|
+L1DCLtimpcst of ( ltcst, l1dcl )
 //
 |
 L1DCLexcptcon of (hdconlst, l1blk)

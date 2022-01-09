@@ -321,24 +321,32 @@ end // end of [xemit01_hdcst]
 end // end of [local]
 
 (* ****** ****** *)
+//
+(*
 implement
 xemit01_ltcst
 (out, ltc) =
 {
+//
 val () =
 xemit01_hdcst
 (out, ltc.hdc())
-(*
+//
 val () =
 fprint!
 (out, "_", stmp, "_")
-*)
+//
 } where
 {
-(*
   val stmp = ltc.stamp()
-*)
 } (*where*) // [xemit01_ltcst]
+*)
+//
+implement
+xemit01_ltcst
+(out, ltc) =
+xemit01_hdcst(out, ltc.hdc())
+//
 (* ****** ****** *)
 implement
 xemit01_ldcon
@@ -2453,163 +2461,29 @@ end // end of [let]
 local
 
 (* ****** ****** *)
-
+//
 fun
-aux_impdecl
-( out
-: FILEref
-, dcl0: l1dcl): void =
-let
-//
-val-
-L1DCLimpdecl
-( knd0
-, mopt
-, limp) =
-dcl0.node((*void*))
-//
-val+
-LIMPDECL(rcd) = limp
-//
-in
-//
-case+
-rcd.hag of
-|
-list_nil _ =>
-aux_impdecl0(out, dcl0)
-|
-list_cons _ =>
-aux_impdecl1(out, dcl0)
-//
-end // end of [aux_impdecl]
-//
-and
-aux_impdecl0
-( out
-: FILEref
-, dcl0: l1dcl): void =
-let
-//
-(*
-HX-2020-11-18:
-argless implementation
-*)
-//
-val-
-L1DCLimpdecl
-( knd0
-, mopt
-, limp) =
-dcl0.node((*void*))
-//
-val+
-LIMPDECL(rcd) = limp
-//
-val () =
-xemit01_txtln
-( out
-, "// { // val-binding" )
-//
-val () =
-xemit01_ftmpdecs(out, rcd.lts)
-//
-val () =
-xemit01_l1blk(out, rcd.def_blk)
-//
-val () =
-xemit01_txtln
-( out
-, "// } // val-binding" )
-//
-val () =
-xemit01_txtln
-(out, "const // implval/fun")
-val () =
-xemit01_hdcst( out, rcd.hdc )
-//
-in
-//
-case+
-rcd.def of
-|
-None() => ()
-|
-Some(res) =>
-{
-//
-val () =
-xemit01_txt00(out, " = ")
-val () =
-xemit01_l1val( out, res )
-val () =
-xemit01_txt00( out, "\n" )
-//
-} (* end of [Some] *)
-end // end of [aux_impdecl0]
-//
-and
-aux_impdecl1
-( out
-: FILEref
-, dcl0: l1dcl): void =
-let
-val-
-L1DCLimpdecl
-( knd0
-, mopt
-, limp) =
-dcl0.node((*void*))
-//
-val+
-LIMPDECL(rcd) = limp
-//
-val () =
-xemit01_txtln
-(out, "function")
-//
-val () =
-xemit01_hdcst(out, rcd.hdc)
-val
-narg =
-xemit01_hfarglst
-( out
-, rcd.lev
-, rcd.hag, 0(*base*))
-val () = xemit01_newln(out)
-//
-val () =
-xemit01_txtln(out, "{")
-//
-val () =
-xemit01_ftmpdecs(out, rcd.lts)
-//
-val () =
-xemit01_l1blk(out, rcd.hag_blk)
-val () =
-xemit01_l1blk(out, rcd.def_blk)
-//
-val () =
+fdcl2
+( dcl0
+: l1dcl): l1dcl =
 (
 case+
-rcd.def of
+dcl0.node() of
 |
-None() => ()
-|
-Some(res) =>
-{
+L1DCLtimpcst
+(ltc1, dcl2) => dcl2
+| _(* else *) => dcl0
+)
 //
-val () =
-xemit01_txt00(out, "return ")
-val () = xemit01_l1val(out, res)
-val () = xemit01_txt00(out, ";\n")
-//
-}
-) : void // end-of-val
-in
-fprintln!
-(out, "} // function // ", rcd.hdc)
-end // end of [aux_impdecl1]
+(* ****** ****** *)
+
+fun
+aux_hdcst
+( out
+: FILEref
+, dcl0: l1dcl
+, hdc1: hdcst): void =
+xemit01_hdcst(out, hdc1)
 
 (* ****** ****** *)
 
@@ -2619,11 +2493,16 @@ aux_fundecl
 : FILEref
 , dcl0: l1dcl): void =
 let
+//
+val
+dcl2 = fdcl2(dcl0)
+//
 val-
 L1DCLfundecl
 ( knd0
 , mopt
-, lfds) = dcl0.node()
+, lfds) =
+dcl2.node((*void*))
 //
 fun
 isfnx
@@ -2634,10 +2513,10 @@ knd0.node() of
 |
 T_FUN(fnk) =>
 (
-case+ fnk of
-| FNKfn2() => true
-| FNKfnx() => true
-| _(*else*) => false
+  case+ fnk of
+  | FNKfn2() => true
+  | FNKfnx() => true
+  | _(*else*) => false
 )
 ) (* end of [isfnx] *)
 //
@@ -2704,7 +2583,8 @@ val-
 L1DCLvaldecl
 ( knd0
 , mopt
-, lvds) = dcl0.node() in auxlvds(lvds)
+, lvds) =
+  dcl0.node() in auxlvds(lvds)
 end
 end // end of [aux_valdecl]
 
@@ -2794,9 +2674,229 @@ val-
 L1DCLvardecl
 ( knd0
 , mopt
-, lvds) = dcl0.node() in auxlvds(lvds)
+, lvds) =
+  dcl0.node() in auxlvds(lvds)
 end
 end // end of [aux_vardecl]
+
+(* ****** ****** *)
+
+fun
+aux_impdecl
+( out
+: FILEref
+, dcl0: l1dcl): void =
+let
+//
+val
+dcl2 = fdcl2(dcl0)
+//
+val-
+L1DCLimpdecl
+( knd0
+, mopt
+, limp) =
+dcl2.node((*void*))
+//
+val+
+LIMPDECL(rcd) = limp
+//
+in
+//
+case+
+rcd.hag of
+|
+list_nil _ =>
+aux_impdecl0(out, dcl0)
+|
+list_cons _ =>
+aux_impdecl1(out, dcl0)
+//
+end // end of [aux_impdecl]
+//
+and
+aux_impdecl0
+( out
+: FILEref
+, dcl0: l1dcl): void =
+let
+//
+(*
+HX-2020-11-18:
+argless implementation
+*)
+//
+val
+dcl2 = fdcl2(dcl0)
+//
+val-
+L1DCLimpdecl
+( knd0
+, mopt
+, limp) =
+dcl2.node((*void*))
+//
+val+
+LIMPDECL(rcd) = limp
+//
+val () =
+xemit01_txtln
+( out
+, "// { // val-binding" )
+//
+val () =
+xemit01_ftmpdecs
+( out, rcd.lts(*ltmps*) )
+//
+val () =
+xemit01_l1blk(out, rcd.def_blk)
+//
+val () =
+xemit01_txtln
+( out
+, "// } // val-binding" )
+//
+val () =
+xemit01_txtln
+( out
+, "const // implval/fun")
+//
+val () =
+aux_hdcst(out, dcl0, rcd.hdc)
+(*
+val () =
+xemit01_hdcst(out, rcd.hdc(*name*))
+*)
+//
+in
+//
+case+
+rcd.def of
+|
+None() => ()
+|
+Some(res) =>
+{
+//
+val () =
+xemit01_txt00(out, " = ")
+val () =
+xemit01_l1val( out, res )
+val () =
+xemit01_txt00( out, "\n" )
+//
+} (* end of [Some] *)
+end // end of [aux_impdecl0]
+//
+and
+aux_impdecl1
+( out
+: FILEref
+, dcl0: l1dcl): void =
+let
+//
+val
+dcl2 = fdcl2(dcl0)
+//
+val-
+L1DCLimpdecl
+( knd0
+, mopt
+, limp) =
+dcl2.node((*void*))
+//
+val+
+LIMPDECL(rcd) = limp
+//
+val () =
+xemit01_txtln
+(out, "function")
+//
+val () =
+aux_hdcst(out, dcl0, rcd.hdc)
+(*
+val () =
+xemit01_hdcst(out, rcd.hdc(*name*))
+*)
+//
+val
+narg =
+xemit01_hfarglst
+( out
+, rcd.lev
+, rcd.hag, 0(*base*))
+val () = xemit01_newln(out)
+//
+val () =
+xemit01_txtln(out, "{")
+//
+val () =
+xemit01_ftmpdecs
+( out, rcd.lts(*ltmps*) )
+//
+val () =
+xemit01_l1blk(out, rcd.hag_blk)
+val () =
+xemit01_l1blk(out, rcd.def_blk)
+//
+val () =
+(
+case+
+rcd.def of
+|
+None() => ()
+|
+Some(res) =>
+{
+//
+val () =
+xemit01_txt00(out, "return ")
+val () = xemit01_l1val(out, res)
+val () = xemit01_txt00(out, ";\n")
+//
+}
+) : void // end-of-val
+in
+fprintln!
+(out, "} // function // ", rcd.hdc)
+end // end of [aux_impdecl1]
+
+(* ****** ****** *)
+
+fun
+aux_timpcst
+( out
+: FILEref
+, dcl0: l1dcl): void =
+let
+//
+val-
+L1DCLtimpcst
+(ltc1, dcl2) = dcl0.node()
+//
+in
+//
+case+
+dcl2.node() of
+//
+| 
+L1DCLfundecl _ =>
+{
+val()=aux_fundecl(out, dcl0)
+}
+//
+|
+L1DCLimpdecl _ =>
+{
+val()=aux_impdecl(out, dcl0)
+}
+//
+| _ (* else *) =>
+{
+val () = fprint!(out, "// ", dcl0)
+}
+//
+end // end of [aux_timpcst]
 
 (* ****** ****** *)
 
@@ -2893,12 +2993,6 @@ fprint!
 }
 //
 |
-L1DCLimpdecl _ =>
-{
-val()=aux_impdecl(out, dcl0)
-}
-//
-|
 L1DCLfundecl _ =>
 {
 val()=aux_fundecl(out, dcl0)
@@ -2914,6 +3008,18 @@ val()=aux_valdecl(out, dcl0)
 L1DCLvardecl _ =>
 {
 val()=aux_vardecl(out, dcl0)
+}
+//
+|
+L1DCLimpdecl _ =>
+{
+val()=aux_impdecl(out, dcl0)
+}
+//
+|
+L1DCLtimpcst _ =>
+{
+val()=aux_timpcst(out, dcl0)
 }
 //
 |
@@ -3237,6 +3343,33 @@ end // end of [funbody_get_tmprets]
 
 (* ****** ****** *)
 
+local
+
+fun
+fdcl2
+( dcl0
+: l1dcl): l1dcl =
+(
+case+
+dcl0.node() of
+|
+L1DCLtimpcst
+(ltc1, dcl2) => dcl2
+| _(* else *) => dcl0
+)
+
+fun
+aux_hdcst
+( out
+: FILEref
+, dcl0: l1dcl
+, hdc1: hdcst): void =
+xemit01_hdcst(out, hdc1)
+
+in (*in-of-local*)
+
+(* ****** ****** *)
+
 implement
 xemit01_l1dcl_fun
   (out, dcl0) =
@@ -3257,7 +3390,8 @@ rcd.def_blk of
 |
 L1BLKnone _ => ()
 |
-L1BLKsome _ => auxlfd0_some(lfd0)
+L1BLKsome _ =>
+auxlfd0_some(lfd0)
 end // end of [auxlfd0]
 //
 and
@@ -3274,7 +3408,12 @@ xemit01_txtln
 (out, "function")
 //
 val () =
-xemit01_hdcst(out, rcd.hdc)
+aux_hdcst(out, dcl0, rcd.hdc)
+(*
+val () =
+xemit01_hdcst(out, rcd.hdc(*name*))
+*)
+//
 val narg =
 (
 case+
@@ -3350,11 +3489,15 @@ list_cons
 in
 //
 let
+//
+val
+dcl2 = fdcl2(dcl0)
+//
 val-
 L1DCLfundecl
 ( knd0
 , mopt
-, lfds) = dcl0.node() in auxlfds(lfds)
+, lfds) = dcl2.node() in auxlfds(lfds)
 end // end of [let]
 //
 end where
@@ -3787,8 +3930,11 @@ LFUNDECL(rcd) = lfd0
 in
 case+
 rcd.def_blk of
-| L1BLKnone _ => ()
-| L1BLKsome _ => auxlfd0_some(lfd0)
+|
+L1BLKnone _ => ()
+|
+L1BLKsome _ =>
+auxlfd0_some(lfd0)
 end // end of [auxlfd0]
 //
 and
@@ -3805,7 +3951,12 @@ xemit01_txtln
 (out, "function")
 //
 val () =
-xemit01_hdcst(out, rcd.hdc)
+aux_hdcst(out, dcl0, rcd.hdc)
+(*
+val () =
+xemit01_hdcst(out, rcd.hdc(*name*))
+*)
+//
 val narg =
 (
 case+
@@ -3911,8 +4062,8 @@ val () = xemit01_txt00(out, ";\n")
 }
 ) : void // end-of-val
 in
-  fprintln!
-  (out, "} // function // ", rcd.hdc)
+fprintln!
+(out, "} // function // ", rcd.hdc)
 end (* end of [auxlfd0_some] *)
 //
 (* ****** ****** *)
@@ -3937,11 +4088,15 @@ list_cons
 in
 //
 let
+//
+val
+dcl2 = fdcl2(dcl0)
+//
 val-
 L1DCLfundecl
 ( knd0
 , mopt
-, lfds) = dcl0.node() in auxlfds(lfds)
+, lfds) = dcl2.node() in auxlfds(lfds)
 end // end of [let]
 //
 end where
@@ -3952,6 +4107,10 @@ end where
   ("xemit01_l1dcl_fun: dcl0 = ", dcl0)
 *)
 } (*where*) // end of [xemit01_l1dcl_fnx]
+
+(* ****** ****** *)
+
+end // end of [local]
 
 (* ****** ****** *)
 

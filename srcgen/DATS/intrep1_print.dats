@@ -837,6 +837,13 @@ L1DCLimpdecl
 fprint!(out, "L1DCLimpdecl(", limp, ")")
 //
 |
+L1DCLtimpcst
+(ltc1, dcl2(*timp*)) =>
+fprint!
+( out
+, "L1DCLtimpcst(", ltc1, "; ", dcl2, ")")
+//
+|
 L1DCLexcptcon
 (hdcs, blk0(*init*)) =>
 fprint!
