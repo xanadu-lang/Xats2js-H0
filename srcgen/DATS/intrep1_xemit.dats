@@ -706,17 +706,22 @@ L1VALflat(l1v1) =>
 L1VALctag(l1v1) =>
 {
   val () =
-  xemit01_l1val(out, l1v1)
+  fprint
+  ( out, "XATS2JS_ctag(" )
   val () =
-  xemit01_txt00(out, "[0]")
+  xemit01_l1val(out, l1v1)
+  val () = fprint(out, ")")
 }
 |
 L1VALcarg(l1v1, argi) =>
 {
 val () =
+fprint
+(out, "XATS2JS_carg(")
+val () =
 xemit01_l1val(out, l1v1)
 val () =
-fprint!(out, "[", argi+1, "]")
+fprint!(out, ", ", argi+1, ")")
 }
 |
 L1VALcofs(l1v1, idx2) =>
@@ -735,9 +740,12 @@ fprint!(out, ",", idx2+1, ")")
 L1VALtarg(l1v1, argi) =>
 {
 val () =
+fprint
+(out, "XATS2JS_targ(")
+val () =
 xemit01_l1val(out, l1v1)
 val () =
-fprint!(out, "[", argi+1, "]")
+fprint!(out, ", ", argi+1, ")")
 }
 |
 L1VALtptr(l1v1, argi) =>
@@ -1041,7 +1049,7 @@ xemit01_txt00(out, "if(")
 val () =
 xemit01_l1tmp( out, tcas )
 val () =
-xemit01_txt00( out, " > 0 ) break;\n")
+xemit01_txt00( out, " > 0) break;\n")
 //
 in
   xemit01_l1pcklst

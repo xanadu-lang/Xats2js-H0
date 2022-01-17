@@ -3494,39 +3494,46 @@ end // end of [xcomp01_h0dcl_dcl]
 
 implement
 xcomp01_h0dcl_timp
-(env0, ltc1, dcl2) =
+(env0, ltc1, hdcl) =
 let
 val
-loc0 = dcl2.loc()
+loc0 = hdcl.loc()
 in(* in-of-let *)
 //
 case+
-dcl2.node() of
+hdcl.node() of
 //
 |
 H0Cfundecl _ =>
 let
 val
-dcl2 =
-aux_fundecl_fun(env0, dcl2)
+ldcl =
+aux_fundecl_fun(env0, hdcl)
 in
   l1dcl_make_node
-  (loc0, L1DCLtimpcst(ltc1, dcl2))
+  (loc0, L1DCLtimpcst(ltc1, ldcl))
 end // end of [H0Cfundecl]
 //
 |
 H0Cimpdecl3 _ =>
 let
 val
-dcl2 =
-aux_impdecl3_none(env0, dcl2)
+ldcl =
+aux_impdecl3_none(env0, hdcl)
 in
   l1dcl_make_node
-  (loc0, L1DCLtimpcst(ltc1, dcl2))
+  (loc0, L1DCLtimpcst(ltc1, ldcl))
 end // end of [H0Cimpdecl3]
 //
 | _ (* else *) =>
-l1dcl_make_node(loc0, L1DCLnone1(dcl2))
+(
+  l1dcl_make_node
+  (loc0, L1DCLtimpcst(ltc1, ldcl))
+) where
+{
+val ldcl =
+l1dcl_make_node(loc0, L1DCLnone1(hdcl))
+}
 //
 end (*let*) // end of [xcomp01_h0dcl_timp]
 

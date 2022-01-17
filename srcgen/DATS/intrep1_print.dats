@@ -604,7 +604,8 @@ fprint!
 , tcas, "; ", pcks, "; ", blks, ")")
 //
 |
-L1CMDpatck(lpck) =>
+L1CMDpatck
+( lpck ) =>
 fprint!(out, "L1CMDpatck(", lpck, ")")
 |
 L1CMDmatch
