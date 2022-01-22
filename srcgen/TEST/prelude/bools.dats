@@ -18,6 +18,7 @@
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
+//
 (* ****** ****** *)
 
 val b0 = true

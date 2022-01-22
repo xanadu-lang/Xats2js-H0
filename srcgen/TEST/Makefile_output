@@ -55,6 +55,12 @@ $(XATS2JS) -d $(PRELUDE)/cbref.dats
 #
 ######
 #
+test:: fact2
+fact2: ; \
+$(XATS2JS) -d $(PRELUDE)/fact2.dats
+#
+######
+#
 test:: foldl
 foldl: ; \
 $(XATS2JS) -d $(PRELUDE)/foldl.dats
