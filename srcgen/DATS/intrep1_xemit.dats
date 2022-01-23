@@ -686,6 +686,9 @@ xemit01_hdcst(out, hdc1)
 L1VALtcst
 ( ltc1, ldcl) =>
 (
+// HX-2022-01-23:
+// Simplifying the handling of
+// argless template implementations
   aux_ltcst( out, l1v0 )
 ) // end of [L1VALtcst]
 //
@@ -2777,6 +2780,57 @@ aux_impdecl0
 : FILEref
 , dcl0: l1dcl): void =
 let
+(*
+HX-2020-11-18:
+argless implementation
+*)
+val-
+L1DCLtimpcst
+(ltc1
+, dcl2) = dcl0.node()
+//
+val-
+L1DCLimpdecl
+( knd0
+, mopt
+, limp) =
+  dcl2.node((*void*))
+//
+val+
+LIMPDECL(rcd) = limp
+//
+val () =
+fprint!
+( out
+, "// ", ltc1, ": argless\n")
+//
+val () =
+fprint!
+(out, "// { // val-implmnt\n")
+//
+val () =
+xemit01_l1blk( out, rcd.def_blk )
+//
+val () =
+fprintln!
+( out
+, "// } // val-implmnt // ", ltc1)
+//
+in
+  // nothing
+end // end of [aux_impdecl0]
+(*
+(*
+HX-2022-01-22:
+abandoning the following way of
+handling argless implementations
+*)
+and
+aux_impdecl0
+( out
+: FILEref
+, dcl0: l1dcl): void =
+let
 //
 (*
 HX-2020-11-18:
@@ -2798,25 +2852,26 @@ LIMPDECL(rcd) = limp
 //
 val () =
 xemit01_txtln
-( out
-, "// { // val-binding" )
+(out, "// { // val-implmnt")
+//
+(*
+//
+// HX: there are no tmps!
 //
 val () =
-xemit01_ftmpdecs
-( out, rcd.lts(*ltmps*) )
+xemit01_ftmpdecs(out, rcd.lts)
+*)
 //
 val () =
 xemit01_l1blk(out, rcd.def_blk)
 //
 val () =
 xemit01_txtln
-( out
-, "// } // val-binding" )
+(out, "// } // val-implmnt")
 //
 val () =
 xemit01_txtln
-( out
-, "const // implval/fun")
+(out, "const // implval/fun")
 //
 val () =
 aux_hdcst(out, dcl0, rcd.hdc)
@@ -2844,6 +2899,7 @@ xemit01_txt00( out, "\n" )
 //
 } (* end of [Some] *)
 end // end of [aux_impdecl0]
+*)
 //
 and
 aux_impdecl1
