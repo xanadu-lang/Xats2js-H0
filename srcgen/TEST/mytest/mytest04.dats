@@ -19,6 +19,7 @@ list_tail1
 list_cons
 ( x0, xs ) : list(int)) = xs
 
+(* ****** ****** *)
 #extern
 fun
 list_head2: list(int) -> int

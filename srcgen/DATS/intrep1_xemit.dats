@@ -2786,7 +2786,7 @@ argless implementation
 *)
 val-
 L1DCLtimpcst
-(ltc1
+( ltc1
 , dcl2) = dcl0.node()
 //
 val-
@@ -2809,7 +2809,7 @@ fprint!
 (out, "// { // val-implmnt\n")
 //
 val () =
-xemit01_l1blk( out, rcd.def_blk )
+xemit01_l1blk(out, rcd.def_blk)
 //
 val () =
 fprintln!
