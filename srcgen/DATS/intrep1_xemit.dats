@@ -683,8 +683,11 @@ xemit01_ldcon(out, ldc1)
 L1VALfcst(hdc1) =>
 xemit01_hdcst(out, hdc1)
 |
-L1VALtcst(ltc1) =>
-xemit01_ltcst(out, ltc1)
+L1VALtcst
+( ltc1, ldcl) =>
+(
+  aux_ltcst( out, l1v0 )
+) // end of [L1VALtcst]
 //
 |
 L1VALvfix(hdv1) =>
@@ -826,6 +829,52 @@ val () =
 fprintln!
 (out, "xemit01_l1val: l1v0 = ", l1v0)
 *)
+//
+fun
+fdef
+( limp
+: limpdecl): l1valopt =
+let
+val+
+LIMPDECL(rcd) = limp
+in
+case+
+rcd.hag of
+| list_nil() => rcd.def | _ => None()
+end
+//
+fun
+aux_ltcst
+( out
+: FILEref
+, l1v0: l1val): void =
+let
+//
+val-
+L1VALtcst
+(ltc1, ldcl) = l1v0.node()
+val-
+L1DCLtimpcst
+(ltc1, ldcl) = ldcl.node()
+//
+in
+case+
+ldcl.node() of
+|
+L1DCLimpdecl
+(_, _, limp) =>
+let
+val opt = fdef(limp)
+in
+case+ opt of
+| None() =>
+  xemit01_ltcst(out, ltc1)
+| Some(l1v1) =>
+  xemit01_l1val(out, l1v1)
+end
+| _ (*else*) => xemit01_ltcst(out, ltc1)
+end // end of [aux_ltcst]
+//
 } (*where*) // end of [xemit01_l1val]
 
 (* ****** ****** *)

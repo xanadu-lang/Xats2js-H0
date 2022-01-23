@@ -1264,7 +1264,7 @@ l1cmd_make_node(loc0, L1CMDdcl(ldcl))
 }
 //
 in
-  l1val_make_node(loc0, L1VALtcst(ltc1))
+l1val_make_node(loc0, L1VALtcst(ltc1, ldcl))
 end // end of [auxval_timp]
 
 (* ****** ****** *)

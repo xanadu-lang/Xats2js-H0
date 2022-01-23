@@ -341,7 +341,9 @@ l1val_node =
 | L1VALcon of (ldcon)
 //
 | L1VALfcst of (hdcst)
-| L1VALtcst of (ltcst)
+//
+| L1VALtcst of
+  (ltcst, l1dcl(*def*))
 //
 | L1VALvfix of (hdvar)
 //
