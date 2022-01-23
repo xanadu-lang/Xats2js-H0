@@ -90,16 +90,12 @@ implement
 fprint_val<l1tmp> = fprint_l1tmp
 (* ****** ****** *)
 implement
-fprint_val<ltcst> = fprint_ltcst
+fprint_val<l1con> = fprint_l1con
 implement
-fprint_val<ldcon> = fprint_ldcon
+fprint_val<l1cst> = fprint_l1cst
 (* ****** ****** *)
 implement
 fprint_val<l1val> = fprint_l1val
-(*
-implement
-fprint_val<l1lvl> = fprint_l1lvl
-*)
 (* ****** ****** *)
 implement
 fprint_val<l1pck> = fprint_l1pck
@@ -154,34 +150,34 @@ end // end of [fprint_l1tmp]
 (* ****** ****** *)
 //
 implement
-print_ltcst(x0) =
-fprint_ltcst(stdout_ref, x0)
+print_l1cst(x0) =
+fprint_l1cst(stdout_ref, x0)
 implement
-prerr_ltcst(x0) =
-fprint_ltcst(stderr_ref, x0)
+prerr_l1cst(x0) =
+fprint_l1cst(stderr_ref, x0)
 implement
-fprint_ltcst(out, x0) =
+fprint_l1cst(out, x0) =
 fprint!
 (out, x0.hdc(), "(", x0.stamp(), ")")
 //
 (* ****** ****** *)
 //
 implement
-print_ldcon(x0) =
-fprint_ldcon(stdout_ref, x0)
+print_l1con(x0) =
+fprint_l1con(stdout_ref, x0)
 implement
-prerr_ldcon(x0) =
-fprint_ldcon(stderr_ref, x0)
+prerr_l1con(x0) =
+fprint_l1con(stderr_ref, x0)
 implement
-fprint_ldcon(out, x0) =
+fprint_l1con(out, x0) =
 (
 case+ x0 of
 |
-LDCONcon(hdc) =>
-fprint!(out, "LDCONcon(", hdc, ")")
+L1CONcon(hdc) =>
+fprint!(out, "L1CONcon(", hdc, ")")
 |
-LDCONval(l1v) =>
-fprint!(out, "LDCONval(", l1v, ")")
+L1CONval(l1v) =>
+fprint!(out, "L1CONval(", l1v, ")")
 )
 //
 (* ****** ****** *)
@@ -365,14 +361,15 @@ fprint!(out, "L1VALtmp(", tmp, ")")
 |
 L1VALcon(hdc) =>
 fprint!(out, "L1VALcon(", hdc, ")")
+//
 |
-L1VALfcst(hdc) =>
+L1VALcfun(hdc) =>
 fprint!(out, "L1VALfcst(", hdc, ")")
 //
 |
-L1VALtcst
+L1VALctmp
 ( ltc1, ldcl ) =>
-fprint!(out, "L1VALtcst(", ltc1, ")")
+fprint!(out, "L1VALctmp(", ltc1, ")")
 //
 |
 L1VALvfix(hdv1) =>

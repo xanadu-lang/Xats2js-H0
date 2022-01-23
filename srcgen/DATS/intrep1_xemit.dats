@@ -324,13 +324,13 @@ end // end of [local]
 //
 (*
 implement
-xemit01_ltcst
-(out, ltc) =
+xemit01_l1cst
+(out, l1c) =
 {
 //
 val () =
 xemit01_hdcst
-(out, ltc.hdc())
+(out, l1c.hdc())
 //
 val () =
 fprint!
@@ -338,26 +338,26 @@ fprint!
 //
 } where
 {
-  val stmp = ltc.stamp()
-} (*where*) // [xemit01_ltcst]
+  val stmp = l1c.stamp()
+} (*where*) // [xemit01_l1cst]
 *)
 //
 implement
-xemit01_ltcst
-(out, ltc) =
-xemit01_hdcst(out, ltc.hdc())
+xemit01_l1cst
+(out, l1c) =
+xemit01_hdcst(out, l1c.hdc())
 //
 (* ****** ****** *)
 implement
-xemit01_ldcon
-(out, ldc) =
+xemit01_l1con
+(out, l1c) =
 (
-case+ ldc of
-| LDCONcon(hdc) =>
+case+ l1c of
+| L1CONcon(hdc) =>
   xemit01_hdcon(out, hdc)
-| LDCONval(l1v) =>
+| L1CONval(l1v) =>
   xemit01_l1val(out, l1v)
-) (* end of [xemit01_ldcon] *)
+) (* end of [xemit01_l1con] *)
 (* ****** ****** *)
 
 implement
@@ -676,21 +676,21 @@ L1VALtmp(tmp1) =>
 xemit01_l1tmp(out, tmp1)
 //
 |
-L1VALcon(ldc1) =>
-xemit01_ldcon(out, ldc1)
+L1VALcon(l1c1) =>
+xemit01_l1con(out, l1c1)
 //
 |
-L1VALfcst(hdc1) =>
+L1VALcfun(hdc1) =>
 xemit01_hdcst(out, hdc1)
 |
-L1VALtcst
-( ltc1, ldcl) =>
+L1VALctmp
+( l1c1, ldcl) =>
 (
 // HX-2022-01-23:
 // Simplifying the handling of
 // argless template implementations
-  aux_ltcst( out, l1v0 )
-) // end of [L1VALtcst]
+  aux_l1cst( out, l1v0 )
+) // end of [L1VALctmp]
 //
 |
 L1VALvfix(hdv1) =>
@@ -847,18 +847,18 @@ rcd.hag of
 end
 //
 fun
-aux_ltcst
+aux_l1cst
 ( out
 : FILEref
 , l1v0: l1val): void =
 let
 //
 val-
-L1VALtcst
-(ltc1, ldcl) = l1v0.node()
+L1VALctmp
+(l1c1, ldcl) = l1v0.node()
 val-
 L1DCLtimpcst
-(ltc1, ldcl) = ldcl.node()
+(l1c1, ldcl) = ldcl.node()
 //
 in
 case+
@@ -871,12 +871,12 @@ val opt = fdef(limp)
 in
 case+ opt of
 | None() =>
-  xemit01_ltcst(out, ltc1)
+  xemit01_l1cst(out, l1c1)
 | Some(l1v1) =>
   xemit01_l1val(out, l1v1)
 end
-| _ (*else*) => xemit01_ltcst(out, ltc1)
-end // end of [aux_ltcst]
+| _ (*else*) => xemit01_l1cst(out, l1c1)
+end // end of [aux_l1cst]
 //
 } (*where*) // end of [xemit01_l1val]
 
@@ -1001,12 +1001,12 @@ xemit01_txtln(out, ") break;")
 }
 //
 |
-L1PCKcon(ldc, l1v) =>
+L1PCKcon(l1c, l1v) =>
 {
 val () =
 xemit01_txt00(out, "if(")
 val () =
-xemit01_ldcon( out, ldc )
+xemit01_l1con( out, l1c )
 val () =
 xemit01_txt00(out, "!==")
 val () =
@@ -1179,9 +1179,9 @@ val () =
 let
 val-
 L1VALcon
-( ldc0 ) = l1f0.node()
+( l1c0 ) = l1f0.node()
 in
-xemit01_ldcon(out, ldc0)
+xemit01_l1con(out, l1c0)
 end
 val () = loop( 1, l1vs )
 val () = xemit01_txt00(out, "]")
@@ -1747,12 +1747,12 @@ case+ pck0 of
 |
 L1PCKany() => ()
 |
-L1PCKcon(ldc, l1v) =>
+L1PCKcon(l1c, l1v) =>
 {
 val () =
 xemit01_txt00(out, "if(")
 val () =
-xemit01_ldcon( out, ldc )
+xemit01_l1con( out, l1c )
 val () =
 xemit01_txt00(out, "!==")
 val () =
@@ -2531,7 +2531,7 @@ case+
 dcl0.node() of
 |
 L1DCLtimpcst
-(ltc1, dcl2) => dcl2
+(l1c1, dcl2) => dcl2
 | _(* else *) => dcl0
 )
 //
@@ -2786,7 +2786,7 @@ argless implementation
 *)
 val-
 L1DCLtimpcst
-( ltc1
+( l1c1
 , dcl2) = dcl0.node()
 //
 val-
@@ -2802,7 +2802,7 @@ LIMPDECL(rcd) = limp
 val () =
 fprint!
 ( out
-, "// ", ltc1, ": argless\n")
+, "// ", l1c1, ": argless\n")
 //
 val () =
 fprint!
@@ -2814,7 +2814,7 @@ xemit01_l1blk(out, rcd.def_blk)
 val () =
 fprintln!
 ( out
-, "// } // val-implmnt // ", ltc1)
+, "// } // val-implmnt // ", l1c1)
 //
 in
   // nothing
@@ -2985,7 +2985,7 @@ let
 //
 val-
 L1DCLtimpcst
-(ltc1, dcl2) = dcl0.node()
+(l1c1, dcl2) = dcl0.node()
 //
 in
 //
@@ -3467,7 +3467,7 @@ case+
 dcl0.node() of
 |
 L1DCLtimpcst
-(ltc1, dcl2) => dcl2
+(l1c1, dcl2) => dcl2
 | _(* else *) => dcl0
 )
 
@@ -4142,9 +4142,9 @@ isrec<>(l1f0) =
 (
 case+
 l1f0.node() of
-| L1VALfcst(hdc) =>
+| L1VALcfun(hdc) =>
   (hdc = rcd.hdc)
-| _ (*non-L1VALfcst*) => false
+| _ (*non-L1VALcfun*) => false
 )
 //
 in(*in-of-local*)
