@@ -85,6 +85,13 @@ $(CAT) $(XATS2JS_PRELUDE_NODE) >> output_dats.js && \
 $(XATS2JS) --output-a output_dats.js -d $(PRELUDE)/lists.dats && $(NODE) output_dats.js
 ######
 test:: \
+strms
+strms:: ; \
+$(CAT) $(XATS2JS_PRELUDE) > output_dats.js && \
+$(CAT) $(XATS2JS_PRELUDE_NODE) >> output_dats.js && \
+$(XATS2JS) --output-a output_dats.js -d $(PRELUDE)/strms.dats && $(NODE) output_dats.js
+######
+test:: \
 sieve
 sieve:: ; \
 $(CAT) $(XATS2JS_PRELUDE) > output_dats.js && \
