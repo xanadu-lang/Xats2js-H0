@@ -845,8 +845,12 @@ fprint!
 //
 | L1DCLnone0() =>
   fprint!(out, "L1DCLnone0(", ")")
+(*
 | L1DCLnone1(hdcl) =>
   fprint!(out, "L1DCLnone1(", hdcl, ")")
+*)
+| L1DCLnone1(hdcl) =>
+  fprint!(out, "L1DCLnone1(", "...", ")")
 //
 (*
 | _ (* else *) => fprint!(out, "L1DCL...(...)")

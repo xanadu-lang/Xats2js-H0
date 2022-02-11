@@ -71,7 +71,7 @@ then
 (
   xats2js_main0(argc, argv)
 )
-else
+) where
 {
 val () =
 prerrln!
@@ -82,17 +82,16 @@ XATSHOME = the_XATSHOME_get()
 val
 ((*void*)) =
 prerrln!
-("xats2js: XATSHOME=",XATSHOME)
+("xats2js: XATSHOME=", XATSHOME)
 //
-} (* else *) // end of [if]
-) where
+} where
 {
 // (*
 val out = stderr_ref
 val ( ) =
 $XATSOPT.echo_argc_argv(out, argc, argv)
 // *)
-} (* end of [main] *)
+} (*where*) // end of [main0]
 //
 (* ****** ****** *)
 
