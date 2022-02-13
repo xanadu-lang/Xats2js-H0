@@ -93,7 +93,7 @@ XATSOPT_targetloc
 #staload
 "{$XATSOPT}/SATS/intrep0.sats"
 #staload
-"{$XATSOPT}/SATS/tcomp30.sats"
+"{$XATSOPT}/SATS/trcmp30.sats"
 //
 (* ****** ****** *)
 #staload
