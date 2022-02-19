@@ -781,7 +781,29 @@ println!("//process_fpath: d3cs = ", d3cs)
 //
 val
 h0pkg =
-trs03cmp30_package(p0kg)
+auxmain(p0kg) where
+{
+//
+fun
+auxmain
+( p0kg
+: d0parsed): h0comped =
+
+(
+$TRP30.trcmp30_package(p3kg)
+) where
+{
+//
+val
+p3kg = trans03_package(p0kg)
+//
+// HX: for type-errors
+val () = $TRD33.tread33_package(p3kg)
+// HX: for timp-errors
+val () = $TRD3X.tread3x_package(p3kg)
+//
+} // end of [trs03cmp30_package]
+}
 //
 (* ****** ****** *)
 
