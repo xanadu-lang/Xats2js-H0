@@ -802,11 +802,11 @@ val () = $TRD33.tread33_package(p3kg)
 // HX: for timp-errors
 val () = $TRD3X.tread3x_package(p3kg)
 //
-} // end of [trs03cmp30_package]
+} (*where*) // end of [auxmain]
 }
 //
 (* ****** ****** *)
-
+//
 val
 l1pkg =
 let
@@ -866,7 +866,7 @@ loop(ldcls) where
 //
 } // end of [where]
 //
-end // end of [val ldcls]
+end // end of [val l1pkg]
 //
 } (* end of [then] *)
 else

@@ -34,19 +34,21 @@
 (* ****** ****** *)
 //
 #include
-"./../HATS/libxats2js.hats"
+"share\
+/atspre_staload.hats"
+#staload
+UN =
+"prelude/SATS/unsafe.sats"
 //
 (* ****** ****** *)
 //
 #include
-"share/atspre_staload.hats"
-#staload
-UN = "prelude/SATS/unsafe.sats"
+"./../HATS/libxats2js.hats"
 //
 (* ****** ****** *)
-
+//
 #staload "./../SATS/xats2js.sats"
-
+//
 (* ****** ****** *)
 //
 #dynload "./../DATS/intrep1.dats"
