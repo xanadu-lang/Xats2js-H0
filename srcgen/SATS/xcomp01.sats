@@ -36,7 +36,7 @@
 (* ****** ****** *)
 #define
 XATSOPT_targetloc
-"./../../xatsopt/srcgen/xats"
+"./../../xatsopt/srcgen/xcomp"
 (* ****** ****** *)
 //
 #staload
