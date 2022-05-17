@@ -36,6 +36,10 @@ $(ECHO) "'use strict';\n" >> xats2js_prelude.js
 #
 xats2js_prelude:: ; \
 $(CAT) \
+$(XATSOPT)/prelude/DATS/CATS/JS/basics.cats >> xats2js_prelude.js
+#
+xats2js_prelude:: ; \
+$(CAT) \
 $(XATSOPT)/prelude/DATS/CATS/JS/runtime.cats >> xats2js_prelude.js
 #
 xats2js_prelude:: ; \

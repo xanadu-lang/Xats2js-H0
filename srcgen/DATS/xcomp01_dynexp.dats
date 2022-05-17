@@ -115,7 +115,11 @@ tag = hdc.tag()
 in
 //
 if
-(tag >= 0)
+(tag > 0)
+(*
+HX-2022-05:
+tag starts from 1
+*)
 then L1CONcon(hdc)
 else
 let
@@ -3236,7 +3240,8 @@ case+ htia of
 HTIARGnone _ =>
 aux_impdecl3_none(env0, dcl0)
 |
-HTIARGsome _ => // function-template
+HTIARGsome _ =>
+// HX: function-template
 aux_impdecl3_some(env0, dcl0)
 end // end of [aux_impdecl3]
 //

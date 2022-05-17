@@ -185,7 +185,9 @@ val
 tag = hdc.tag()
 in
 if
-tag >= 0
+(tag > 0)
+// tag >= 0
+// HX: tag starts from 1
 then
 fprint(out, tag)
 else
