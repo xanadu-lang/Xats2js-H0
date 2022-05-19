@@ -271,11 +271,11 @@ xcomp01_h0expopt_blk
 (* ****** ****** *)
 //
 fun
-xcomp01_h0dcl_dcl
+xcomp01_h0dcl
 ( env0:
 ! compenv, dcl0: h0dcl): l1dcl
 fun
-xcomp01_h0dclist_dcl
+xcomp01_h0dclist
 ( env0:
 ! compenv, dcls: h0dclist): l1dclist
 //

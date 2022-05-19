@@ -182,7 +182,7 @@ xemit01_hdcon
 (out, hdc) =
 let
 val
-tag = hdc.tag()
+tag = hdc.ctag()
 in
 if
 (tag > 0)
