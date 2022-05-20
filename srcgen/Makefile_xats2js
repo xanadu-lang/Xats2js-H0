@@ -136,8 +136,8 @@ clean:: ; $(RMF) xats2js_dats.c
 ######
 
 cleanall:: clean
-cleanall:: ; $(RMF) ./bin/xats2js
-cleanall:: ; $(RMF) ./bin/xats2js.sh
+cleanall:: ; $(RMF) ./../bin/xats2js
+cleanall:: ; $(RMF) ./../bin/xats2js.sh
 cleanall:: ; $(RMF) $(XATSOPT)/lib/libxatsopt.a
 cleanall:: ; $(MAKE) -C $(XATSOPT)/srcgen/xcomp cleanall
 
