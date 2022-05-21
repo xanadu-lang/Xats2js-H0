@@ -2774,10 +2774,10 @@ case+
 rcd.hag of
 |
 list_nil _ =>
-aux_impdecl0(out, dcl0)
+aux_impdecl0(out, dcl2)
 |
 list_cons _ =>
-aux_impdecl1(out, dcl0)
+aux_impdecl1(out, dcl2)
 //
 end // end of [aux_impdecl]
 //
@@ -2785,16 +2785,12 @@ and
 aux_impdecl0
 ( out
 : FILEref
-, dcl0: l1dcl): void =
+, dcl2: l1dcl): void =
 let
 (*
 HX-2020-11-18:
 argless implementation
 *)
-val-
-L1DCLtimpcst
-( l1c1
-, dcl2) = dcl0.node()
 //
 val-
 L1DCLimpdecl
@@ -2806,10 +2802,12 @@ L1DCLimpdecl
 val+
 L1IMPDECL(rcd) = limp
 //
+val hdc1 = rcd.hdc(*void*)
+//
 val () =
 fprint!
 ( out
-, "// ", l1c1, ": argless\n")
+, "// ", hdc1, ": argless\n")
 //
 val () =
 fprint!
@@ -2821,11 +2819,11 @@ xemit01_l1blk(out, rcd.def_blk)
 val () =
 fprintln!
 ( out
-, "// } // val-implmnt // ", l1c1)
+, "// } // val-implmnt // ", hdc1)
 //
 in
   // nothing
-end // end of [aux_impdecl0]
+end (*let*) // end of [aux_impdecl0]
 (*
 (*
 HX-2022-01-22:
@@ -2836,16 +2834,13 @@ and
 aux_impdecl0
 ( out
 : FILEref
-, dcl0: l1dcl): void =
+, dcl2: l1dcl): void =
 let
 //
 (*
 HX-2020-11-18:
 argless implementation
 *)
-//
-val
-dcl2 = fdcl2(dcl0)
 //
 val-
 L1DCLimpdecl
@@ -2905,18 +2900,15 @@ val () =
 xemit01_txt00( out, "\n" )
 //
 } (* end of [Some] *)
-end // end of [aux_impdecl0]
+end (*let*) // end of [aux_impdecl0]
 *)
 //
 and
 aux_impdecl1
 ( out
 : FILEref
-, dcl0: l1dcl): void =
+, dcl2: l1dcl): void =
 let
-//
-val
-dcl2 = fdcl2(dcl0)
 //
 val-
 L1DCLimpdecl
@@ -2933,10 +2925,10 @@ xemit01_txtln
 (out, "function")
 //
 val () =
-aux_h0cst(out, dcl0, rcd.hdc)
+aux_h0cst(out, dcl2, rcd.hdc)
 (*
 val () =
-xemit01_h0cst(out, rcd.hdc(*name*))
+xemit01_h0cst(out, hdc1(*name*))
 *)
 //
 val
@@ -2979,7 +2971,7 @@ val () = xemit01_txt00(out, ";\n")
 in
 fprintln!
 (out, "} // function // ", rcd.hdc)
-end // end of [aux_impdecl1]
+end (*let*) // end of [aux_impdecl1]
 
 (* ****** ****** *)
 
@@ -3016,7 +3008,7 @@ val()=aux_impdecl(out, dcl0)
 val () = fprint!(out, "// ", dcl0)
 }
 //
-end // end of [aux_timpcst]
+end (*let*) // end of [aux_timpcst]
 
 (* ****** ****** *)
 
@@ -3033,7 +3025,7 @@ L1DCLexcptcon
 //
 in
   xemit01_l1blk(out, blk0(*init*))
-end // end of [aux_excptcon]
+end (*let*) // end of [aux_excptcon]
 
 (* ****** ****** *)
 

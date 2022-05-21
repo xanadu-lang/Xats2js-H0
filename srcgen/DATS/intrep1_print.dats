@@ -1037,7 +1037,7 @@ in
 //
 fprint!
 ( out
-, "LIMPDECL@{"
+, "L1IMPDECL@{"
 , "hdc=", rcd.hdc, "; "
 , "hag=", rcd.hag, "; "
 , "def=", rcd.def, "; "
