@@ -74,13 +74,13 @@ overload
 fprint with $S1E.fprint_g1exp
 (* ****** ****** *)
 implement
-fprint_val<hdvar> = fprint_hdvar
+fprint_val<h0var> = fprint_h0var
 implement
-fprint_val<hdcon> = fprint_hdcon
+fprint_val<h0con> = fprint_h0con
 implement
-fprint_val<hdcst> = fprint_hdcst
+fprint_val<h0cst> = fprint_h0cst
 implement
-fprint_val<hfarg> = fprint_hfarg
+fprint_val<h0farg> = fprint_h0farg
 implement
 fprint_val<htqarg> = fprint_htqarg
 (* ****** ****** *)
@@ -144,7 +144,8 @@ fprint!
 (out, "tmp(", x0.stamp(), ")")
 else
 fprint!
-(out, "arg[", arg, "](", x0.stamp(), ")")
+( out
+, "arg[", arg, "](", x0.stamp(), ")")
 end // end of [fprint_l1tmp]
 //
 (* ****** ****** *)
@@ -158,7 +159,8 @@ fprint_l1cst(stderr_ref, x0)
 implement
 fprint_l1cst(out, x0) =
 fprint!
-(out, x0.hdc(), "(", x0.stamp(), ")")
+( out
+, x0.h0cst(), "(", x0.stamp(), ")" )
 //
 (* ****** ****** *)
 //
@@ -178,7 +180,7 @@ fprint!(out, "L1CONcon(", hdc, ")")
 |
 L1CONval(l1v) =>
 fprint!(out, "L1CONval(", l1v, ")")
-)
+) (*case*) // end of [ fprint_l1con ]
 //
 (* ****** ****** *)
 (*
@@ -757,14 +759,14 @@ implement
 fprint_val<l1dcl> = fprint_l1dcl
 //
 implement
-fprint_val<lfundecl> = fprint_lfundecl
+fprint_val<l1fundecl> = fprint_l1fundecl
 implement
-fprint_val<lvaldecl> = fprint_lvaldecl
+fprint_val<l1valdecl> = fprint_l1valdecl
 implement
-fprint_val<lvardecl> = fprint_lvardecl
+fprint_val<l1vardecl> = fprint_l1vardecl
 //
 implement
-fprint_val<limpdecl> = fprint_limpdecl
+fprint_val<l1impdecl> = fprint_l1impdecl
 //
 in
 
@@ -869,6 +871,8 @@ implement
 prerr_l1lamexp(x0) =
 fprint_l1lamexp(stderr_ref, x0)
 //
+(* ****** ****** *)
+//
 implement
 fprint_l1lamexp
   (out, x0) = let
@@ -897,6 +901,8 @@ implement
 prerr_l1fixexp(x0) =
 fprint_l1fixexp(stderr_ref, x0)
 //
+(* ****** ****** *)
+//
 implement
 fprint_l1fixexp
   (out, x0) = let
@@ -920,17 +926,17 @@ end // end of [fprint_l1fixexp]
 (* ****** ****** *)
 //
 implement
-print_lfundecl(x0) =
-fprint_lfundecl(stdout_ref, x0)
+print_l1fundecl(x0) =
+fprint_l1fundecl(stdout_ref, x0)
 implement
-prerr_lfundecl(x0) =
-fprint_lfundecl(stderr_ref, x0)
+prerr_l1fundecl(x0) =
+fprint_l1fundecl(stderr_ref, x0)
 //
 implement
-fprint_lfundecl
+fprint_l1fundecl
   (out, x0) = let
 //
-val+LFUNDECL(rcd) = x0
+val+L1FUNDECL(rcd) = x0
 //
 in
 //
@@ -940,14 +946,14 @@ rcd.hag of
 None() =>
 fprint!
 ( out
-, "LFUNDECL@{"
+, "L1FUNDECL@{"
 , "nam=", rcd.nam, "; "
 , "hdc=", rcd.hdc, "; ", "}")
 |
 Some(rcd_hag) =>
 fprint!
 ( out
-, "LFUNDECL@{"
+, "L1FUNDECL@{"
 , "nam=", rcd.nam, "; "
 , "hdc=", rcd.hdc, "; "
 , "hag=", rcd_hag, "; "
@@ -960,22 +966,24 @@ end // end of [fprint_lfundecl]
 (* ****** ****** *)
 //
 implement
-print_lvaldecl(x0) =
-fprint_lvaldecl(stdout_ref, x0)
+print_l1valdecl(x0) =
+fprint_l1valdecl(stdout_ref, x0)
 implement
-prerr_lvaldecl(x0) =
-fprint_lvaldecl(stderr_ref, x0)
+prerr_l1valdecl(x0) =
+fprint_l1valdecl(stderr_ref, x0)
+//
+(* ****** ****** *)
 //
 implement
-fprint_lvaldecl
+fprint_l1valdecl
   (out, x0) = let
 //
-val+LVALDECL(rcd) = x0
+val+L1VALDECL(rcd) = x0
 //
 in
   fprint!
   ( out
-  , "LVALDECL@{"
+  , "L1VALDECL@{"
   , ", pat=", rcd.pat
   , ", def=", rcd.def
   , ", def_blk=", rcd.def_blk, "}")
@@ -984,22 +992,24 @@ end // end of [fprint_lvaldecl]
 (* ****** ****** *)
 //
 implement
-print_lvardecl(x0) =
-fprint_lvardecl(stdout_ref, x0)
+print_l1vardecl(x0) =
+fprint_l1vardecl(stdout_ref, x0)
 implement
-prerr_lvardecl(x0) =
-fprint_lvardecl(stderr_ref, x0)
+prerr_l1vardecl(x0) =
+fprint_l1vardecl(stderr_ref, x0)
+//
+(* ****** ****** *)
 //
 implement
-fprint_lvardecl
+fprint_l1vardecl
   (out, x0) = let
 //
-val+LVARDECL(rcd) = x0
+val+L1VARDECL(rcd) = x0
 //
 in
   fprint!
   ( out
-  , "LVARDECL@{"
+  , "L1VARDECL@{"
   , ", hdv=", rcd.hdv
   , ", ini=", rcd.ini
   , ", hdv_tmp=", rcd.hdv_tmp
@@ -1009,17 +1019,19 @@ end // end of [fprint_lvardecl]
 (* ****** ****** *)
 //
 implement
-print_limpdecl(x0) =
-fprint_limpdecl(stdout_ref, x0)
+print_l1impdecl(x0) =
+fprint_l1impdecl(stdout_ref, x0)
 implement
-prerr_limpdecl(x0) =
-fprint_limpdecl(stderr_ref, x0)
+prerr_l1impdecl(x0) =
+fprint_l1impdecl(stderr_ref, x0)
+//
+(* ****** ****** *)
 //
 implement
-fprint_limpdecl
+fprint_l1impdecl
   (out, x0) = let
 //
-val+LIMPDECL(rcd) = x0
+val+L1IMPDECL(rcd) = x0
 //
 in
 //

@@ -173,12 +173,12 @@ val () = xemit01_blnk1(out)
 
 (* ****** ****** *)
 implement
-xemit01_hdvar
+xemit01_h0var
 (out, hdv) =
 fprint(out, hdv.sym())
 (* ****** ****** *)
 implement
-xemit01_hdcon
+xemit01_h0con
 (out, hdc) =
 let
 val
@@ -192,7 +192,7 @@ then
 fprint(out, tag)
 else
 fprint(out, hdc.sym())
-end // end of [xemit01_hdcon]
+end // end of [xemit01_h0con]
 (* ****** ****** *)
 
 local
@@ -203,7 +203,7 @@ fun
 auxnone
 ( out
 : FILEref
-, hdc: hdcst): void =
+, hdc: h0cst): void =
 {
 //
 val
@@ -231,7 +231,7 @@ auxsome
 ( out
 : FILEref
 , gnm: g1nam
-, hdc: hdcst): void =
+, hdc: h0cst): void =
 (
 case+ gnm of
 | G1Nnil() =>
@@ -248,7 +248,7 @@ and
 auxsome_nil
 ( out
 : FILEref
-, hdc: hdcst
+, hdc: h0cst
 , gnm: g1nam): void =
 let
 val
@@ -261,7 +261,7 @@ and
 auxsome_id0
 ( out
 : FILEref
-, hdc: hdcst
+, hdc: h0cst
 , gnm: g1nam): void =
 let
 val-
@@ -274,7 +274,7 @@ and
 auxsome_none
 ( out
 : FILEref
-, hdc: hdcst
+, hdc: h0cst
 , gnm: g1nam): void =
 (
   auxsome_nil(out, hdc, gnm)
@@ -284,7 +284,7 @@ and
 auxsome_rest
 ( out
 : FILEref
-, hdc: hdcst
+, hdc: h0cst
 , gnm: g1nam): void =
 let
 val
@@ -299,7 +299,7 @@ end // end of [auxsome_rest]
 in(*in-of-local*)
 //
 implement
-xemit01_hdcst
+xemit01_h0cst
 (out, hdc) =
 let
 val
@@ -318,7 +318,7 @@ X2NAMsome(gnm) =>
   auxsome(out, gnm, hdc)
 )
 //
-end // end of [xemit01_hdcst]
+end // end of [xemit01_h0cst]
 //
 end // end of [local]
 
@@ -331,7 +331,7 @@ xemit01_l1cst
 {
 //
 val () =
-xemit01_hdcst
+xemit01_h0cst
 (out, l1c.hdc())
 //
 val () =
@@ -347,7 +347,12 @@ fprint!
 implement
 xemit01_l1cst
 (out, l1c) =
-xemit01_hdcst(out, l1c.hdc())
+let
+val
+hdc = l1c.h0cst()
+in
+xemit01_h0cst(out, hdc)
+end (*let*) // [xemit01_l1cst]
 //
 (* ****** ****** *)
 implement
@@ -356,7 +361,7 @@ xemit01_l1con
 (
 case+ l1c of
 | L1CONcon(hdc) =>
-  xemit01_hdcon(out, hdc)
+  xemit01_h0con(out, hdc)
 | L1CONval(l1v) =>
   xemit01_l1val(out, l1v)
 ) (* end of [xemit01_l1con] *)
@@ -371,7 +376,7 @@ xemit01_hfarg
 case+
 hfg.node() of
 |
-HFARGnpats
+H0FARGnpats
 (npf1, h0ps) => i1 where
 {
 val () = xemit01_txt00(out, "(")
@@ -379,13 +384,13 @@ val i1 = auxlst(npf1, i0, i0, h0ps)
 val () = xemit01_txt00(out, ")")
 }
 |
-HFARGnone0 _ => i0 where
+H0FARGnone0 _ => i0 where
 {
 val () = xemit01_txt00(out, "(")
 val () = xemit01_txt00(out, ")")
 }
 |
-HFARGnone1 _ => i0 // skipped
+H0FARGnone1 _ => i0 // skipped
 (*
 let
 val () = fprint(out, "(*ERROR*)") in i0
@@ -683,7 +688,7 @@ xemit01_l1con(out, l1c1)
 //
 |
 L1VALcfun(hdc1) =>
-xemit01_hdcst(out, hdc1)
+xemit01_h0cst(out, hdc1)
 |
 L1VALctmp
 ( l1c1, ldcl) =>
@@ -696,7 +701,7 @@ L1VALctmp
 //
 |
 L1VALvfix(hdv1) =>
-xemit01_hdvar(out, hdv1)
+xemit01_h0var(out, hdv1)
 //
 |
 L1VALflat(l1v1) =>
@@ -838,10 +843,10 @@ fprintln!
 fun
 fdef
 ( limp
-: limpdecl): l1valopt =
+: l1impdecl): l1valopt =
 let
 val+
-LIMPDECL(rcd) = limp
+L1IMPDECL(rcd) = limp
 in
 case+
 rcd.hag of
@@ -1409,7 +1414,7 @@ xemit01_txt00
 ( out, " =\nfunction\n" )
 //
 val () =
-xemit01_hdvar(out, rcd.nam)
+xemit01_h0var(out, rcd.nam)
 //
 val
 narg =
@@ -2540,12 +2545,12 @@ L1DCLtimpcst
 (* ****** ****** *)
 
 fun
-aux_hdcst
+aux_h0cst
 ( out
 : FILEref
 , dcl0: l1dcl
-, hdc1: hdcst): void =
-xemit01_hdcst(out, hdc1)
+, hdc1: h0cst): void =
+xemit01_h0cst(out, hdc1)
 
 (* ****** ****** *)
 
@@ -2604,11 +2609,11 @@ let
 fun
 auxlvd0
 ( lvd0
-: lvaldecl): void =
+: l1valdecl): void =
 {
 //
 val+
-LVALDECL(rcd) = lvd0
+L1VALDECL(rcd) = lvd0
 //
 val () =
 xemit01_txtln(out, "{")
@@ -2625,7 +2630,7 @@ fprintln!
 and
 auxlvds
 ( lvds
-: lvaldeclist): void =
+: l1valdeclist): void =
 (
 case lvds of
 |
@@ -2662,11 +2667,11 @@ let
 fun
 auxlvd0
 ( lvd0
-: lvardecl): void =
+: l1vardecl): void =
 {
 //
 val+
-LVARDECL(rcd) = lvd0
+L1VARDECL(rcd) = lvd0
 //
 val () =
 xemit01_txtln(out, "{")
@@ -2716,7 +2721,7 @@ fprintln!
 and
 auxlvds
 ( lvds
-: lvardeclist): void =
+: l1vardeclist): void =
 (
 case lvds of
 |
@@ -2761,7 +2766,7 @@ L1DCLimpdecl
 dcl2.node((*void*))
 //
 val+
-LIMPDECL(rcd) = limp
+L1IMPDECL(rcd) = limp
 //
 in
 //
@@ -2799,7 +2804,7 @@ L1DCLimpdecl
   dcl2.node((*void*))
 //
 val+
-LIMPDECL(rcd) = limp
+L1IMPDECL(rcd) = limp
 //
 val () =
 fprint!
@@ -2876,10 +2881,10 @@ xemit01_txtln
 (out, "const // implval/fun")
 //
 val () =
-aux_hdcst(out, dcl0, rcd.hdc)
+aux_h0cst(out, dcl0, rcd.hdc)
 (*
 val () =
-xemit01_hdcst(out, rcd.hdc(*name*))
+xemit01_h0cst(out, rcd.hdc(*name*))
 *)
 //
 in
@@ -2921,17 +2926,17 @@ L1DCLimpdecl
 dcl2.node((*void*))
 //
 val+
-LIMPDECL(rcd) = limp
+L1IMPDECL(rcd) = limp
 //
 val () =
 xemit01_txtln
 (out, "function")
 //
 val () =
-aux_hdcst(out, dcl0, rcd.hdc)
+aux_h0cst(out, dcl0, rcd.hdc)
 (*
 val () =
-xemit01_hdcst(out, rcd.hdc(*name*))
+xemit01_h0cst(out, rcd.hdc(*name*))
 *)
 //
 val
@@ -3250,7 +3255,7 @@ extern
 fun
 fundecl_get_tmprets
 ( lfd0
-: lfundecl): l1tmplst
+: l1fundecl): l1tmplst
 extern
 fun
 funbody_get_tmprets
@@ -3264,7 +3269,7 @@ fundecl_get_tmprets
   (lfd0) =
 let
 val+
-LFUNDECL(rcd) = lfd0
+L1FUNDECL(rcd) = lfd0
 in
 //
 case+ rcd.def of
@@ -3474,12 +3479,12 @@ L1DCLtimpcst
 )
 
 fun
-aux_hdcst
+aux_h0cst
 ( out
 : FILEref
 , dcl0: l1dcl
-, hdc1: hdcst): void =
-xemit01_hdcst(out, hdc1)
+, hdc1: h0cst): void =
+xemit01_h0cst(out, hdc1)
 
 in (*in-of-local*)
 
@@ -3493,11 +3498,11 @@ let
 fun
 auxlfd0
 ( lfd0
-: lfundecl): void =
+: l1fundecl): void =
 let
 //
 val+
-LFUNDECL(rcd) = lfd0
+L1FUNDECL(rcd) = lfd0
 //
 in
 case+
@@ -3512,21 +3517,21 @@ end // end of [auxlfd0]
 and
 auxlfd0_some
 ( lfd0
-: lfundecl): void =
+: l1fundecl): void =
 let
 //
 val+
-LFUNDECL(rcd) = lfd0
+L1FUNDECL(rcd) = lfd0
 //
 val () =
 xemit01_txtln
 (out, "function")
 //
 val () =
-aux_hdcst(out, dcl0, rcd.hdc)
+aux_h0cst(out, dcl0, rcd.hdc)
 (*
 val () =
-xemit01_hdcst(out, rcd.hdc(*name*))
+xemit01_h0cst(out, rcd.hdc(*name*))
 *)
 //
 val narg =
@@ -3587,7 +3592,7 @@ end (* end of [auxlfd0_some] *)
 and
 auxlfds
 ( lfds
-: lfundeclist): void =
+: l1fundeclist): void =
 (
 case lfds of
 |
@@ -4036,11 +4041,11 @@ a1ux_l1cmdlst(out, cmds)
 fun
 auxlfd0
 ( lfd0
-: lfundecl): void =
+: l1fundecl): void =
 let
 //
 val+
-LFUNDECL(rcd) = lfd0
+L1FUNDECL(rcd) = lfd0
 //
 in
 case+
@@ -4055,21 +4060,21 @@ end // end of [auxlfd0]
 and
 auxlfd0_some
 ( lfd0
-: lfundecl): void =
+: l1fundecl): void =
 let
 //
 val+
-LFUNDECL(rcd) = lfd0
+L1FUNDECL(rcd) = lfd0
 //
 val () =
 xemit01_txtln
 (out, "function")
 //
 val () =
-aux_hdcst(out, dcl0, rcd.hdc)
+aux_h0cst(out, dcl0, rcd.hdc)
 (*
 val () =
-xemit01_hdcst(out, rcd.hdc(*name*))
+xemit01_h0cst(out, rcd.hdc(*name*))
 *)
 //
 val narg =
@@ -4186,7 +4191,7 @@ end (* end of [auxlfd0_some] *)
 and
 auxlfds
 ( lfds
-: lfundeclist): void =
+: l1fundeclist): void =
 (
 case lfds of
 |

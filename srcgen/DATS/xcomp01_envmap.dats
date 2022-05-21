@@ -53,39 +53,39 @@ UN = "prelude/SATS/unsafe.sats"
 static
 fun
 the_dvarmap_search_ref
-(hdv: hdvar): P2tr0(l1valist)
+(hdv: h0var): P2tr0(l1valist)
 //
 static
 fun
 the_dvarmap_insert_one
-(hdv: hdvar, l1v1: l1val): void
+(hdv: h0var, l1v1: l1val): void
 //
 static
 fun
-the_dvarmap_remove_one(hdvar): void
+the_dvarmap_remove_one(h0var): void
 //
 (* ****** ****** *)
 //
 datavtype
-hdvarstk =
+h0varstk =
 |
-hdvarstk_nil of
+h0varstk_nil of
   ((*void*))
 //
 |
-hdvarstk_fun0 of
-  (hdvarstk(*rest*))
+h0varstk_fun0 of
+  (h0varstk(*rest*))
 //
 |
-hdvarstk_cons of
-  (hdvar, hdvarstk(*rest*))
+h0varstk_cons of
+  (h0var, h0varstk(*rest*))
 //
 (* ****** ****** *)
 //
 fun
-hdvarstk_pop_top
+h0varstk_pop_top
 ( xs:
-& hdvarstk >> _): void =
+& h0varstk >> _): void =
 (
   xs := auxstk(xs)
 ) where
@@ -93,12 +93,12 @@ hdvarstk_pop_top
 fun
 auxstk
 ( xs
-: hdvarstk): hdvarstk =
+: h0varstk): h0varstk =
 (
 case+ xs of
 //
 | ~
-hdvarstk_cons
+h0varstk_cons
   (x0, xs) =>
   auxstk(xs) where
 {
@@ -106,9 +106,9 @@ hdvarstk_cons
   the_dvarmap_remove_one(x0)
 }
 //
-| _ (* non-hdvarstk *) => (xs)
+| _ (* non-h0varstk *) => (xs)
 )
-} (* end of [hdvarstk_pop_top] *)
+} (* end of [h0varstk_pop_top] *)
 //
 (* ****** ****** *)
 //
@@ -221,7 +221,7 @@ compenv =
 COMPENV of @{
   flevel= int
 ,
-  hdvarstk= hdvarstk
+  h0varstk= h0varstk
 ,
   l1tmpstk= l1tmpstk
 ,
@@ -246,7 +246,7 @@ in
 COMPENV@{
   flevel= 0
 ,
-  hdvarstk = hdvarstk_nil()
+  h0varstk = h0varstk_nil()
 ,
   l1tmpstk = l1tmpstk_nil()
 ,
@@ -270,13 +270,13 @@ val+
 @COMPENV(rcd) = env0
 //
 val () =
-hdvarstk_pop_top(rcd.hdvarstk)
+h0varstk_pop_top(rcd.h0varstk)
 val tmps =
 l1tmpstk_pop_top(rcd.l1tmpstk)
 //
 val-( 0 ) = rcd.flevel
 //
-val-~hdvarstk_nil() = rcd.hdvarstk
+val-~h0varstk_nil() = rcd.h0varstk
 val-~l1tmpstk_nil() = rcd.l1tmpstk
 val-~l1cmdstk_nil() = rcd.l1cmdstk
 //
@@ -344,9 +344,9 @@ xcomp01_dvaradd_fun0
 val+
 @COMPENV(rcd) = env0
 //
-val xs = rcd.hdvarstk
-val xs = hdvarstk_fun0(xs)
-val () = rcd.hdvarstk := xs
+val xs = rcd.h0varstk
+val xs = h0varstk_fun0(xs)
+val () = rcd.h0varstk := xs
 //
 } (* end of [xcomp01_dvaradd_fun0] *)
 //
@@ -360,15 +360,15 @@ val+
 @COMPENV(rcd) = env0
 //
 val () =
-hdvarstk_pop_top(rcd.hdvarstk)
+h0varstk_pop_top(rcd.h0varstk)
 //
 val () =
 (
-  rcd.hdvarstk := xs
+  rcd.h0varstk := xs
 ) where
 {
 val-
-~hdvarstk_fun0(xs) = rcd.hdvarstk
+~h0varstk_fun0(xs) = rcd.h0varstk
 }
 } (* end of [xcomp01_dvarpop_fun0] *)
 //
@@ -383,13 +383,13 @@ xcomp01_dvaradd_bind
 val+
 @COMPENV(rcd) = env0
 //
-val xs = rcd.hdvarstk
+val xs = rcd.h0varstk
 //
 val () =
 the_dvarmap_insert_one(x0, v0)
 //
 val () =
-rcd.hdvarstk := hdvarstk_cons(x0, xs)
+rcd.h0varstk := h0varstk_cons(x0, xs)
 //
 } where
 {
@@ -592,7 +592,7 @@ in(*in-of-local*)
 local
 
 typedef
-key = hdvar
+key = h0var
 and
 itm = List0(l1val)
 vtypedef

@@ -201,16 +201,16 @@ overload fprint with fprint_l1tmp
 (* ****** ****** *)
 //
 fun
-l1cst_new_hdc
-(loc: loc_t, hdc: hdcst): l1cst
+l1cst_new_h0cst
+(loc: loc_t, hdc: h0cst): l1cst
 //
 (* ****** ****** *)
 fun
 l1cst_get_loc(l1cst): loc_t
 overload .loc with l1cst_get_loc
 fun
-l1cst_get_hdc(l1cst): hdcst
-overload .hdc with l1cst_get_hdc
+l1cst_get_h0cst(l1cst): h0cst
+overload .h0cst with l1cst_get_h0cst
 (* ****** ****** *)
 fun
 l1cst_stamp_new((*void*)): stamp
@@ -233,7 +233,7 @@ overload fprint with fprint_l1cst
 (* ****** ****** *)
 //
 datatype l1con =
-| L1CONcon of hdcon // non-ext
+| L1CONcon of h0con // non-ext
 | L1CONval of l1val // ext-con
 //
 (* ****** ****** *)
@@ -336,12 +336,12 @@ l1val_node =
 //
 | L1VALcon of (l1con)
 //
-| L1VALcfun of (hdcst)
+| L1VALcfun of (h0cst)
 //
 | L1VALctmp of
   (l1cst, l1dcl(*def*))
 //
-| L1VALvfix of (hdvar)
+| L1VALvfix of (h0var)
 //
 | L1VALaddr of (l1val)
 | L1VALflat of (l1val)
@@ -523,7 +523,8 @@ l1lamexp =
 L1LAMEXP of @{
   loc= loc_t
 //
-, hag= hfarglst
+, hag=
+  ( h0farglst )
 //
 , def= l1valopt
 //
@@ -540,8 +541,9 @@ l1fixexp =
 L1FIXEXP of @{
   loc= loc_t
 //
-, nam= hdvar
-, hag= hfarglst
+, nam= h0var
+, hag=
+  ( h0farglst )
 //
 , def= l1valopt
 //
@@ -563,7 +565,7 @@ l1cmd_node =
 //
 | L1CMDcon of
   ( l1tmp(*res*)
-  , hdcon(*con*)
+  , h0con(*con*)
   , l1valist(*arg*))
 //
 // HX: 0: flat
@@ -740,15 +742,15 @@ overload fprint with fprint_l1blk
 (* ****** ****** *)
 //
 datatype
-lfundecl =
-LFUNDECL of
+l1fundecl =
+L1FUNDECL of
 @{
   loc= loc_t
-, nam= hdvar
-, hdc= hdcst
+, nam= h0var
+, hdc= h0cst
 //
 , hag=
-  hfarglstopt
+  h0farglstopt
 //
 , def= l1valopt
 //
@@ -757,32 +759,32 @@ LFUNDECL of
 //
 , hag_blk= l1blk
 , def_blk= l1blk
-} (* LFUNDECL *)
+} (* L1FUNDECL *)
 //
 typedef
-lfundeclist = List0(lfundecl)
+l1fundeclist = List0(l1fundecl)
 //
 (* ****** ****** *)
 //
 fun
-print_lfundecl:
-print_type(lfundecl)
+print_l1fundecl:
+print_type(l1fundecl)
 fun
-prerr_lfundecl:
-prerr_type(lfundecl)
+prerr_l1fundecl:
+prerr_type(l1fundecl)
 fun
-fprint_lfundecl:
-fprint_type(lfundecl)
+fprint_l1fundecl:
+fprint_type(l1fundecl)
 //
-overload print with print_lfundecl
-overload prerr with prerr_lfundecl
-overload fprint with fprint_lfundecl
+overload print with print_l1fundecl
+overload prerr with prerr_l1fundecl
+overload fprint with fprint_l1fundecl
 //
 (* ****** ****** *)
 //
 datatype
-lvaldecl =
-LVALDECL of @{
+l1valdecl =
+L1VALDECL of @{
   loc= loc_t
 , pat= h0pat
 , def= l1valopt
@@ -790,64 +792,65 @@ LVALDECL of @{
 }
 //
 typedef
-lvaldeclist = List0(lvaldecl)
+l1valdeclist = List0(l1valdecl)
 //
 (* ****** ****** *)
 //
 fun
-print_lvaldecl:
-print_type(lvaldecl)
+print_l1valdecl:
+print_type(l1valdecl)
 fun
-prerr_lvaldecl:
-prerr_type(lvaldecl)
+prerr_l1valdecl:
+prerr_type(l1valdecl)
 fun
-fprint_lvaldecl:
-fprint_type(lvaldecl)
+fprint_l1valdecl:
+fprint_type(l1valdecl)
 //
-overload print with print_lvaldecl
-overload prerr with prerr_lvaldecl
-overload fprint with fprint_lvaldecl
+overload print with print_l1valdecl
+overload prerr with prerr_l1valdecl
+overload fprint with fprint_l1valdecl
 //
 (* ****** ****** *)
 //
 datatype
-lvardecl =
-LVARDECL of @{
+l1vardecl =
+L1VARDECL of @{
   loc= loc_t
-, hdv= hdvar
+, hdv= h0var
 , ini= l1valopt
 , hdv_tmp= l1tmp
 , ini_blk= l1blk
 }
 //
 typedef
-lvardeclist = List0(lvardecl)
+l1vardeclist = List0(l1vardecl)
 //
 (* ****** ****** *)
 //
 fun
-print_lvardecl:
-print_type(lvardecl)
+print_l1vardecl:
+print_type(l1vardecl)
 fun
-prerr_lvardecl:
-prerr_type(lvardecl)
+prerr_l1vardecl:
+prerr_type(l1vardecl)
 fun
-fprint_lvardecl:
-fprint_type(lvardecl)
+fprint_l1vardecl:
+fprint_type(l1vardecl)
 //
-overload print with print_lvardecl
-overload prerr with prerr_lvardecl
-overload fprint with fprint_lvardecl
+overload print with print_l1vardecl
+overload prerr with prerr_l1vardecl
+overload fprint with fprint_l1vardecl
 //
 (* ****** ****** *)
 //
 datatype
-limpdecl =
-LIMPDECL of @{
+l1impdecl =
+L1IMPDECL of @{
   loc= loc_t
-, hdc= hdcst
+, hdc= h0cst
 //
-, hag= hfarglst
+, hag=
+  ( h0farglst )
 //
 , def= l1valopt
 //
@@ -861,18 +864,18 @@ LIMPDECL of @{
 (* ****** ****** *)
 //
 fun
-print_limpdecl:
-print_type(limpdecl)
+print_l1impdecl:
+print_type(l1impdecl)
 fun
-prerr_limpdecl:
-prerr_type(limpdecl)
+prerr_l1impdecl:
+prerr_type(l1impdecl)
 fun
-fprint_limpdecl:
-fprint_type(limpdecl)
+fprint_l1impdecl:
+fprint_type(l1impdecl)
 //
-overload print with print_limpdecl
-overload prerr with prerr_limpdecl
-overload fprint with fprint_limpdecl
+overload print with print_l1impdecl
+overload prerr with prerr_l1impdecl
+overload fprint with fprint_l1impdecl
 //
 (* ****** ****** *)
 //
@@ -902,25 +905,25 @@ L1DCLinclude of
 //
 |
 L1DCLfundecl of
-(token, decmodopt, lfundeclist)
+(token, decmodopt, l1fundeclist)
 //
 |
 L1DCLvaldecl of
-(token, decmodopt, lvaldeclist)
+(token, decmodopt, l1valdeclist)
 |
 L1DCLvardecl of
-(token, decmodopt, lvardeclist)
+(token, decmodopt, l1vardeclist)
 //
 |
 L1DCLimpdecl of
 ( token
-, decmodopt, limpdecl(*sing*))
+, decmodopt, l1impdecl(*sing*) )
 //
 |
 L1DCLtimpcst of ( l1cst, l1dcl )
 //
 |
-L1DCLexcptcon of (hdconlst, l1blk)
+L1DCLexcptcon of (h0conlst, l1blk)
 //
 | L1DCLnone0 of () | L1DCLnone1 of h0dcl
 //
@@ -995,12 +998,12 @@ xemit01_indnt(FILEref, int): void
 //
 (* ****** ****** *)
 fun
-xemit01_hdvar(FILEref, hdvar): void
+xemit01_h0var(FILEref, h0var): void
 (* ****** ****** *)
 fun
-xemit01_hdcon(FILEref, hdcon): void
+xemit01_h0con(FILEref, h0con): void
 fun
-xemit01_hdcst(FILEref, hdcst): void
+xemit01_h0cst(FILEref, h0cst): void
 (* ****** ****** *)
 fun
 xemit01_l1con(FILEref, l1con): void
@@ -1011,12 +1014,12 @@ fun
 xemit01_hfarg
 ( FILEref
 , int(*flvl*)
-, hfarg, int(*base*)): int
+, h0farg, int(*base*)): int
 fun
 xemit01_hfarglst
 ( FILEref
 , int(*flvl*)
-, hfarglst, int(*base*)): int
+, h0farglst, int(*base*)): int
 (* ****** ****** *)
 //
 fun

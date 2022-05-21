@@ -89,7 +89,7 @@ xcomp01_dvarfind
 ( env0:
 ! compenv
 , hdv0
-: hdvar): l1valopt_vt
+: h0var): l1valopt_vt
 (* ****** ****** *)
 //
 fun
@@ -104,7 +104,7 @@ fun
 xcomp01_dvaradd_bind
 ( env0:
 ! compenv
-, hdv0: hdvar
+, hdv0: h0var
 , l1v1: l1val): void
 //
 fun
@@ -167,7 +167,7 @@ fun
 xcomp01_hdcon
 ( env0:
 ! compenv
-, hdc0: hdcon): l1con
+, hdc0: h0con): l1con
 //
 (* ****** ****** *)
 //
@@ -226,7 +226,7 @@ xcomp01_h0gpat_ck1
 fun
 xcomp01_hfarglst_ck01
 ( env0:
-! compenv, hfgs: hfarglst): l1blk
+! compenv, hfgs: h0farglst): l1blk
 //
 (* ****** ****** *)
 
@@ -290,33 +290,33 @@ xcomp01_h0dcl_timp
 fun
 xcomp01_hfundecl
 ( env0:
-! compenv, dcl0: hfundecl): lfundecl
+! compenv, hfd0: h0fundecl): l1fundecl
 fun
 xcomp01_hfundeclist
 ( env0:
-! compenv, dcls: hfundeclist): lfundeclist
+! compenv, hfds: h0fundeclist): l1fundeclist
 //
 (* ****** ****** *)
 //
 fun
 xcomp01_hvaldecl
 ( env0:
-! compenv, dcl0: hvaldecl): lvaldecl
+! compenv, hvd0: h0valdecl): l1valdecl
 fun
 xcomp01_hvaldeclist
 ( env0:
-! compenv, dcls: hvaldeclist): lvaldeclist
+! compenv, hvds: h0valdeclist): l1valdeclist
 //
 (* ****** ****** *)
 //
 fun
 xcomp01_hvardecl
 ( env0:
-! compenv, dcl0: hvardecl): lvardecl
+! compenv, hvd0: h0vardecl): l1vardecl
 fun
 xcomp01_hvardeclist
 ( env0:
-! compenv, dcls: hvardeclist): lvardeclist
+! compenv, hvds: h0vardeclist): l1vardeclist
 //
 (* ****** ****** *)
 

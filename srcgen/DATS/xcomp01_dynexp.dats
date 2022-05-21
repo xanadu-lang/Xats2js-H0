@@ -125,7 +125,7 @@ else
 let
 //
 val hdv =
-hdcon_get_dvar(hdc)
+h0con_get_dvar(hdc)
 val opt =
 xcomp01_dvarfind(env0, hdv)
 //
@@ -1016,26 +1016,26 @@ auxhfg_ck01
 ( env0:
 ! compenv
 , arg0: int
-, hfg0: hfarg): int =
+, hfg0: h0farg): int =
 (
 case+
 hfg0.node() of
 //
-| HFARGnpats
+| H0FARGnpats
   (npf0, h0ps) =>
   auxnps_ck01
   ( env0
   , arg0, npf0, h0ps)
 //
-| HFARGnone0() => arg0
-| HFARGnone1(ptr) => arg0
+| H0FARGnone0() => arg0
+| H0FARGnone1(ptr) => arg0
 )
 and
 auxlst_ck01
 ( env0:
 ! compenv
 , arg0: int
-, hfgs: hfarglst): int =
+, hfgs: h0farglst): int =
 (
 case+ hfgs of
 |
@@ -1217,7 +1217,7 @@ H0Efcst(hdc) = h0e0.node()
 in
 //
 if
-hdcst_fcastq(hdc)
+h0cst_fcastq(hdc)
 then
 let
 val
@@ -1252,7 +1252,7 @@ H0Etcst
 //
 val
 l1c1 =
-l1cst_new_hdc( loc0, hdc1 )
+l1cst_new_h0cst( loc0, hdc1 )
 val
 ldcl =
 xcomp01_h0dcl_timp(env0, l1c1, hdcl)
@@ -2328,8 +2328,8 @@ H0Elazy
 //
 val
 hfg0 =
-hfarg_make_node
-(loc0, HFARGnone0())
+h0farg_make_node
+(loc0, H0FARGnone0())
 val
 hfgs = list_sing(hfg0)
 //
@@ -2441,8 +2441,8 @@ H0Ellazy
 //
 val
 hfg0 =
-hfarg_make_node
-(loc0, HFARGnone0())
+h0farg_make_node
+(loc0, H0FARGnone0())
 val
 hfgs = list_sing(hfg0)
 //
@@ -3113,7 +3113,7 @@ auxlst_bind
 ( env0
 : !compenv
 , hfds
-: hfundeclist): void =
+: h0fundeclist): void =
 (
 case+ hfds of
 |
@@ -3123,7 +3123,7 @@ list_cons
 (hfd1, hfds) =>
 let
   val+
-  HFUNDECL
+  H0FUNDECL
   ( rcd ) = hfd1
   val loc = rcd.loc
   val nam = rcd.nam
@@ -3317,7 +3317,7 @@ loc0 = dcl0.loc()
 //
 val
 limp =
-LIMPDECL@{
+L1IMPDECL@{
   loc=loc0
 , hdc=hdc1
 , hag=hfgs
@@ -3372,7 +3372,7 @@ fun
 auxhdcs
 ( env0:
 ! compenv
-, hdcs: hdconlst): void =
+, hdcs: h0conlst): void =
 (
 case+ hdcs of
 |
@@ -3393,7 +3393,7 @@ xltmpnew_tmp0(env0, loc1)
 //
 val
 hdv1 =
-hdcon_get_dvar(hdc1)
+h0con_get_dvar(hdc1)
 //
 (*
 val () =
@@ -3582,7 +3582,7 @@ xcomp01_hfundecl
 let
 //
 val+
-HFUNDECL
+H0FUNDECL
 ( rcd ) = dcl0
 //
 val loc = rcd.loc
@@ -3675,11 +3675,11 @@ let
 (*
 val ( ) =
 println!
-("xcomp01_hfundecl: lts = ", lts)
+("xcomp01_h0fundecl: lts = ", lts)
 *)
 //
 in
-  LFUNDECL@{
+  L1FUNDECL@{
     loc=loc
   , nam=nam
   , hdc=hdc
@@ -3688,9 +3688,9 @@ in
   , lev=flev
   , lts=flts
   , hag_blk=blk0, def_blk=blk1
-} (* LFUNDECL *)
+} (* L1FUNDECL *)
 end
-end // end of [xcomp01_hfundecl]
+end // end of [xcomp01_h0fundecl]
 
 (* ****** ****** *)
 
@@ -3700,9 +3700,9 @@ local
 fun
 isdecl
 ( hfd
-: hfundecl): bool =
+: h0fundecl): bool =
 let
-val+HFUNDECL(rcd) = hfd
+val+H0FUNDECL(rcd) = hfd
 in
 case+ rcd.def of
 | None _ => true | Some _ => false
@@ -3726,7 +3726,7 @@ list_cons(x0, xs) where
 val x0 = xcomp01_hfundecl(env0, x0)
 val xs = xcomp01_hfundeclist(env0, xs)
 }
-) (* end of [xcomp01_hfundeclist] *)
+) (* end of [xcomp01_h0fundeclist] *)
 
 end // end of [local]
 
@@ -3738,7 +3738,7 @@ xcomp01_hvaldecl
 let
 //
 val+
-HVALDECL
+H0VALDECL
 ( rcd ) = dcl0
 //
 val loc = rcd.loc
@@ -3780,10 +3780,10 @@ xcomp01_h0pat_ck01(env0, pat, l1v1)
 ) : l1blk // end of [val]
 //
 in
-  LVALDECL@{
+  L1VALDECL@{
     loc=loc
   , pat=pat, def=res, def_blk=blk
-  } (* LVALDECL *)
+  } (* L1VALDECL *)
 end
 (*let*) // end of [xcomp01_hvaldecl]
 
@@ -3814,7 +3814,7 @@ xcomp01_hvardecl
 let
 //
 val+
-HVARDECL
+H0VARDECL
 ( rcd ) = dcl0
 //
 val loc = rcd.loc
@@ -3861,11 +3861,11 @@ xcomp01_dvaradd_bind(env0, hdv, l1v)
 end // end of [val]
 //
 in
-  LVARDECL@{
+  L1VARDECL@{
     loc=loc
   , hdv=hdv, ini=res
   , hdv_tmp=tmp, ini_blk=blk
-  } (* LVARDECL *)
+  } (* L1VARDECL *)
 end // end of [xcomp01_hvardecl]
 
 (* ****** ****** *)

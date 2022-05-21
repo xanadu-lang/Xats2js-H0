@@ -234,14 +234,14 @@ absimpl
 l1cst_tbox = $rec
 {
   l1cst_loc= loc_t // location
-, l1cst_hdc= hdcst // original
+, l1cst_hdc= h0cst // original
 , l1cst_stamp= stamp (* unicity *)
 } // end of [l1cst]
 
 in (* in-of-local *)
 
 implement
-l1cst_new_hdc
+l1cst_new_h0cst
   (loc, hdc) =
 $rec
 {
@@ -257,7 +257,7 @@ $rec
 implement
 l1cst_get_loc(l1c) = l1c.l1cst_loc
 implement
-l1cst_get_hdc(l1c) = l1c.l1cst_hdc
+l1cst_get_h0cst(l1c) = l1c.l1cst_hdc
 implement
 l1cst_get_stamp(l1c) = l1c.l1cst_stamp
 
