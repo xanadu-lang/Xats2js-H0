@@ -34,7 +34,7 @@ $(CAT) $(XATS2JS_PRELUDE) >> midterm_output.js && \
 $(CAT) $(XATS2JS_PRELUDE_NODE) >> midterm_output.js
 ############
 midterm_head0:: ; \
-$(XATS2JS) --output-a midterm_output.js -d ./midterm.dats
+$(XATS2JS) --output-a midterm_output.js -d ./midterm_head0.dats
 ############
 midterm_type0:: ; \
 $(XATS2JS) --output-a midterm_output.js -d ./midterm_type0.dats
