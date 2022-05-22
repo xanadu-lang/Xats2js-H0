@@ -766,7 +766,7 @@ implement
 fprint_val<l1vardecl> = fprint_l1vardecl
 //
 implement
-fprint_val<l1impdecl> = fprint_l1impdecl
+fprint_val<l1implmnt> = fprint_l1implmnt
 //
 in
 
@@ -814,29 +814,29 @@ fprint!
 } (* end of [L1DCLinclude] *)
 //
 |
-L1DCLfundecl
+L1DCLfundclst
 (knd0, mopt, lfds) =>
-fprint!(out, "L1DCLfundecl(", lfds, ")")
+fprint!(out, "L1DCLfundclst(", lfds, ")")
 |
-L1DCLvaldecl
+L1DCLvaldclst
 (knd0, mopt, lvds) =>
-fprint!(out, "L1DCLvaldecl(", lvds, ")")
+fprint!(out, "L1DCLvaldclst(", lvds, ")")
 |
-L1DCLvardecl
+L1DCLvardclst
 (knd0, mopt, lvds) =>
-fprint!(out, "L1DCLvardecl(", lvds, ")")
+fprint!(out, "L1DCLvardclst(", lvds, ")")
 //
 |
-L1DCLimpdecl
+L1DCLimplmnt3
 (knd0, mopt, limp) =>
-fprint!(out, "L1DCLimpdecl(", limp, ")")
+fprint!(out, "L1DCLimplmnt3(", limp, ")")
 //
 |
-L1DCLtimpcst
+L1DCLtimpcst0
 (ltc1, dcl2(*timp*)) =>
 fprint!
 ( out
-, "L1DCLtimpcst(", ltc1, "; ", dcl2, ")")
+, "L1DCLtimpcst0(", ltc1, "; ", dcl2, ")")
 //
 |
 L1DCLexcptcon
@@ -1019,25 +1019,25 @@ end // end of [fprint_lvardecl]
 (* ****** ****** *)
 //
 implement
-print_l1impdecl(x0) =
-fprint_l1impdecl(stdout_ref, x0)
+print_l1implmnt(x0) =
+fprint_l1implmnt(stdout_ref, x0)
 implement
-prerr_l1impdecl(x0) =
-fprint_l1impdecl(stderr_ref, x0)
+prerr_l1implmnt(x0) =
+fprint_l1implmnt(stderr_ref, x0)
 //
 (* ****** ****** *)
 //
 implement
-fprint_l1impdecl
+fprint_l1implmnt
   (out, x0) = let
 //
-val+L1IMPDECL(rcd) = x0
+val+L1IMPLMNT(rcd) = x0
 //
 in
 //
 fprint!
 ( out
-, "L1IMPDECL@{"
+, "L1IMPLMNT@{"
 , "hdc=", rcd.hdc, "; "
 , "hag=", rcd.hag, "; "
 , "def=", rcd.def, "; "
@@ -1046,7 +1046,7 @@ fprint!
 , "hag_blk=", rcd.hag_blk, "; "
 , "def_blk=", rcd.def_blk, "; ", "}")
 //
-end // end of [fprint_limpdecl]
+end // end of [fprint_limplmnt]
 //
 (* ****** ****** *)
 

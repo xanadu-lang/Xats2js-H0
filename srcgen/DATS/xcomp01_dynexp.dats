@@ -3063,7 +3063,7 @@ Recusion is handled
 *)
 //
 fun
-aux_fundecl
+aux_fundclst
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3071,7 +3071,7 @@ let
 val
 loc0 = dcl0.loc()
 val-
-H0Cfundecl
+H0Cfundclst
 ( knd0
 , mopt
 , tqas, hfds) = dcl0.node()
@@ -3079,14 +3079,14 @@ in
 case+ tqas of
 |
 list_nil() => // function
-aux_fundecl_fun(env0, dcl0)
+aux_fundclst_fun(env0, dcl0)
 |
 list_cons _ => // template
-aux_fundecl_tmp(env0, dcl0)
-end // end of [aux_fundecl]
+aux_fundclst_tmp(env0, dcl0)
+end // end of [aux_fundclst]
 //
 and
-aux_fundecl_fun
+aux_fundclst_fun
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3094,7 +3094,7 @@ let
 val
 loc0 = dcl0.loc()
 val-
-H0Cfundecl
+H0Cfundclst
 ( knd0
 , mopt
 , tqas
@@ -3152,11 +3152,11 @@ val () = xcomp01_dvarpop_fun0(env0)
 //
 in
 l1dcl_make_node
-(loc0, L1DCLfundecl(knd0, mopt, lfds))
-end // end of [aux_fundecl_fun]
+(loc0, L1DCLfundclst(knd0, mopt, lfds))
+end // end of [aux_fundclst_fun]
 //
 and
-aux_fundecl_tmp
+aux_fundclst_tmp
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3168,7 +3168,7 @@ HX: should template be compiled?
 *)
 in
 l1dcl_make_node(loc0, L1DCLnone0(*void*))
-end // end of [aux_fundecl_tmp]
+end // end of [aux_fundclst_tmp]
 //
 (* ****** ****** *)
 //
@@ -3178,7 +3178,7 @@ non-recursion is assumed
 *)
 //
 fun
-aux_valdecl
+aux_valdclst
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3186,7 +3186,7 @@ let
 val
 loc0 = dcl0.loc()
 val-
-H0Cvaldecl
+H0Cvaldclst
 ( knd0
 , mopt, hvds) = dcl0.node()
 val
@@ -3194,13 +3194,13 @@ lvds =
 xcomp01_hvaldeclist(env0, hvds)
 in
 l1dcl_make_node
-(loc0, L1DCLvaldecl(knd0, mopt, lvds))
-end // end of [aux_valdecl]
+(loc0, L1DCLvaldclst(knd0, mopt, lvds))
+end // end of [aux_valdclst]
 //
 (* ****** ****** *)
 
 fun
-aux_vardecl
+aux_vardclst
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3208,7 +3208,7 @@ let
 val
 loc0 = dcl0.loc()
 val-
-H0Cvardecl
+H0Cvardclst
 ( knd0
 , mopt, hvds) = dcl0.node()
 val
@@ -3216,20 +3216,20 @@ lvds =
 xcomp01_hvardeclist(env0, hvds)
 in
 l1dcl_make_node
-(loc0, L1DCLvardecl(knd0, mopt, lvds))
-end // end of [aux_vardecl]
+(loc0, L1DCLvardclst(knd0, mopt, lvds))
+end // end of [aux_vardclst]
 
 (* ****** ****** *)
 
 fun
-aux_impdecl3
+aux_implmnt3
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
 let
 //
 val-
-H0Cimpdecl3
+H0Cimplmnt3
 ( tok0
 , stmp, mopt
 , htqa
@@ -3240,22 +3240,22 @@ in
 case+ htia of
 |
 HTIARGnone _ =>
-aux_impdecl3_none(env0, dcl0)
+aux_implmnt3_none(env0, dcl0)
 |
 HTIARGsome _ =>
 // HX: function-template
-aux_impdecl3_some(env0, dcl0)
-end // end of [aux_impdecl3]
+aux_implmnt3_some(env0, dcl0)
+end // end of [aux_implmnt3]
 //
 and
-aux_impdecl3_none
+aux_implmnt3_none
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
 let
 //
 val-
-H0Cimpdecl3
+H0Cimplmnt3
 ( knd0
 , stmp, mopt
 , htqa
@@ -3309,7 +3309,7 @@ xcomp01_ltmppop_fun0( env0 )
 (*
 val ( ) =
 println!
-("xcomp01_impdecl3: tmps = ", tmps)
+("xcomp01_implmnt3: tmps = ", tmps)
 *)
 //
 val
@@ -3317,7 +3317,7 @@ loc0 = dcl0.loc()
 //
 val
 limp =
-L1IMPDECL@{
+L1IMPLMNT@{
   loc=loc0
 , hdc=hdc1
 , hag=hfgs
@@ -3325,17 +3325,17 @@ L1IMPDECL@{
 , lev=flev
 , lts=tmps
 , hag_blk=blk0, def_blk=blk1
-} (* LIMPDECL *)
+} (* LIMPLMNT *)
 //
 in
 l1dcl_make_node
-(loc0, L1DCLimpdecl(knd0, mopt, limp))
+(loc0, L1DCLimplmnt3(knd0, mopt, limp))
 end
 //
-end // end of [aux_impdecl3_none]
+end // end of [aux_implmnt3_none]
 //
 and
-aux_impdecl3_some
+aux_implmnt3_some
 ( env0:
 ! compenv
 , dcl0: h0dcl): l1dcl =
@@ -3343,7 +3343,7 @@ let
 val loc0 = dcl0.loc()
 in
 l1dcl_make_node(loc0, L1DCLnone0(*none*))
-end // end of [aux_impdecl3_some]
+end // end of [aux_implmnt3_some]
 
 (* ****** ****** *)
 
@@ -3470,19 +3470,19 @@ H0Cinclude _ =>
 aux_include(env0, dcl0)
 //
 |
-H0Cfundecl _ =>
-aux_fundecl(env0, dcl0)
+H0Cfundclst _ =>
+aux_fundclst(env0, dcl0)
 //
 |
-H0Cvaldecl _ =>
-aux_valdecl(env0, dcl0)
+H0Cvaldclst _ =>
+aux_valdclst(env0, dcl0)
 |
-H0Cvardecl _ =>
-aux_vardecl(env0, dcl0)
+H0Cvardclst _ =>
+aux_vardclst(env0, dcl0)
 //
 |
-H0Cimpdecl3 _ =>
-aux_impdecl3(env0, dcl0)
+H0Cimplmnt3 _ =>
+aux_implmnt3(env0, dcl0)
 //
 |
 H0Cexcptcon _ =>
@@ -3511,31 +3511,31 @@ case+
 hdcl.node() of
 //
 |
-H0Cfundecl _ =>
+H0Cfundclst _ =>
 let
 val
 ldcl =
-aux_fundecl_fun(env0, hdcl)
+aux_fundclst_fun(env0, hdcl)
 in
   l1dcl_make_node
-  (loc0, L1DCLtimpcst(l1c1, ldcl))
-end // end of [H0Cfundecl]
+  (loc0, L1DCLtimpcst0(l1c1, ldcl))
+end // end of [H0Cfundclst]
 //
 |
-H0Cimpdecl3 _ =>
+H0Cimplmnt3 _ =>
 let
 val
 ldcl =
-aux_impdecl3_none(env0, hdcl)
+aux_implmnt3_none(env0, hdcl)
 in
   l1dcl_make_node
-  (loc0, L1DCLtimpcst(l1c1, ldcl))
-end // end of [H0Cimpdecl3]
+  (loc0, L1DCLtimpcst0(l1c1, ldcl))
+end // end of [H0Cimplmnt3]
 //
 | _ (* else *) =>
 (
   l1dcl_make_node
-  (loc0, L1DCLtimpcst(l1c1, ldcl))
+  (loc0, L1DCLtimpcst0(l1c1, ldcl))
 ) where
 {
 val ldcl =
@@ -3675,7 +3675,7 @@ let
 (*
 val ( ) =
 println!
-("xcomp01_h0fundecl: lts = ", lts)
+("xcomp01_hfundecl: lts = ", lts)
 *)
 //
 in
@@ -3690,7 +3690,7 @@ in
   , hag_blk=blk0, def_blk=blk1
 } (* L1FUNDECL *)
 end
-end // end of [xcomp01_h0fundecl]
+end (*let*) // end of [xcomp01_hfundecl]
 
 (* ****** ****** *)
 
@@ -3700,7 +3700,7 @@ local
 fun
 isdecl
 ( hfd
-: h0fundecl): bool =
+: h0fundclst): bool =
 let
 val+H0FUNDECL(rcd) = hfd
 in
@@ -3710,6 +3710,8 @@ end // end of [isdecl]
 *)
 
 in(*in-of-local*)
+
+(* ****** ****** *)
 
 implement
 xcomp01_hfundeclist
@@ -3726,9 +3728,11 @@ list_cons(x0, xs) where
 val x0 = xcomp01_hfundecl(env0, x0)
 val xs = xcomp01_hfundeclist(env0, xs)
 }
-) (* end of [xcomp01_h0fundeclist] *)
+)(*case*)//end-of[xcomp01_hfundeclist]
 
-end // end of [local]
+(* ****** ****** *)
+
+end (*local*) // end of [local]
 
 (* ****** ****** *)
 

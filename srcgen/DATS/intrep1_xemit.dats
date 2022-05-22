@@ -843,10 +843,10 @@ fprintln!
 fun
 fdef
 ( limp
-: l1impdecl): l1valopt =
+: l1implmnt): l1valopt =
 let
 val+
-L1IMPDECL(rcd) = limp
+L1IMPLMNT(rcd) = limp
 in
 case+
 rcd.hag of
@@ -864,15 +864,15 @@ val-
 L1VALctmp
 (l1c1, ldcl) = l1v0.node()
 val-
-L1DCLtimpcst
-(l1c1, ldcl) = ldcl.node()
+L1DCLtimpcst0
+( l1c1, ldcl ) = ldcl.node()
 //
 in
 case+
 ldcl.node() of
 |
-L1DCLimpdecl
-(_, _, limp) =>
+L1DCLimplmnt3
+( _, _, limp ) =>
 let
 val opt = fdef(limp)
 in
@@ -2537,9 +2537,9 @@ fdcl2
 case+
 dcl0.node() of
 |
-L1DCLtimpcst
-(l1c1, dcl2) => dcl2
-| _(* else *) => dcl0
+L1DCLtimpcst0
+( l1c1, dcl2 ) => dcl2
+| _(*  else  *) => dcl0
 )
 //
 (* ****** ****** *)
@@ -2555,7 +2555,7 @@ xemit01_h0cst(out, hdc1)
 (* ****** ****** *)
 
 fun
-aux_fundecl
+aux_fundclst
 ( out
 : FILEref
 , dcl0: l1dcl): void =
@@ -2565,7 +2565,7 @@ val
 dcl2 = fdcl2(dcl0)
 //
 val-
-L1DCLfundecl
+L1DCLfundclst
 ( knd0
 , mopt
 , lfds) =
@@ -2595,12 +2595,12 @@ xemit01_l1dcl_fnx(out, dcl0)
 |
 _(* else *) =>
 xemit01_l1dcl_fun(out, dcl0)
-end // end of [aux_fundecl]
+end // end of [aux_fundclst]
 
 (* ****** ****** *)
 
 fun
-aux_valdecl
+aux_valdclst
 ( out
 : FILEref
 , dcl0: l1dcl): void =
@@ -2647,18 +2647,18 @@ list_cons
 in
 let
 val-
-L1DCLvaldecl
+L1DCLvaldclst
 ( knd0
 , mopt
 , lvds) =
   dcl0.node() in auxlvds(lvds)
 end
-end // end of [aux_valdecl]
+end // end of [aux_valdclst]
 
 (* ****** ****** *)
 
 fun
-aux_vardecl
+aux_vardclst
 ( out
 : FILEref
 , dcl0: l1dcl): void =
@@ -2738,18 +2738,18 @@ list_cons
 in
 let
 val-
-L1DCLvardecl
+L1DCLvardclst
 ( knd0
 , mopt
 , lvds) =
   dcl0.node() in auxlvds(lvds)
 end
-end // end of [aux_vardecl]
+end // end of [aux_vardclst]
 
 (* ****** ****** *)
 
 fun
-aux_impdecl
+aux_implmnt3
 ( out
 : FILEref
 , dcl0: l1dcl): void =
@@ -2759,14 +2759,14 @@ val
 dcl2 = fdcl2(dcl0)
 //
 val-
-L1DCLimpdecl
+L1DCLimplmnt3
 ( knd0
 , mopt
 , limp) =
 dcl2.node((*void*))
 //
 val+
-L1IMPDECL(rcd) = limp
+L1IMPLMNT(rcd) = limp
 //
 in
 //
@@ -2774,15 +2774,15 @@ case+
 rcd.hag of
 |
 list_nil _ =>
-aux_impdecl0(out, dcl2)
+aux_implmnt30(out, dcl2)
 |
 list_cons _ =>
-aux_impdecl1(out, dcl2)
+aux_implmnt31(out, dcl2)
 //
-end // end of [aux_impdecl]
+end // end of [aux_implmnt]
 //
 and
-aux_impdecl0
+aux_implmnt30
 ( out
 : FILEref
 , dcl2: l1dcl): void =
@@ -2793,14 +2793,14 @@ argless implementation
 *)
 //
 val-
-L1DCLimpdecl
+L1DCLimplmnt3
 ( knd0
 , mopt
 , limp) =
   dcl2.node((*void*))
 //
 val+
-L1IMPDECL(rcd) = limp
+L1IMPLMNT(rcd) = limp
 //
 val hdc1 = rcd.hdc(*void*)
 //
@@ -2823,7 +2823,7 @@ fprintln!
 //
 in
   // nothing
-end (*let*) // end of [aux_impdecl0]
+end (*let*) // end of [aux_implmnt30]
 (*
 (*
 HX-2022-01-22:
@@ -2831,7 +2831,7 @@ abandoning the following way of
 handling argless implementations
 *)
 and
-aux_impdecl0
+aux_implmnt30
 ( out
 : FILEref
 , dcl2: l1dcl): void =
@@ -2843,14 +2843,14 @@ argless implementation
 *)
 //
 val-
-L1DCLimpdecl
+L1DCLimplmnt
 ( knd0
 , mopt
 , limp) =
 dcl2.node((*void*))
 //
 val+
-LIMPDECL(rcd) = limp
+LIMPLMNT(rcd) = limp
 //
 val () =
 xemit01_txtln
@@ -2900,25 +2900,25 @@ val () =
 xemit01_txt00( out, "\n" )
 //
 } (* end of [Some] *)
-end (*let*) // end of [aux_impdecl0]
+end (*let*) // end of [aux_implmnt30]
 *)
 //
 and
-aux_impdecl1
+aux_implmnt31
 ( out
 : FILEref
 , dcl2: l1dcl): void =
 let
 //
 val-
-L1DCLimpdecl
+L1DCLimplmnt3
 ( knd0
 , mopt
 , limp) =
-dcl2.node((*void*))
+  dcl2.node((*void*))
 //
 val+
-L1IMPDECL(rcd) = limp
+L1IMPLMNT(rcd) = limp
 //
 val () =
 xemit01_txtln
@@ -2971,20 +2971,20 @@ val () = xemit01_txt00(out, ";\n")
 in
 fprintln!
 (out, "} // function // ", rcd.hdc)
-end (*let*) // end of [aux_impdecl1]
+end (*let*) // end of [aux_implmnt31]
 
 (* ****** ****** *)
 
 fun
-aux_timpcst
+aux_timpcst0
 ( out
 : FILEref
 , dcl0: l1dcl): void =
 let
 //
 val-
-L1DCLtimpcst
-(l1c1, dcl2) = dcl0.node()
+L1DCLtimpcst0
+( l1c1, dcl2 ) = dcl0.node()
 //
 in
 //
@@ -2992,15 +2992,15 @@ case+
 dcl2.node() of
 //
 | 
-L1DCLfundecl _ =>
+L1DCLfundclst _ =>
 {
-val()=aux_fundecl(out, dcl0)
+val()=aux_fundclst(out, dcl0)
 }
 //
 |
-L1DCLimpdecl _ =>
+L1DCLimplmnt3 _ =>
 {
-val()=aux_impdecl(out, dcl0)
+val()=aux_implmnt3(out, dcl0)
 }
 //
 | _ (* else *) =>
@@ -3008,7 +3008,7 @@ val()=aux_impdecl(out, dcl0)
 val () = fprint!(out, "// ", dcl0)
 }
 //
-end (*let*) // end of [aux_timpcst]
+end (*let*) // end of [aux_timpcst0]
 
 (* ****** ****** *)
 
@@ -3105,33 +3105,33 @@ fprint!
 }
 //
 |
-L1DCLfundecl _ =>
+L1DCLfundclst _ =>
 {
-val()=aux_fundecl(out, dcl0)
+val()=aux_fundclst(out, dcl0)
 }
 //
 |
-L1DCLvaldecl _ =>
+L1DCLvaldclst _ =>
 {
-val()=aux_valdecl(out, dcl0)
+val()=aux_valdclst(out, dcl0)
 }
 //
 |
-L1DCLvardecl _ =>
+L1DCLvardclst _ =>
 {
-val()=aux_vardecl(out, dcl0)
+val()=aux_vardclst(out, dcl0)
 }
 //
 |
-L1DCLimpdecl _ =>
+L1DCLimplmnt3 _ =>
 {
-val()=aux_impdecl(out, dcl0)
+val()=aux_implmnt3(out, dcl0)
 }
 //
 |
-L1DCLtimpcst _ =>
+L1DCLtimpcst0 _ =>
 {
-val()=aux_timpcst(out, dcl0)
+val()=aux_timpcst0(out, dcl0)
 }
 //
 |
@@ -3465,9 +3465,9 @@ fdcl2
 case+
 dcl0.node() of
 |
-L1DCLtimpcst
-(l1c1, dcl2) => dcl2
-| _(* else *) => dcl0
+L1DCLtimpcst0
+( l1c1, dcl2 ) => dcl2
+| _(*  else  *) => dcl0
 )
 
 fun
@@ -3606,7 +3606,7 @@ val
 dcl2 = fdcl2(dcl0)
 //
 val-
-L1DCLfundecl
+L1DCLfundclst
 ( knd0
 , mopt
 , lfds) = dcl2.node() in auxlfds(lfds)
@@ -4205,7 +4205,7 @@ val
 dcl2 = fdcl2(dcl0)
 //
 val-
-L1DCLfundecl
+L1DCLfundclst
 ( knd0
 , mopt
 , lfds) = dcl2.node() in auxlfds(lfds)

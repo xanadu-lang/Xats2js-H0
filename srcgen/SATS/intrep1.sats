@@ -844,8 +844,8 @@ overload fprint with fprint_l1vardecl
 (* ****** ****** *)
 //
 datatype
-l1impdecl =
-L1IMPDECL of @{
+l1implmnt =
+L1IMPLMNT of @{
   loc= loc_t
 , hdc= h0cst
 //
@@ -859,23 +859,23 @@ L1IMPDECL of @{
 //
 , hag_blk= l1blk
 , def_blk= l1blk
-}
+} (* end of [L1IMPLMNT] *)
 //
 (* ****** ****** *)
 //
 fun
-print_l1impdecl:
-print_type(l1impdecl)
+print_l1implmnt:
+print_type(l1implmnt)
 fun
-prerr_l1impdecl:
-prerr_type(l1impdecl)
+prerr_l1implmnt:
+prerr_type(l1implmnt)
 fun
-fprint_l1impdecl:
-fprint_type(l1impdecl)
+fprint_l1implmnt:
+fprint_type(l1implmnt)
 //
-overload print with print_l1impdecl
-overload prerr with prerr_l1impdecl
-overload fprint with fprint_l1impdecl
+overload print with print_l1implmnt
+overload prerr with prerr_l1implmnt
+overload fprint with fprint_l1implmnt
 //
 (* ****** ****** *)
 //
@@ -904,28 +904,29 @@ L1DCLinclude of
 , filpathopt, l1dclistopt)
 //
 |
-L1DCLfundecl of
+L1DCLfundclst of
 (token, decmodopt, l1fundeclist)
 //
 |
-L1DCLvaldecl of
+L1DCLvaldclst of
 (token, decmodopt, l1valdeclist)
 |
-L1DCLvardecl of
+L1DCLvardclst of
 (token, decmodopt, l1vardeclist)
 //
 |
-L1DCLimpdecl of
+L1DCLimplmnt3 of
 ( token
-, decmodopt, l1impdecl(*sing*) )
+, decmodopt, l1implmnt(*sing*) )
 //
 |
-L1DCLtimpcst of ( l1cst, l1dcl )
+L1DCLtimpcst0 of ( l1cst, l1dcl )
 //
 |
 L1DCLexcptcon of (h0conlst, l1blk)
 //
-| L1DCLnone0 of () | L1DCLnone1 of h0dcl
+|
+L1DCLnone0 of () | L1DCLnone1 of h0dcl
 //
 where decmodopt = $D0E.decmodopt
   and filpathopt = Option(filpath)
