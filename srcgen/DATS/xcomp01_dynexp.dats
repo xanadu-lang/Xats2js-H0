@@ -1016,26 +1016,26 @@ auxhfg_ck01
 ( env0:
 ! compenv
 , arg0: int
-, hfg0: h0farg): int =
+, hfg0: h0fag): int =
 (
 case+
 hfg0.node() of
 //
-| H0FARGnpats
+| H0FAGnpats
   (npf0, h0ps) =>
   auxnps_ck01
   ( env0
   , arg0, npf0, h0ps)
 //
-| H0FARGnone0() => arg0
-| H0FARGnone1(ptr) => arg0
+| H0FAGnone0() => arg0
+| H0FAGnone1(ptr) => arg0
 )
 and
 auxlst_ck01
 ( env0:
 ! compenv
 , arg0: int
-, hfgs: h0farglst): int =
+, hfgs: h0faglst): int =
 (
 case+ hfgs of
 |
@@ -1055,7 +1055,7 @@ in
 in(*in-of-local*)
 
 implement
-xcomp01_hfarglst_ck01
+xcomp01_h0faglst_ck01
   (env0, hfgs) =
 (
 xcomp01_lcmdpop0_blk(env0)
@@ -1070,7 +1070,7 @@ xcomp01_lcmdpop0_blk(env0)
   val narg =
   auxlst_ck01(env0, i0, hfgs)
 //
-} // end of [xcomp01_hfarglst_ck01]
+} // end of [xcomp01_h0faglst_ck01]
 
 end // end of [local]
 
@@ -2162,7 +2162,7 @@ xcomp01_flevget(env0)
 //
 val
 blk0 =
-xcomp01_hfarglst_ck01
+xcomp01_h0faglst_ck01
   (env0, hfgs(*multi*))
 //
 val
@@ -2203,11 +2203,11 @@ let
   l1am =
   L1LAMEXP@{
     loc=loc0
-  , hag=hfgs
+  , hfg=hfgs
   , def=res1
   , lev=flev
   , lts=flts
-  , hag_blk=blk0, def_blk=blk1
+  , hfg_blk=blk0, def_blk=blk1
   } (* L1LAMEXP *)
   val
   lcmd =
@@ -2254,7 +2254,7 @@ xcomp01_flevget(env0)
 //
 val
 blk0 =
-xcomp01_hfarglst_ck01
+xcomp01_h0faglst_ck01
   (env0, hfgs(*multi*))
 //
 val
@@ -2293,11 +2293,11 @@ let
   L1FIXEXP@{
     loc=loc0
   , nam=hdv0
-  , hag=hfgs
+  , hfg=hfgs
   , def=res1
   , lev=flev
   , lts=flts
-  , hag_blk=blk0, def_blk=blk1
+  , hfg_blk=blk0, def_blk=blk1
   } (* L1FIXEXP *)
   val
   lcmd =
@@ -2328,8 +2328,8 @@ H0Elazy
 //
 val
 hfg0 =
-h0farg_make_node
-(loc0, H0FARGnone0())
+h0fag_make_node
+(loc0, H0FAGnone0())
 val
 hfgs = list_sing(hfg0)
 //
@@ -2387,11 +2387,11 @@ let
   l1am =
   L1LAMEXP@{
     loc=loc0
-  , hag=hfgs
+  , hfg=hfgs
   , def=res1
   , lev=flev
   , lts=flts
-  , hag_blk=blk0, def_blk=blk1
+  , hfg_blk=blk0, def_blk=blk1
   } (* L1LAMEXP *)
   val
   tlam =
@@ -2441,8 +2441,8 @@ H0Ellazy
 //
 val
 hfg0 =
-h0farg_make_node
-(loc0, H0FARGnone0())
+h0fag_make_node
+(loc0, H0FAGnone0())
 val
 hfgs = list_sing(hfg0)
 //
@@ -2534,11 +2534,11 @@ let
   l1am =
   L1LAMEXP@{
     loc=loc0
-  , hag=hfgs
+  , hfg=hfgs
   , def=res1
   , lev=flev
   , lts=flts
-  , hag_blk=blk0, def_blk=blk1
+  , hfg_blk=blk0, def_blk=blk1
   } (* L1LAMEXP *)
   val
   tlam =
@@ -2554,11 +2554,11 @@ let
   lfrs =
   L1LAMEXP@{
     loc=loc0
-  , hag=hfgs
+  , hfg=hfgs
   , def=res2
   , lev=flev
   , lts=flts
-  , hag_blk=blk0, def_blk=blk2
+  , hfg_blk=blk0, def_blk=blk2
   } (* L1LAMEXP *)
   val
   tfrs =
@@ -3278,7 +3278,7 @@ xcomp01_flevget(env0)
 //
 val
 blk0 =
-xcomp01_hfarglst_ck01
+xcomp01_h0faglst_ck01
   (env0, hfgs(*multi*))
 //
 val
@@ -3320,11 +3320,11 @@ limp =
 L1IMPLMNT@{
   loc=loc0
 , hdc=hdc1
-, hag=hfgs
+, hfg=hfgs
 , def=res1
 , lev=flev
 , lts=tmps
-, hag_blk=blk0, def_blk=blk1
+, hfg_blk=blk0, def_blk=blk1
 } (* LIMPLMNT *)
 //
 in
@@ -3588,7 +3588,7 @@ H0FUNDECL
 val loc = rcd.loc
 val nam = rcd.nam
 val hdc = rcd.hdc
-val hag = rcd.hag
+val hfg = rcd.hfg
 val def = rcd.def
 //
 var res
@@ -3629,13 +3629,13 @@ xcomp01_flevget(env0)
 val
 blk0 =
 (
-case+ hag of
+case+ hfg of
 |
 None() =>
 l1blk_none()
 |
 Some(hfgs) =>
-xcomp01_hfarglst_ck01
+xcomp01_h0faglst_ck01
 ( env0, hfgs(*multi*) )
 ) : l1blk // end-of-val
 //
@@ -3683,11 +3683,11 @@ in
     loc=loc
   , nam=nam
   , hdc=hdc
-  , hag=hag
+  , hfg=hfg
   , def=res
   , lev=flev
   , lts=flts
-  , hag_blk=blk0, def_blk=blk1
+  , hfg_blk=blk0, def_blk=blk1
 } (* L1FUNDECL *)
 end
 end (*let*) // end of [xcomp01_hfundecl]

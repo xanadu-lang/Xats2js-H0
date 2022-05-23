@@ -79,8 +79,9 @@ implement
 fprint_val<h0con> = fprint_h0con
 implement
 fprint_val<h0cst> = fprint_h0cst
+(* ****** ****** *)
 implement
-fprint_val<h0farg> = fprint_h0farg
+fprint_val<h0fag> = fprint_h0fag
 implement
 fprint_val<htqarg> = fprint_htqarg
 (* ****** ****** *)
@@ -885,9 +886,9 @@ in
 fprint!
 ( out
 , "L1LAMEXP@{"
-, "hag=", rcd.hag, "; "
+, "hfg=", rcd.hfg, "; "
 , "def=", rcd.def, "; "
-, "hag_blk=", rcd.hag_blk, "; "
+, "hfg_blk=", rcd.hfg_blk, "; "
 , "def_blk=", rcd.def_blk, "; ", "}")
 //
 end // end of [fprint_l1lamexp]
@@ -916,9 +917,9 @@ fprint!
 ( out
 , "L1FIXEXP@{"
 , "nam=", rcd.nam, "; "
-, "hag=", rcd.hag, "; "
+, "hfg=", rcd.hfg, "; "
 , "def=", rcd.def, "; "
-, "hag_blk=", rcd.hag_blk, "; "
+, "hfg_blk=", rcd.hfg_blk, "; "
 , "def_blk=", rcd.def_blk, "; ", "}")
 //
 end // end of [fprint_l1fixexp]
@@ -941,7 +942,7 @@ val+L1FUNDECL(rcd) = x0
 in
 //
 case+
-rcd.hag of
+rcd.hfg of
 |
 None() =>
 fprint!
@@ -950,15 +951,15 @@ fprint!
 , "nam=", rcd.nam, "; "
 , "hdc=", rcd.hdc, "; ", "}")
 |
-Some(rcd_hag) =>
+Some(rcd_hfg) =>
 fprint!
 ( out
 , "L1FUNDECL@{"
 , "nam=", rcd.nam, "; "
 , "hdc=", rcd.hdc, "; "
-, "hag=", rcd_hag, "; "
+, "hfg=", rcd_hfg, "; "
 , "def=", rcd.def, "; "
-, "hag_blk=", rcd.hag_blk, "; "
+, "hfg_blk=", rcd.hfg_blk, "; "
 , "def_blk=", rcd.def_blk, "; ", "}")
 //
 end // end of [fprint_lfundecl]
@@ -1039,11 +1040,11 @@ fprint!
 ( out
 , "L1IMPLMNT@{"
 , "hdc=", rcd.hdc, "; "
-, "hag=", rcd.hag, "; "
+, "hfg=", rcd.hfg, "; "
 , "def=", rcd.def, "; "
 , "lev=(", rcd.lev, "); "
 , "lts=(", rcd.lts, "); "
-, "hag_blk=", rcd.hag_blk, "; "
+, "hfg_blk=", rcd.hfg_blk, "; "
 , "def_blk=", rcd.def_blk, "; ", "}")
 //
 end // end of [fprint_limplmnt]

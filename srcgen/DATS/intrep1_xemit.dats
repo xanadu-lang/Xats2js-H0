@@ -368,7 +368,7 @@ case+ l1c of
 (* ****** ****** *)
 
 implement
-xemit01_hfarg
+xemit01_h0fag
 ( out
 , lev
 , hfg, i0) =
@@ -376,7 +376,7 @@ xemit01_hfarg
 case+
 hfg.node() of
 |
-H0FARGnpats
+H0FAGnpats
 (npf1, h0ps) => i1 where
 {
 val () = xemit01_txt00(out, "(")
@@ -384,13 +384,13 @@ val i1 = auxlst(npf1, i0, i0, h0ps)
 val () = xemit01_txt00(out, ")")
 }
 |
-H0FARGnone0 _ => i0 where
+H0FAGnone0 _ => i0 where
 {
 val () = xemit01_txt00(out, "(")
 val () = xemit01_txt00(out, ")")
 }
 |
-H0FARGnone1 _ => i0 // skipped
+H0FAGnone1 _ => i0 // skipped
 (*
 let
 val () = fprint(out, "(*ERROR*)") in i0
@@ -439,12 +439,12 @@ auxlst(npf1, i0, i1, h0ps)
 end
 ) (* end of [auxlst] *)
 //
-} (* end of [xemit01_hfarg] *)
+} (* end of [xemit01_h0fag] *)
 
 (* ****** ****** *)
 
 implement
-xemit01_hfarglst
+xemit01_h0faglst
 ( out
 , lev
 , hfgs, i0) =
@@ -456,11 +456,11 @@ list_nil() => i0
 list_cons(hfg1, hfgs) =>
 let
 val i1 =
-xemit01_hfarg(out, lev, hfg1, i0)
+xemit01_h0fag(out, lev, hfg1, i0)
 in
-xemit01_hfarglst(out, lev, hfgs, i1)
+xemit01_h0faglst(out, lev, hfgs, i1)
 end
-) (* end of [xemit01_hfarglst] *)
+) (* end of [xemit01_h0faglst] *)
 
 (* ****** ****** *)
 //
@@ -849,7 +849,7 @@ val+
 L1IMPLMNT(rcd) = limp
 in
 case+
-rcd.hag of
+rcd.hfg of
 | list_nil() => rcd.def | _ => None()
 end
 //
@@ -1349,10 +1349,10 @@ xemit01_txt00
 //
 val
 narg =
-xemit01_hfarglst
+xemit01_h0faglst
 ( out
 , rcd.lev
-, rcd.hag, 0(*base*))
+, rcd.hfg, 0(*base*))
 val () = xemit01_newln(out)
 //
 val () =
@@ -1362,7 +1362,7 @@ val () =
 xemit01_ftmpdecs(out, rcd.lts)
 //
 val () =
-xemit01_l1blk(out, rcd.hag_blk)
+xemit01_l1blk(out, rcd.hfg_blk)
 val () =
 xemit01_l1blk(out, rcd.def_blk)
 val () =
@@ -1418,10 +1418,10 @@ xemit01_h0var(out, rcd.nam)
 //
 val
 narg =
-xemit01_hfarglst
+xemit01_h0faglst
 ( out
 , rcd.lev
-, rcd.hag, 0(*base*))
+, rcd.hfg, 0(*base*))
 val () = xemit01_newln(out)
 //
 val () =
@@ -1431,7 +1431,7 @@ val () =
 xemit01_ftmpdecs(out, rcd.lts)
 //
 val () =
-xemit01_l1blk(out, rcd.hag_blk)
+xemit01_l1blk(out, rcd.hfg_blk)
 val () =
 xemit01_l1blk(out, rcd.def_blk)
 val () =
@@ -2771,7 +2771,7 @@ L1IMPLMNT(rcd) = limp
 in
 //
 case+
-rcd.hag of
+rcd.hfg of
 |
 list_nil _ =>
 aux_implmnt30(out, dcl2)
@@ -2933,10 +2933,10 @@ xemit01_h0cst(out, hdc1(*name*))
 //
 val
 narg =
-xemit01_hfarglst
+xemit01_h0faglst
 ( out
 , rcd.lev
-, rcd.hag, 0(*base*))
+, rcd.hfg, 0(*base*))
 val () = xemit01_newln(out)
 //
 val () =
@@ -2947,7 +2947,7 @@ xemit01_ftmpdecs
 ( out, rcd.lts(*ltmps*) )
 //
 val () =
-xemit01_l1blk(out, rcd.hag_blk)
+xemit01_l1blk(out, rcd.hfg_blk)
 val () =
 xemit01_l1blk(out, rcd.def_blk)
 //
@@ -3529,19 +3529,19 @@ xemit01_h0cst(out, rcd.hdc(*name*))
 val narg =
 (
 case+
-rcd.hag of
+rcd.hfg of
 |
 None() => 0
 |
 Some
-(rcd_hag) => narg where
+(rcd_hfg) => narg where
 {
 val
 narg =
-xemit01_hfarglst
+xemit01_h0faglst
 ( out
 , rcd.lev
-, rcd_hag, 0(*base*) )
+, rcd_hfg, 0(*base*) )
 val () = xemit01_newln(out)
 }
 )
@@ -3553,7 +3553,7 @@ val () =
 xemit01_ftmpdecs(out, rcd.lts)
 //
 val () =
-xemit01_l1blk(out, rcd.hag_blk)
+xemit01_l1blk(out, rcd.hfg_blk)
 val () =
 xemit01_l1blk(out, rcd.def_blk)
 //
@@ -4072,19 +4072,19 @@ xemit01_h0cst(out, rcd.hdc(*name*))
 val narg =
 (
 case+
-rcd.hag of
+rcd.hfg of
 |
 None() => 0
 |
-Some(rcd_hag) => narg where
+Some(rcd_hfg) => narg where
 {
 //
 val
 narg =
-xemit01_hfarglst
+xemit01_h0faglst
 ( out
 , rcd.lev
-, rcd_hag, 0(*base*) )
+, rcd_hfg, 0(*base*) )
 //
 val () = xemit01_newln(out)
 //
@@ -4104,7 +4104,7 @@ val () =
 xemit01_txtln(out, "do {")
 //
 val () =
-xemit01_l1blk(out, rcd.hag_blk)
+xemit01_l1blk(out, rcd.hfg_blk)
 //
 local
 //

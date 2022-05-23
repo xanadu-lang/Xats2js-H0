@@ -224,9 +224,9 @@ xcomp01_h0gpat_ck1
 (* ****** ****** *)
 //
 fun
-xcomp01_hfarglst_ck01
+xcomp01_h0faglst_ck01
 ( env0:
-! compenv, hfgs: h0farglst): l1blk
+! compenv, hfgs: h0faglst): l1blk
 //
 (* ****** ****** *)
 

@@ -523,15 +523,14 @@ l1lamexp =
 L1LAMEXP of @{
   loc= loc_t
 //
-, hag=
-  ( h0farglst )
+, hfg= h0faglst
 //
 , def= l1valopt
 //
 , lev= int//fun
 , lts= l1tmplst
 //
-, hag_blk= l1blk
+, hfg_blk= l1blk
 , def_blk= l1blk
 //
 } (* L1LAMEXP *)
@@ -542,15 +541,14 @@ L1FIXEXP of @{
   loc= loc_t
 //
 , nam= h0var
-, hag=
-  ( h0farglst )
+, hfg= h0faglst
 //
 , def= l1valopt
 //
 , lev= int//fun
 , lts= l1tmplst
 //
-, hag_blk= l1blk
+, hfg_blk= l1blk
 , def_blk= l1blk
 //
 } (* L1FIXEXP *)
@@ -749,15 +747,15 @@ L1FUNDECL of
 , nam= h0var
 , hdc= h0cst
 //
-, hag=
-  h0farglstopt
+, hfg=
+  (h0faglstopt)
 //
 , def= l1valopt
 //
 , lev= int//fun
 , lts= l1tmplst
 //
-, hag_blk= l1blk
+, hfg_blk= l1blk
 , def_blk= l1blk
 } (* L1FUNDECL *)
 //
@@ -849,15 +847,14 @@ L1IMPLMNT of @{
   loc= loc_t
 , hdc= h0cst
 //
-, hag=
-  ( h0farglst )
+, hfg= h0faglst
 //
 , def= l1valopt
 //
 , lev= int//fun
 , lts= l1tmplst
 //
-, hag_blk= l1blk
+, hfg_blk= l1blk
 , def_blk= l1blk
 } (* end of [L1IMPLMNT] *)
 //
@@ -1012,15 +1009,15 @@ fun
 xemit01_l1cst(FILEref, l1cst): void
 (* ****** ****** *)
 fun
-xemit01_hfarg
+xemit01_h0fag
 ( FILEref
 , int(*flvl*)
-, h0farg, int(*base*)): int
+, h0fag, int(*base*)): int
 fun
-xemit01_hfarglst
+xemit01_h0faglst
 ( FILEref
 , int(*flvl*)
-, h0farglst, int(*base*)): int
+, h0faglst, int(*base*)): int
 (* ****** ****** *)
 //
 fun
