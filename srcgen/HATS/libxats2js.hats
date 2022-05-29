@@ -18,7 +18,7 @@ XATSOPT_targetloc
 #define
 XATSOPT_targetloc
 "./../..\
-/modules/xatsopt/srcgen/xcomp"
+/modules/xatsopt/srcgen/."
 #endif
 //
 (* ****** ****** *)
