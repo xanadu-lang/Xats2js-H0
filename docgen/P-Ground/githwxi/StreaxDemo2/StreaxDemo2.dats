@@ -22,7 +22,7 @@ StreaxDemo2_moves
 //
 (* ****** ****** *)
 
-impltmp
+#impltmp
 <a>(*tmp*)
 StreaxDemo2_moves
   (xs) =
@@ -151,7 +151,7 @@ dir_set_next() = set(the_dir,  1)
 fun
 dir_set_prev() = set(the_dir, -1)
 //
-impltmp
+#impltmp
 StreaxDemo2$dir<>() = get(the_dir)
 //
 end // end of [val]
@@ -182,7 +182,7 @@ JS_StreaxDemo2_show_some(x0: int): void = $exname()
 //
 (* ****** ****** *)
 //
-implfun
+#implfun
 StreaxDemo2_control_next
   ((*void*)) =
 let
@@ -198,7 +198,7 @@ case- x0 of
 | optn_cons(f0) => JS_StreaxDemo2_show_some(f0)
 end (*let*) // end of [StreaxDemo2_control_next]
 //
-implfun
+#implfun
 StreaxDemo2_control_prev
   ((*void*)) =
 let

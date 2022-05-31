@@ -19,7 +19,7 @@ StreamDemo_moves
 //
 (* ****** ****** *)
 
-impltmp
+#impltmp
 <a>(*tmp*)
 StreamDemo_moves
   (xs) =

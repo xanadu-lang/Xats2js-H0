@@ -29,12 +29,12 @@ fun
 print_myoptn
 (xs: myoptn(a)): void
 (* ****** ****** *)
-impltmp
+#impltmp
 {a:t0}
 g_print
 <myoptn(a)> = print_myoptn<a>
 (* ****** ****** *)
-impltmp
+#impltmp
 <a>(*tmp*)
 print_myoptn
   (xs) = 
@@ -54,13 +54,13 @@ fun
 print_mylist
 (xs: mylist(a)): void
 (* ****** ****** *)
-impltmp
+#impltmp
 {a:t0}
 g_print
 <mylist(a)> = print_mylist<a>
 (* ****** ****** *)
 
-impltmp
+#impltmp
 {a:t0}
 print_mylist
   (xs) =
@@ -100,7 +100,7 @@ mylist_get_at_opt
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a>
 mylist_get_at_opt
 ( xs, i0 ) =
@@ -135,7 +135,7 @@ mylist_map_cfr
 //
 (* ****** ****** *)
 
-impltmp
+#impltmp
 <a><b>
 mylist_map_cfr
 (xs, f0) =

@@ -15,26 +15,26 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-absimpl
+#absimpl
 tpext_type = a0ref(type0opt)
 
 (* ****** ****** *)
 
-implfun
+#implfun
 tpext_new() =
 a0ref_make(myoptn_nil())
 
 (* ****** ****** *)
-implfun
+#implfun
 tpext_get(X0) = a0ref_get(X0)
 (* ****** ****** *)
-implfun
+#implfun
 tpext_set
 (X0, tp) =
 a0ref_set(X0, myoptn_cons(tp))
 (* ****** ****** *)
 
-implfun
+#implfun
 tpext_eqref(X1, X2) = g_eqref(X1, X2)
 
 (* ****** ****** *)

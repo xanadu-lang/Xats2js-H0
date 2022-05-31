@@ -12,7 +12,7 @@ $(XATS2JSD)\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-typedef real = double
+#typedef real = double
 
 (* ****** ****** *)
 val a = 16807

@@ -9,7 +9,7 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-implfun
+#implfun
 factorial
   (n0) =
 (
@@ -34,7 +34,7 @@ println
 
 (* ****** ****** *)
 
-implfun
+#implfun
 gheep(n0) =
 (
 if
@@ -64,7 +64,7 @@ println("gheep(3) = ", gheep(3))
 
 (* ****** ****** *)
 
-implfun
+#implfun
 intlist_append
   (xs, ys) =
 (
@@ -103,7 +103,7 @@ intlist_cons(x0, xs) =>
  print(x0); auxlst(xs, i0+1))
 }
 
-impltmp
+#impltmp
 g_print<intlist> = intlist_print
 //
 (* ****** ****** *)

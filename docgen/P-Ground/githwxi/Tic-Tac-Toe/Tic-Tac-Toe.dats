@@ -62,10 +62,10 @@ theSquares_get
 fun
 theSquares_get_text
   (i: int, j: int): string = $exname()
-implfun
+#implfun
 theSquares_get
   (i, j) = theSquares[3*i+j]
-implfun
+#implfun
 theSquares_get_text
   (i, j) =
   player2string(theSquares_get(i, j))
@@ -76,21 +76,21 @@ theSquares_get_text
 fun
 thePlayer_get
 ((*void*)): int = $exname()
-implfun
+#implfun
 thePlayer_get() = thePlayer[]
 //
 #extern
 fun
 theWinner_get
 ((*void*)): int = $exname()
-implfun
+#implfun
 theWinner_get() = theWinner[]
 //
 #extern
 fun
 theStatus_get
 ((*void*)): string = $exname()
-implfun
+#implfun
 theStatus_get() =
 if
 (
@@ -215,7 +215,7 @@ fun
 theState_update
   : (move) -> void
 //
-implfun
+#implfun
 theState_update
   (MOVE(i, j)) = let
   val p1 = thePlayer[]
@@ -243,14 +243,14 @@ Square_handle_click
   (i: int, j: int): void = $exname()
 //
 (*
-implfun
+#implfun
 Square_handle_click
   (i, j) =
 (
   alert(String(i) + String(j))
 )
 *)
-implfun
+#implfun
 Square_handle_click
   (i, j) = let
 //

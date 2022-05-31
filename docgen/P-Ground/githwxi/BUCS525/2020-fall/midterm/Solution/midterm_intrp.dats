@@ -15,7 +15,7 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-implfun
+#implfun
 t0erm_intrp0(tm0) =
 t0erm_intrp1(tm0, d0env_nil())
 
@@ -336,7 +336,7 @@ end (*let*) end (*let*) // end of [auxopr2]
 
 in (* in-of-local *)
 
-implfun
+#implfun
 t0erm_intrp1
 (t0m0, env0) =
 (

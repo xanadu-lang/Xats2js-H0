@@ -19,7 +19,7 @@ StreaxDemo_moves
 //
 (* ****** ****** *)
 
-impltmp
+#impltmp
 <a>(*tmp*)
 StreaxDemo_moves
   (xs) =

@@ -43,7 +43,7 @@ cleanall:: ; rm -f *_dats.js
 cleanall:: ; rm -f StreaxDemo2.html
 ######
 export XATS2JSD=./../../../..
-export XATSHOME=$(XATS2JSD)/xatsopt
+export XATSHOME=$(XATS2JSD)/modules/xatsopt
 ######
 
 ############ end of [Makefile] ############

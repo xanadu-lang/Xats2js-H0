@@ -15,7 +15,7 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-implfun
+#implfun
 print_value
   (vl0) =
 (

@@ -29,7 +29,7 @@ in
 strmcon_cons
 (x0, helper(stream_filter(xs))) where
 {
-impltmp filter$test<int>(x1) = (x1 % x0 > 0)
+#impltmp filter$test<int>(x1) = (x1 % x0 > 0)
 }
 end
 ) (* end of [helper] *)
@@ -48,7 +48,7 @@ dir_set_next() = set(the_dir,  1)
 fun
 dir_set_prev() = set(the_dir, -1)
 //
-impltmp
+#impltmp
 StreamDemo$dir<>() = get(the_dir)
 //
 end // end of [val]
@@ -77,7 +77,7 @@ JS_StreamDemo_show_none(): void = $exname()
 fun
 JS_StreamDemo_show_some(x0: int): void = $exname()
 //
-implfun
+#implfun
 JS_StreamDemo_next() =
 let
 val () =
@@ -92,7 +92,7 @@ case- x0 of
 | optn_cons(p0) => JS_StreamDemo_show_some(p0)
 end (*let*) // end of [JS_StreamDemo_next]
 //
-implfun
+#implfun
 JS_StreamDemo_prev() =
 let
 val () =

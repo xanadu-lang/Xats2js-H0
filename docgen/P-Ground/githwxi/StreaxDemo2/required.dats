@@ -8,7 +8,7 @@ fun
 StreaxDemo2_stream
 ((*void*)) : stream(int)
 (* ****** ****** *)
-impltmp
+#impltmp
 StreaxDemo2_stream
   ((*void*)) =
 (

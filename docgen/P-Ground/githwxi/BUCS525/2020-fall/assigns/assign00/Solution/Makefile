@@ -26,10 +26,9 @@ $(CAT) $(XATS2JS_PRELUDE_NODE) >> assign00_sol_dats.js
 assign00_sol:: ; \
 $(XATS2JS) --output-a assign00_sol_dats.js -d ./assign00_sol.dats
 ############
-
 clean:: ; rm -f *~
-
+############
 cleanall:: clean
 cleanall:: ; rm -f assign00_sol_dats.js
-
+############
 ############ end of [Makefile] ############

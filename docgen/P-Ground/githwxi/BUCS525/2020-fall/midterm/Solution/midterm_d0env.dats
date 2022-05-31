@@ -15,13 +15,13 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-implfun
+#implfun
 d0env_nil() =
 D0ENV(mylist_nil())
 
 (* ****** ****** *)
 
-implfun
+#implfun
 d0env_extend
 (env, x0, v0) =
 let
@@ -32,7 +32,7 @@ end // end of [d0env_extend]
 
 (* ****** ****** *)
 
-implfun
+#implfun
 d0env_search
   (env, x0) =
 let

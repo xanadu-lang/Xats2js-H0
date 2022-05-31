@@ -15,26 +15,26 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 //
-implval
+#implval
 T0Pnil = T0Pbas("nil")
-implval
+#implval
 T0Pint = T0Pbas("int")
 //
-implval
+#implval
 T0Pbtf = T0Pbas("bool")
 //
-implval
+#implval
 T0Pstr = T0Pbas("string")
 //
 (* ****** ****** *)
 
-implfun
+#implfun
 type0_new_ext() =
 T0Pext(tpext_new())
 
 (* ****** ****** *)
 
-implfun
+#implfun
 print_type0(tp0) =
 (
 case+ tp0 of

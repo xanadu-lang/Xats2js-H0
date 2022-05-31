@@ -39,7 +39,7 @@ tunify
 
 (* ****** ****** *)
 
-implfun
+#implfun
 occurs
 (X0, tp0) =
 (
@@ -138,7 +138,7 @@ T0Ptup(tp11, tp12) =>
 
 in(*in-of-local*)
 
-implfun
+#implfun
 tunify
 (tp1, tp2) =
 let
@@ -589,7 +589,7 @@ end // end of [auxcond]
 
 in(*in-of-local*)
 
-implfun
+#implfun
 t0erm_tpinf1
 (t0m0, env0) =
 (
@@ -634,7 +634,7 @@ end // end of [local]
 
 (* ****** ****** *)
 
-implfun
+#implfun
 t0erm_tpinf0(t0m0) =
 t0erm_tpinf1(t0m0, s0env_nil())
 

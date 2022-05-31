@@ -1,14 +1,15 @@
 (* ****** ****** *)
-typedef
+#typedef
 tpnam = string
 (* ****** ****** *)
-typedef
+#typedef
 t0opr = string
-typedef
+#typedef
 t0var = string
 (* ****** ****** *)
-abstype tpext_type
-typedef
+#abstype
+tpext_type//ptr
+#typedef
 tpext = tpext_type
 (* ****** ****** *)
 #staload
@@ -29,8 +30,8 @@ T0Ptup of
 //
 where
 {
-typedef type0lst = mylist(type0)
-typedef type0opt = myoptn(type0)
+#typedef type0lst = mylist(type0)
+#typedef type0opt = myoptn(type0)
 }
 //
 (* ****** ****** *)
@@ -124,9 +125,9 @@ and t0erm =
 //
 where
 {
-typedef t0dclist = mylist(t0dcl)
-typedef t0ermlst = mylist(t0erm)
-typedef t0ermopt = myoptn(t0erm)
+#typedef t0dclist = mylist(t0dcl)
+#typedef t0ermlst = mylist(t0erm)
+#typedef t0ermopt = myoptn(t0erm)
 }
 //
 (* ****** ****** *)
