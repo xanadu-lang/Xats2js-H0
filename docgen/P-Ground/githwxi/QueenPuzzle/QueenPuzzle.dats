@@ -24,7 +24,7 @@ $(XATS2JSD)\
 
 (* ****** ****** *)
 
-abstbox board
+#abstbox board
 
 (* ****** ****** *)
 
@@ -40,16 +40,16 @@ board_cons
 
 local
 
-absimpl board = list(int)
+#absimpl board = list(int)
 
 in(* in-of-local *)
 
-implfun
+#implfun
 board_nil() = list_nil()
-implfun
+#implfun
 board_cons(x0, xs) = list_cons(x0, xs)
 
-impltmp
+#impltmp
 gseq_streamize
 <board><int>(xs) = list_streamize<int>(xs)
 
@@ -57,10 +57,10 @@ end (* end of [local] *)
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 g_print<board>(xs) =
 let
-impltmp
+#impltmp
 rforeach$work<int>(x0) =
 (
   loop(0)) where
@@ -92,7 +92,7 @@ board_check
 gseq_iforall<board><int>(xs)
 ) where
 {
-impltmp
+#impltmp
 iforall$test<int>(i1, x1) =
 if
 (x0 != x1)
@@ -129,10 +129,12 @@ boardlst_extend(xss) =
 gseq_foldr<xz><xs><r0>(xss, list_nil())
 ) where
 {
-typedef xs = board
-typedef xz = list(board)
-typedef r0 = list(board)
-impltmp
+//
+#typedef xs = board
+#typedef xz = list(board)
+#typedef r0 = list(board)
+//
+#impltmp
 foldr$fopr
 <xs><r0>
 (xs, r0) = list_append(board_extend(xs), r0)
@@ -165,7 +167,7 @@ val () =
 gseq_iforeach(xss)
 ) where
 {
-impltmp
+#impltmp
 iforeach$work<board>(i0, xs) = println("Solution#", i0+1, ":\n", xs)
 }
 end // end of [val]
