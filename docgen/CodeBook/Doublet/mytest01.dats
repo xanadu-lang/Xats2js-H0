@@ -20,7 +20,7 @@ $(XATS2JSD)\
 "xatslib\
 /libc/DATS/CATS/JS/Node/basics.dats"
 (* ****** ****** *)
-implfun
+#implfun
 $DB.theDict_make
 ((*void*)) =
 (
@@ -44,8 +44,8 @@ val
 ((*void*)) =
 stream_vt_foreach0(ws) where
 {
-typedef wx = string
-impltmp
+#typedef wx = string
+#impltmp
 foreach0$work<wx>(wx) =
 XATS2JS_jsobjmap_insert_any(theDict, wx, 0)
 }

@@ -17,7 +17,7 @@ JS_doublet_dict
 ((*void*))
 : string = $exname()
 (* ****** ****** *)
-implfun
+#implfun
 $DB.theDict_make
 ((*void*)) =
 (
@@ -40,8 +40,10 @@ val
 ((*void*)) =
 stream_vt_foreach0(ws) where
 {
-typedef wx = string
-impltmp
+//
+#typedef wx = string
+//
+#impltmp
 foreach0$work<wx>(wx) =
 XATS2JS_jsobjmap_insert_any(theDict, wx, 0)
 }
@@ -68,7 +70,7 @@ fun
 ATS_doublet_call
 ((*void*)): void = $exname()
 //
-implfun
+#implfun
 ATS_doublet_call() =
 let
 val w1 =

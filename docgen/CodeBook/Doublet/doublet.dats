@@ -10,7 +10,9 @@ $(XATS2JSD)\
 "prelude/DATS/CATS/JS/jsbasics.dats"
 (* ****** ****** *)
 //
-typedef word = string
+#typedef word = string
+//
+(* ****** ****** *)
 //
 #extern
 fun
@@ -33,14 +35,14 @@ string_fset_at
 , i0
 : nintlt(n)
 , c0: cgtz): string(n)
-implfun
+#implfun
 string_fset_at
   (cs, i0, c0) =
 (
 string_tabulate(length(cs))
 ) where
 {
-impltmp
+#impltmp
 tabulate$fopr<cgtz>(i1) =
 if
 (i0 = i1)
@@ -84,9 +86,9 @@ list_vt_nil()
 in loop(j0, r0) end where
 {
 //
-typedef
+#typedef
   j0 = nintlte( 26 )
-vwtpdef
+#vwtpdef
   r0 = list_vt( string(n) )
 //
 fnx
@@ -113,7 +115,7 @@ end (*end-of-else*)
 }
 end // end of [helper_2]
 (* ****** ****** *)
-implfun
+#implfun
 helper_1
 {n}(cs) =
 stream_vt_maplist0
@@ -121,11 +123,11 @@ stream_vt_maplist0
 gint_streamize_nint(length(cs))
 ) where
 {
-typedef
+#typedef
 x0 = nintlt(n)
-typedef
+#typedef
 y0 = string(n)
-impltmp
+#impltmp
 maplist0$fopr<x0><y0>(i0) = helper_2(cs, i0)
 } (* end of [helper_1] *)
 (* ****** ****** *)
@@ -133,7 +135,7 @@ maplist0$fopr<x0><y0>(i0) = helper_2(cs, i0)
 in(*in-of-local*)
 
 (* ****** ****** *)
-typedef
+#typedef
 node = list(word)
 (* ****** ****** *)
 //
@@ -157,7 +159,7 @@ end
 //
 (* ****** ****** *)
 
-implfun
+#implfun
 doublet_play
 (w1, w2) = let
 //
@@ -178,7 +180,7 @@ in
 XATS2JS_jsobjmap_keyq(theMarks, wx)
 end
 //
-impltmp
+#impltmp
 gtree_node_childlst
 <node>(nx) =
 let
@@ -202,11 +204,11 @@ val ws = helper_1(wx)
 val ws =
 stream_vt_filter0(ws) where
 {
-impltmp
+#impltmp
 filter0$test<word> = word_legalq
 }
 //
-impltmp
+#impltmp
 map0$fopr
 <word><node>(wy) = list_cons(wy, nx)
 //
