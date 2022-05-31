@@ -6,7 +6,7 @@ $(XATS2JSD)\
 #extern
 fun
 ATS_hello(): void = $exname()
-implfun
+#implfun
 ATS_hello() = print("Hello, world!")
 (* ****** ****** *)
 

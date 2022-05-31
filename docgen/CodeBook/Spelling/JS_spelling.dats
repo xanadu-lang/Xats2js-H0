@@ -18,18 +18,18 @@ JS_spelling_arg1(): string = $exname()
 fun
 JS_spelling_dict(): string = $exname()
 (* ****** ****** *)
-impltmp
+#impltmp
 $SP.spelling$char<>() =
 let
 val cs =
 JS_spelling_arg0() in
 char_lower(string_head_raw(cs))
 end
-impltmp
+#impltmp
 $SP.spelling$chars<>() =
 string_lower(JS_spelling_arg1())
 (* ****** ****** *)
-impltmp
+#impltmp
 $SP.spelling$words<>() =
 string_split_lines(JS_spelling_dict())
 (* ****** ****** *)
@@ -42,7 +42,7 @@ a0ref_make
 fun
 ATS_spelling_call(): void = $exname()
 (* ****** ****** *)
-implfun
+#implfun
 ATS_spelling_call() =
 let
 //
@@ -58,7 +58,7 @@ theWords =
 stream_vt_filter0
 ($SP.spelling<>()) where
 {
-impltmp
+#impltmp
 filter0$test<string>(xs) = length(xs) >= 6
 }
 val
@@ -68,7 +68,7 @@ val
 theWords =
 mergesort(theWords) where
 {
-impltmp
+#impltmp
 g_cmp<string>(x1, x2) =
 let
 val
@@ -76,7 +76,7 @@ sgn =
 g_cmp(length(x1), length(x2))
 in
 if sgn != 0 then -sgn else string_cmp(x1, x2)
-end (*let*) // end of [impltmp g_cmp]
+end (*let*) // end of [#impltmp g_cmp]
 }
 //
 in
@@ -92,12 +92,12 @@ fun
 ATS_theWords_print2(): void = $exname()
 (* ****** ****** *)
 
-implfun
+#implfun
 ATS_theWords_print1() =
 let
 val () = println("theWords = ", theWords_r[])
 end // end of [ATS_theWords_print1]
-implfun
+#implfun
 ATS_theWords_print2() =
 let
 //
@@ -117,7 +117,7 @@ println
 val () =
 iforeach(theWords_r[]) where
 {
-  impltmp
+  #impltmp
   iforeach$work<string>(i, word) = println(i+1, ":", word)
 }
 end // end of [ATS_theWords_print2]

@@ -31,7 +31,7 @@ wtest1
 , c0: char): bool =
 gseq_exists(xs) where
 {
-impltmp
+#impltmp
 exists$test<char>(x0) = (c0 = x0)
 }
 
@@ -43,13 +43,13 @@ wtest2
 , cs: string): bool =
 gseq_forall(xs) where
 {
-impltmp
+#impltmp
 forall$test<char>(x0) = wtest1(cs, x0)
 }
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 spelling<>() =
 (
 stream_vt_filter0(spelling$words<>())
@@ -57,7 +57,7 @@ stream_vt_filter0(spelling$words<>())
 {
 val c0 = spelling$char<>()
 val cs = spelling$chars<>()
-impltmp
+#impltmp
 filter0$test<string>(w0) =
 if wtest1(w0, c0) then wtest2(w0, cs) else false
 }
