@@ -49,12 +49,12 @@ local
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 Functest$name<>() = "factorial"
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 Functest$arg0<int> =
 (
   JS_factorial_arg0_int
@@ -69,7 +69,7 @@ JS_factorial_arg0_int(): int = $exname()
 
 in(* in-of-local*)
 
-impltmp
+#impltmp
 JS_factorial_main() = Functest(factorial)
 
 end // end of [local]
@@ -80,12 +80,12 @@ local
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 Functest$name<>() = "ackermann"
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 Functest$arg0<int> =
 (
   JS_ackermann_arg0_int
@@ -96,7 +96,7 @@ fun
 JS_ackermann_arg0_int(): int = $exname()
 }
 
-impltmp
+#impltmp
 Functest$arg1<int> =
 (
   JS_ackermann_arg1_int
@@ -111,7 +111,7 @@ JS_ackermann_arg1_int(): int = $exname()
 
 in(* in-of-local*)
 
-impltmp
+#impltmp
 JS_ackermann_main() = Functest(ackermann)
 
 end // end of [local]

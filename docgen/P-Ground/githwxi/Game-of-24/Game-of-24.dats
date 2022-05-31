@@ -11,38 +11,38 @@
 "xatslib/githwxi/DATS/mygist.dats"
 (* ****** ****** *)
 //
-typedef
+#typedef
 rat = double
-abstype
+#abstype
 rat_type == rat
 //
-typedef rat = rat_type
+#typedef rat = rat_type
 //
 (* ****** ****** *)
 
 local
-absopen rat_type
-in
+#absopen rat_type
+in//local
 //
 fun
 rat(f0: dflt): rat = f0
 //
-impltmp
+#impltmp
 g_i<rat> = gflt_i_dflt<>
 //
-impltmp
+#impltmp
 g_abs<rat> = gflt_abs_dflt<>
 //
-impltmp
+#impltmp
 g_cmp<rat> = gflt_cmp_dflt_dflt<>
 //
-impltmp
+#impltmp
 g_add<rat> = gflt_add_dflt_dflt<>
-impltmp
+#impltmp
 g_sub<rat> = gflt_sub_dflt_dflt<>
-impltmp
+#impltmp
 g_mul<rat> = gflt_mul_dflt_dflt<>
-impltmp
+#impltmp
 g_div<rat> = gflt_div_dflt_dflt<>
 //
 end // end of [local]
@@ -61,7 +61,7 @@ datatype expr =
 (* ****** ****** *)
 //
 (*
-impltmp
+#impltmp
 g_print
 <expr> =
 myprint where
@@ -96,10 +96,10 @@ case+ x0 of
 #extern
 fun
 print_expr(x0:expr): void
-impltmp
+#impltmp
 g_print<expr> = print_expr
 //
-implement
+#implfun
 print_expr(x0) =
 (
 case+ x0 of
@@ -186,7 +186,7 @@ val xs = list_cons(Add(x1, x2), xs)
 
 (* ****** ****** *)
 
-typedef
+#typedef
 node = list(expr)
 
 (* ****** ****** *)
@@ -202,13 +202,13 @@ stream_vt_maplist0
 (list_nchoose2(xs, 2))
 ) where
 {
-typedef
+#typedef
 x0 = expr
-typedef
+#typedef
 xs = list(x0)
-vwtpdef
+#vwtpdef
 xss = stream_vt(xs)
-impltmp
+#impltmp
 maplist0$fopr
 <(xs,xs)><xs>
   (pp) =
@@ -223,7 +223,7 @@ in
 list_map_vt<x0><xs>
 (fopr_expr_expr(x1, x2)) where
 {
-impltmp
+#impltmp
 map$fopr<x0><xs>(x0) = list_cons(x0, xs)
 }
 end // end of [map0$fopr]
@@ -258,7 +258,7 @@ nodes_childlst(xss) =
 stream_vt_mapstrm0(xss)
 ) where
 {
-impltmp mapstrm0$fopr<node> = node_childlst
+#impltmp mapstrm0$fopr<node> = node_childlst
 }
 
 (* ****** ****** *)
@@ -283,9 +283,9 @@ in
 stream_vt_mapoptn0<xs><x0>(xss)
 ) where
 {
-typedef x0 = expr
-typedef xs = list(x0)
-impltmp
+#typedef x0 = expr
+#typedef xs = list(x0)
+#impltmp
 mapoptn0$fopr
 <xs><x0>(xs) =
 let
@@ -317,7 +317,7 @@ Game_of_24_play_print
 //
 (* ****** ****** *)
 
-implfun
+#implfun
 Game_of_24_play_print
   (n1, n2, n3, n4) =
 let
@@ -337,7 +337,7 @@ println(x0);
 //
 stream_vt_foreach0(xs) where
 {
-impltmp
+#impltmp
 foreach0$work<expr>(x0) = println(x0)
 }
 //

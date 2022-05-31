@@ -13,7 +13,7 @@ fun
 myline_process
 (line: string): void = $exname()
 //
-implement
+#implfun
 myline_process(line) =
 println("reverse(line) = ", reverse(line))
 //

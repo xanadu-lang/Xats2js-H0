@@ -88,5 +88,5 @@ cleanall:: ; $(MAKE) -C Tic-Tac-Toe cleanall
 cleanall:: ; $(MAKE) -C Oberon/Chapter2 cleanall
 ######
 export XATS2JSD=./../../..
-export XATSHOME=$(XATS2JSD)/xatsopt
+export XATSHOME=$(XATS2JSD)/modules/xatsopt
 ###### end of [Makefile] ######

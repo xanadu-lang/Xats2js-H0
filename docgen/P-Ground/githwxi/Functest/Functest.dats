@@ -26,7 +26,7 @@ fun
 Functest$arg2((*void*)): a2
 (* ****** ****** *)
 
-impltmp
+#impltmp
 {a0:t0
 ,a1:t0
 ,r0:t0}
@@ -50,7 +50,7 @@ end // end of [Functest]
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 {a0:t0
 ,a1:t0
 ,r0:t0}
@@ -76,7 +76,7 @@ end // end of [Functest]
 
 (* ****** ****** *)
 
-impltmp
+#impltmp
 {a0:t0
 ,a1:t0
 ,a2:t0
@@ -104,7 +104,7 @@ in
 end // end of [Functest]
 
 (* ****** ****** *)
-impltmp
+#impltmp
 Functest$name<>() = "Functest$name"
 (* ****** ****** *)
 

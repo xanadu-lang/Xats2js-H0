@@ -24,7 +24,7 @@ in
 stream_vt_foreach0(cs)
 where
 {
-impltmp
+#impltmp
 foreach0$work<char>(c0) = print(c0)
 }
 end (* let *) // end-of-val
@@ -41,7 +41,7 @@ in
 iforeach0(lines)
 ) where
 {
-  impltmp
+  #impltmp
   iforeach0$work
   <string>
   (i0, line) = println("(line#", i0, ")\t", line)
