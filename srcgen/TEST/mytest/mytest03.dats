@@ -23,4 +23,4 @@ val () =
 println("('a' - 'b') = ", 'a' - 'b')
 (* ****** ****** *)
 
-(* end of [mytest03.dats] *)
+(* end of [mytest_mytest03.dats] *)

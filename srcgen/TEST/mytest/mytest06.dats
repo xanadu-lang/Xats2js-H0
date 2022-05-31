@@ -36,4 +36,4 @@ println("length(", xs, ") = ", length(xs))
 //
 (* ****** ****** *)
 
-(* end of [mytest06.dats] *)
+(* end of [mytest_mytest06.dats] *)

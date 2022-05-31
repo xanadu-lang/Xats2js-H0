@@ -64,4 +64,4 @@ kfact2
 
 (* ****** ****** *)
 
-(* end of [mytest05.dats] *)
+(* end of [mytest_mytest05.dats] *)
