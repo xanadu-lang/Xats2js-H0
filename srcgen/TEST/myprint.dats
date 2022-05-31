@@ -279,7 +279,7 @@ println_9
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 print_1(x1) = () where
 {
@@ -288,7 +288,7 @@ print_1(x1) = () where
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 print_2
@@ -301,7 +301,7 @@ print_2
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -317,7 +317,7 @@ print_3
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -336,7 +336,7 @@ print_4
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -358,7 +358,7 @@ print_5
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -383,7 +383,7 @@ print_6
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -408,7 +408,7 @@ print_7
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -435,7 +435,7 @@ print_8
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2>
 <a3>
@@ -464,13 +464,13 @@ print_9
 }
 //
 (* ****** ****** *)
-impltmp
+#impltmp
 println_0
 <>(*tmp*)
 ((*_*)) = gl_print1("\n")
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 println_1
 ( x1 ) =
@@ -480,7 +480,7 @@ print_1(x1) ; println_0<>()
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1><a2>
 println_2
 ( x1
@@ -492,7 +492,7 @@ print_2
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2><a3>
 println_3
@@ -507,7 +507,7 @@ print_3
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1><a2>
 <a3><a4>
 println_4
@@ -523,7 +523,7 @@ print_4
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2><a3>
 <a4><a5>
@@ -542,7 +542,7 @@ print_5
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1><a2>
 <a3><a4>
 <a5><a6>
@@ -562,7 +562,7 @@ print_6
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2><a3>
 <a4><a5>
@@ -582,7 +582,7 @@ print_7
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1><a2>
 <a3><a4>
 <a5><a6>
@@ -602,7 +602,7 @@ print_8
 //
 (* ****** ****** *)
 //
-impltmp
+#impltmp
 <a1>
 <a2><a3>
 <a4><a5>

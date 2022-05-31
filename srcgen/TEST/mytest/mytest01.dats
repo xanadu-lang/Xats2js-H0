@@ -30,7 +30,7 @@ val three = one + two
 (* ****** ****** *)
 
 (*
-impltmp
+#impltmp
 gint_add_sint_sint<>
   (x, y) =
 (
@@ -64,7 +64,7 @@ if i < x then loop(i+1, (i+1)*r) else r
 #extern
 fun
 fact2(x: int, r: int): int
-implement
+#implfun
 fact2(x, r) =
 if x > 0 then fact2(x-1, x*r) else r
 *)
@@ -73,7 +73,7 @@ if x > 0 then fact2(x-1, x*r) else r
 #extern
 fun
 fact2(x: int)(r: int): int
-implement
+#implfun
 fact2(x)(r) =
 if x > 0 then fact2(x-1)(x*r) else r
 *)
@@ -106,4 +106,4 @@ val () = g_print( "\n" )
 
 (* ****** ****** *)
 
-(* end of [mytest01.dats] *)
+(* end of [mytest_mytest01.dats] *)
