@@ -73,9 +73,9 @@ val y2 = get_at(B1, 2)
 val () =
 rforeach(length(B1)) where
 {
-impltmp
+#impltmp
 a1ref_length<int>(_) = 10
-impltmp
+#impltmp
 rforeach$work<int>(i0) = set_at(B1, i0, i0+1)
 }
 
@@ -85,9 +85,9 @@ val
 bs =
 gseq_map_list(B1) where
 {
-  impltmp
+  #impltmp
   a1ref_length<int>(_) = 10
-  impltmp
+  #impltmp
   map$fopr<int><int>(x) = (x)
 }
 //
@@ -99,7 +99,7 @@ val () = println("bs = ", bs)
 val
 sum = gseq_add(B1) where
 {
-  impltmp
+  #impltmp
   a1ref_length<int>(_) = 10
 }
 //
@@ -138,7 +138,7 @@ a1ref_length<int>(a1ref(int,3))
 val xss =
 gseq_permutize(B3) where
 {
-impltmp a1ref_length<int>(_) = 3
+#impltmp a1ref_length<int>(_) = 3
 }
 //
 val len = length(xss)
@@ -146,4 +146,4 @@ val ( ) = println("|xss| = ", len)
 //
 (* ****** ****** *)
 
-(* end of [array.dats] *)
+(* end of [prelude_array.dats] *)

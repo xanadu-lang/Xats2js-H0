@@ -20,7 +20,7 @@
 "xatslib/githwxi/DATS/mygist.dats"
 (* ****** ****** *)
 //
-typedef
+#typedef
 int4 =
 ( int, int
 , int, int)

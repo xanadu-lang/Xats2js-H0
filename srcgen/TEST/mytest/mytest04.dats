@@ -23,7 +23,7 @@ list_cons
 #extern
 fun
 list_head2: list(int) -> int
-implfun
+#implfun
 list_head2(list_cons(x0, _)) = x0
 (* ****** ****** *)
 //

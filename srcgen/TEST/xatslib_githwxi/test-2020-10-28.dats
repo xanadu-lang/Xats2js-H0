@@ -15,8 +15,8 @@
 //
 // creating an alias
 //
-typedef t0opr = string
-typedef t0var = string
+#typedef t0opr = string
+#typedef t0var = string
 //
 (* ****** ****** *)
 //
@@ -28,24 +28,30 @@ datatype t0erm = // level-0
 | T0Mbtf of (bool)
 //
 | T0Mvar of t0var
-| T0Mlam of (t0var, t0erm)
-| T0Mfix of (t0var, t0erm)
-| T0Mapp of (t0erm, t0erm)
 //
-| T0Mopr1 of
-  (t0opr, t0erm(*arg1*))
-| T0Mopr2 of
-  ( t0opr
-  , t0erm(*arg1*), t0erm(*arg2*))
+|
+T0Mlam of (t0var, t0erm)
+|
+T0Mfix of (t0var, t0erm)
+|
+T0Mapp of (t0erm, t0erm)
 //
-| T0Mcond of 
-  ( t0erm(*cond*)
-  , t0erm(*then*), t0erm(*else*))
+|
+T0Mopr1 of
+( t0opr, t0erm(*arg1*) )
+|
+T0Mopr2 of
+( t0opr
+, t0erm(*arg1*), t0erm(*arg2*))
+//
+|
+T0Mcond of 
+( t0erm(*cond*)
+, t0erm(*then*), t0erm(*else*))
 //
 where
 {
-typedef
-t0ermlst = list(t0erm)
+#typedef t0ermlst = list(t0erm)
 }
 //
 (* ****** ****** *)
@@ -53,10 +59,10 @@ t0ermlst = list(t0erm)
 fun
 print_t0erm(t0: t0erm): void
 (* ****** ****** *)
-implement
+#impltmp
 g_print<t0erm> = print_t0erm
 (* ****** ****** *)
-implement
+#implfun
 print_t0erm(t0) =
 (
 case+ t0 of
@@ -109,9 +115,7 @@ d0env =
 | D0ENV of list(@(t0var, value))
 
 where 
-{
-  typedef valuelst = list(value)
-}
+{#typedef valuelst = list(value)}
 
 (* ****** ****** *)
 //
@@ -120,10 +124,10 @@ fun
 print_value(v0: value): void
 //
 (* ****** ****** *)
-implement
+#impltmp
 g_print<value> = print_value
 (* ****** ****** *)
-implement
+#implfun
 print_value(v0) =
 (
 case+ v0 of
@@ -158,7 +162,7 @@ t0erm_interp1
 , denv: d0env): value
 
 (* ****** ****** *)
-implement
+#implfun
 t0erm_interp0(prog) =
 t0erm_interp1(prog, d0env_nil)
 (* ****** ****** *)
@@ -168,7 +172,7 @@ fun
 d0env_search
 ( env: d0env
 , key: t0var): optn(value)
-implement
+#implfun
 d0env_search
 (env, key) =
 (
@@ -197,7 +201,7 @@ fun
 d0env_extend
 ( env0: d0env
 , x0: t0var, v0: value): d0env
-implement
+#implfun
 d0env_extend
 (env, x0, v0) =
 let
@@ -384,7 +388,7 @@ end(*let*) // end of [aux_cond]
 
 in (*in-of-local*)
 
-implement
+#implfun
 t0erm_interp1
 (t0m0, env0) =
 (

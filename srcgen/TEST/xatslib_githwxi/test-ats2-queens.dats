@@ -71,7 +71,7 @@ val N = 8
 //
 (* ****** ****** *)
 
-typedef int8 =
+#typedef int8 =
 (
   int, int, int, int, int, int, int, int
 ) // end of [int8]

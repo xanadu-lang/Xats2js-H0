@@ -27,14 +27,14 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 
-impltmp
+#impltmp
 <x0>(*tmp*)
 stream_filter(xs) =
 (
 stream_mapoptn(xs)
 ) where
 {
-impltmp
+#impltmp
 mapoptn$fopr<x0><x0>(x0) = 
 if
 filter$test(x0)
@@ -60,7 +60,7 @@ strmcon_cons
 (x0, sieve(stream_filter(xs)))
 )
 where
-implement
+#impltmp
 filter$test<int>(x1) = (x1 % x0 > 0)
 endwhr
 endlet
@@ -103,4 +103,4 @@ val () = println("x5 = ", x5)
 
 (* ****** ****** *)
 
-(* end of [sieve1.dats] *)
+(* end of [prelude_sieve1.dats] *)

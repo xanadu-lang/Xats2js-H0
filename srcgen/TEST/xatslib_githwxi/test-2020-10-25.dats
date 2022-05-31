@@ -15,8 +15,8 @@
 //
 // creating an alias
 //
-typedef t0opr = string
-typedef t0var = string
+#typedef t0opr = string
+#typedef t0var = string
 //
 (* ****** ****** *)
 //
@@ -44,7 +44,7 @@ datatype t0erm = // level-0
 //
 where
 {
-typedef
+#typedef
 t0ermlst = list(t0erm)
 }
 //
@@ -53,10 +53,10 @@ t0ermlst = list(t0erm)
 fun
 print_t0erm(t0: t0erm): void
 (* ****** ****** *)
-implement
+#impltmp
 g_print<t0erm> = print_t0erm
 (* ****** ****** *)
-implement
+#implfun
 print_t0erm(t0) =
 (
 case+ t0 of
@@ -101,7 +101,7 @@ t0erm_subst
 , sub: t0erm): t0erm
 (* ****** ****** *)
 
-implement
+#implfun
 t0erm_subst
 (t0, x0, sub) =
 (
@@ -165,7 +165,7 @@ fun
 t0erm_interp
 (t0: t0erm): t0erm
 
-implement
+#implfun
 t0erm_interp
   (t0) =
 (

@@ -25,12 +25,12 @@ abc =
 fun
 print_abc
 (x0: abc): void
-impltmp
+#impltmp
 g_print<abc> = print_abc
 
 (* ****** ****** *)
 
-implfun
+#implfun
 print_abc(x0) =
 (
 case+ x0 of

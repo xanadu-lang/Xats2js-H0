@@ -26,7 +26,7 @@ kfact
 ( n: int
 , k: int -<cref> ans): ans
 
-implement
+#impltmp
 <ans>
 kfact =
 fix

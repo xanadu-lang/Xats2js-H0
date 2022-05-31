@@ -41,7 +41,7 @@ stream_sieve_vt(from(2)) where
 fun
 from(n) = $lazy(cons(n, from(n+1)))
 //
-impltmp
+#impltmp
 sieve$test<int>(x1, x2) = (x2 % x1 > 0)
 //
 } (*end of [val]*)
@@ -72,4 +72,4 @@ stream_vt_print<int>(xs); g_print("\n")
 
 (* ****** ****** *)
 
-(* end of [strms.dats] *)
+(* end of [prelude_strms.dats] *)

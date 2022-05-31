@@ -54,7 +54,7 @@ max
 //
 (* ****** ****** *)
 
-implmnt
+#implmnt
 {a:type}
 isAVL<a>(xs) =
 try

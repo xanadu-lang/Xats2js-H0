@@ -58,7 +58,7 @@ fun
 fact2(n:int): int =
 let
 //
-typedef
+#typedef
 int2 = @(int, int)
 //
 fun
@@ -94,7 +94,7 @@ fun
 fact3(n:int): int =
 let
 //
-vwtpdef
+#vwtpdef
 int2 = $(int, int)
 //
 fun

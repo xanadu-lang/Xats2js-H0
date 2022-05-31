@@ -33,7 +33,7 @@ iadd1
 (
   (x, y)+ ) where
 {
-  #postfix + of 1000
+  #pstfix + of 1000
 }
 
 (* ****** ****** *)
@@ -44,4 +44,4 @@ println
 
 (* ****** ****** *)
 
-(* end of [mytest07.dats] *)
+(* end of [mytest_mytest07.dats] *)

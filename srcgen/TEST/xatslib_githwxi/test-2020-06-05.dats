@@ -19,7 +19,7 @@ val ( ) =
 ( print("css=")
 ; gl_print0(css); println()) where
 {
-impltmp stream_vt_print$len<>() = 6
+#impltmp stream_vt_print$len<>() = 6
 }
 //
 (* ****** ****** *)

@@ -87,9 +87,9 @@ list_cons(x, list_nil())
 )
 ) where
 {
-  typedef ans = list(bool)
-  implement
-  kflip<ans>(k0) = append(k0(false), k0(true))
+#typedef ans = list(bool)
+#impltmp
+kflip<ans>(k0) = append(k0(false), k0(true))
 } (* end of [kxor0] *)
 
 (* ****** ****** *)

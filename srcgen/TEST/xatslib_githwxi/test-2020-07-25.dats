@@ -17,7 +17,7 @@
 "xatslib/githwxi/DATS/mygist.dats"
 (* ****** ****** *)
 //
-abstype pole(n:int)
+#abstype pole(n:int)
 //
 (* ****** ****** *)
 //
@@ -75,18 +75,18 @@ Pole of
   string, list(int, n)
 ) (* end of [pole_] *)
 
-absimpl pole(n:int) = pole_(n)
+#absimpl pole(n:int) = pole_(n)
 
 in (* in-of-local *)
 
-implfun
+#implfun
 pole_make(name, ndisk) =
 Pole(
   name
 , list_vt2t(list_make_intrange(1, ndisk+1))
 ) (* end of [pole_make] *)
 
-implfun
+#implfun
 move_1(P1, P2) = let
 //
   val Pole(n1, r1) = P1
@@ -107,11 +107,8 @@ end // end of [local]
 
 (* ****** ****** *)
 
-implfun
-move_n
-(
-  n, P1, P2, P3
-) = (
+#implfun
+move_n(n, P1, P2, P3) = (
 //
 if
 n > 0

@@ -44,7 +44,7 @@ case- xs of
  (x0, sieve(stream_vt_filter0(xs)))
 ) where
 {
-implement
+#impltmp
 filter0$test<int>(x1) = (x1 % x0 > 0)
 }
 end
@@ -87,4 +87,4 @@ val () = println("x5 = ", x5)
 
 (* ****** ****** *)
 
-(* end of [sieve1_vt.dats] *)
+(* end of [prelude_sieve1_vt.dats] *)

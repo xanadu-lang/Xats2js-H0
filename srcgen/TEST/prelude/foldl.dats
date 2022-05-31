@@ -45,8 +45,8 @@ length
   foldl<a><int>(xs, 0)
 ) where
 {
-  implement
-  foldl$fopr<a><int>(r0, x0) = r0 + 1
+#impltmp
+foldl$fopr<a><int>(r0, x0) = r0 + 1
 } endwhr
 
 (* ****** ****** *)

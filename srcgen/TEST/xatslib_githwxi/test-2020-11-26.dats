@@ -31,12 +31,12 @@ then fact2(x-1, x*r) else r
 val () =
 FI$pinfo(fact1) where
 {
-  impltmp FI$name<>() = "fact1"
+  #impltmp FI$name<>() = "fact1"
 }
 val () =
 FI$pinfo(fact2) where
 {
-  impltmp FI$name<>() = "fact2"
+  #impltmp FI$name<>() = "fact2"
 }
 
 (* ****** ****** *)
