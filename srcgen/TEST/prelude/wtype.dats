@@ -1,23 +1,8 @@
 (* ****** ****** *)
-#staload
-"prelude/DATS/gint.dats"
-#staload
-"prelude/DATS/char.dats"
-#staload
-"prelude/DATS/string.dats"
+#include
+"./../../..\
+/share/xats2js_prelude.hats"
 (* ****** ****** *)
-#staload
-"prelude/DATS/tuple.dats"
-(* ****** ****** *)
-#staload
-"prelude\
-/DATS/CATS/JS/basics.dats"
-#staload
-"prelude\
-/DATS/CATS/JS/unsafe.dats"
-(* ****** ****** *)
-#staload _ =
-"prelude/DATS/synougat.dats"
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
