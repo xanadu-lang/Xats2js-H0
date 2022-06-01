@@ -3,8 +3,6 @@
 // Game-of-24
 *)
 (* ****** ****** *)
-#staload "./../myprint.dats"
-(* ****** ****** *)
 #include
 "./../../..\
 /share/xats2js_prelude.hats"
@@ -14,7 +12,7 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 #staload
-"xatslib/githwxi/DATS/mygist.dats"
+"xatslib/githwxi/DATS/mygist0.dats"
 (* ****** ****** *)
 //
 #typedef

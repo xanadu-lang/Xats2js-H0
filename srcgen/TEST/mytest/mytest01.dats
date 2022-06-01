@@ -1,22 +1,9 @@
 (* ****** ****** *)
-#staload
-UN =
-"prelude/SATS/unsafe.sats"
+#include
+"./../../..\
+/share/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
-"prelude/DATS/gseq.dats"
-#staload _ =
-"prelude/DATS/gint.dats"
-#staload _ =
-"prelude/DATS/string.dats"
-(* ****** ****** *)
-#staload
-"prelude\
-/DATS/CATS/JS/basics.dats"
-#staload
-"prelude\
-/DATS/CATS/JS/unsafe.dats"
-#staload
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)

@@ -7,9 +7,6 @@
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
-#staload
-"xatslib/githwxi/DATS/mygist.dats"
-(* ****** ****** *)
 
 val xs =
 list_cons(1,

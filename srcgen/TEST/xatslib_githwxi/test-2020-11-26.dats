@@ -8,13 +8,12 @@ For testing xdebug
 "./../../..\
 /share/xats2js_prelude.hats"
 (* ****** ****** *)
-#staload
-"xatslib\
-/githwxi/DATS/xdebug.dats"
-(* ****** ****** *)
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
+(* ****** ****** *)
+#staload
+"xatslib/githwxi/DATS/xdebug0.dats"
 (* ****** ****** *)
 fun
 fact1(x: int): int =

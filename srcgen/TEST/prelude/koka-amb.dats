@@ -1,30 +1,7 @@
 (* ****** ****** *)
-#staload
-"prelude/DATS/gseq.dats"
-(* ****** ****** *)
-#staload
-"prelude/DATS/bool.dats"
-#staload
-"prelude/DATS/char.dats"
-#staload
-"prelude/DATS/string.dats"
-(* ****** ****** *)
-#staload
-"prelude/DATS/list.dats"
-(* ****** ****** *)
-#staload
-_(*UN*) =
-"prelude/DATS/unsafe.dats"
-(* ****** ****** *)
-#staload
-"prelude\
-/DATS/CATS/JS/basics.dats"
-#staload
-"prelude\
-/DATS/CATS/JS/unsafe.dats"
-#staload
-"prelude\
-/DATS/CATS/JS/g_print.dats"
+#include
+"./../../..\
+/share/xats2js_prelude.hats"
 (* ****** ****** *)
 
 fun
@@ -102,4 +79,4 @@ end // end of [val]
 //
 (* ****** ****** *)
 
-(* end of [koka-amb.dats] *)
+(* end of [prelude_koka-amb.dats] *)

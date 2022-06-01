@@ -1,47 +1,8 @@
 (* ****** ****** *)
-#staload
-"prelude/DATS/gbas.dats"
-#staload
-"prelude/DATS/gnum.dats"
-#staload
-"prelude/DATS/gord.dats"
-#staload
-"prelude/DATS/gfor.dats"
-#staload
-"prelude/DATS/gseq.dats"
-#staload
-"prelude/DATS/gseq_vt.dats"
+#include
+"./../../..\
+/share/xats2js_prelude.hats"
 (* ****** ****** *)
-#staload _ =
-"prelude/DATS/unsafe.dats"
-(* ****** ****** *)
-#staload _ =
-"prelude/DATS/char.dats"
-#staload _ =
-"prelude/DATS/gint.dats"
-#staload
-"prelude/DATS/array.dats"
-#staload _ =
-"prelude/DATS/string.dats"
-(* ****** ****** *)
-#staload _ =
-"prelude/DATS/list.dats"
-#staload _ =
-"prelude/DATS/list_vt.dats"
-#staload _ =
-"prelude/DATS/stream_vt.dats"
-(* ****** ****** *)
-#staload
-"prelude\
-/DATS/CATS/JS/basics.dats"
-#staload
-"prelude\
-/DATS/CATS/JS/unsafe.dats"
-#staload
-"prelude\
-/DATS/CATS/JS/prelude.dats"
-(* ****** ****** *)
-#staload "./../myprint.dats"
 #staload
 "prelude/DATS/CATS/JS/g_print.dats"
 (* ****** ****** *)
@@ -85,10 +46,10 @@ val
 bs =
 gseq_map_list(B1) where
 {
-  #impltmp
-  a1ref_length<int>(_) = 10
-  #impltmp
-  map$fopr<int><int>(x) = (x)
+#impltmp
+a1ref_length<int>(_) = 10
+#impltmp
+map$fopr<int><int>(x) = (x)
 }
 //
 val bs = list_vt2t(bs)

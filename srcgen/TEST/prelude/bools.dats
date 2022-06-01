@@ -1,20 +1,20 @@
 (* ****** ****** *)
 #staload _ =
-"prelude/DATS/bool.dats"
+"prelude/DATS/bool000.dats"
 (* ****** ****** *)
 #staload _ =
-"prelude/DATS/char.dats"
+"prelude/DATS/char000.dats"
 (* ****** ****** *)
 #staload
 "prelude\
-/DATS/CATS/JS/basics.dats"
+/DATS/CATS/JS/basics0.dats"
 #staload
 "prelude\
-/DATS/CATS/JS/unsafe.dats"
+/DATS/CATS/JS/unsafex.dats"
 (* ****** ****** *)
 //
 #staload _ =
-"prelude/DATS/synougat.dats"
+"prelude/DATS/synoug0.dats"
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"

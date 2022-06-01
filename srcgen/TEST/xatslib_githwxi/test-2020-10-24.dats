@@ -9,9 +9,6 @@
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
-#staload
-"xatslib/githwxi/DATS/mygist.dats"
-(* ****** ****** *)
 
 val () = print(1, 2)
 val () = g_print('\n')

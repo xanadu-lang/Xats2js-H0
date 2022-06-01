@@ -17,8 +17,6 @@
 // implementation of exceptions
 //
 (* ****** ****** *)
-#staload "./../myprint.dats"
-(* ****** ****** *)
 #include
 "./../../..\
 /share/xats2js_prelude.hats"
@@ -26,9 +24,6 @@
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
-(* ****** ****** *)
-#staload
-"xatslib/githwxi/DATS/mygist.dats"
 (* ****** ****** *)
 //
 fun

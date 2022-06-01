@@ -5,43 +5,39 @@ This is for loading
 the prelude library for xats2js
 *)
 (* ****** ****** *)
-#staload _ = "prelude/DATS/gbas.dats"
+#staload _ = "prelude/DATS/gbas000.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/gord.dats"
-#staload _ = "prelude/DATS/gnum.dats"
+#staload _ = "prelude/DATS/gord000.dats"
+#staload _ = "prelude/DATS/gnum000.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/gseq.dats"
-#staload _ = "prelude/DATS/gfor.dats"
-#staload _ = "prelude/DATS/gfun.dats"
+#staload _ = "prelude/DATS/gseq000.dats"
+#staload _ = "prelude/DATS/gfor000.dats"
+#staload _ = "prelude/DATS/gfun000.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/bool.dats"
-#staload _ = "prelude/DATS/char.dats"
-#staload _ = "prelude/DATS/gint.dats"
-#staload _ = "prelude/DATS/gflt.dats"
+#staload _ = "prelude/DATS/bool000.dats"
+#staload _ = "prelude/DATS/char000.dats"
+#staload _ = "prelude/DATS/gint000.dats"
+#staload _ = "prelude/DATS/gflt000.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/tuple.dats"
-#staload _ = "prelude/DATS/string.dats"
+#staload _ = "prelude/DATS/strn000.dats"
+#staload _ = "prelude/DATS/arrn000.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/list.dats"
-#staload _ = "prelude/DATS/optn.dats"
-#staload _ = "prelude/DATS/stream.dats"
+#staload _ = "prelude/DATS/list000.dats"
+#staload _ = "prelude/DATS/optn000.dats"
+#staload _ = "prelude/DATS/stream0.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/array.dats"
+#staload _ = "prelude/DATS/synoug0.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/gseq_vt.dats"
+#staload _ = "prelude/DATS/unsafex.dats"
 (* ****** ****** *)
-#staload _ = "prelude/DATS/list_vt.dats"
-#staload _ = "prelude/DATS/optn_vt.dats"
-#staload _ = "prelude/DATS/stream_vt.dats"
-(* ****** ****** *)
-#staload _ = "prelude/DATS/unsafe.dats"
-(* ****** ****** *)
-#staload _ = "prelude/DATS/synougat.dats"
+#staload _ = "prelude/DATS/VT/gseq000_vt.dats"
+#staload _ = "prelude/DATS/VT/list000_vt.dats"
+#staload _ = "prelude/DATS/VT/optn000_vt.dats"
+#staload _ = "prelude/DATS/VT/stream0_vt.dats"
 (* ****** ****** *)
 //
-#staload _ = "prelude/DATS/CATS/JS/basics.dats"
-//
-#staload _ = "prelude/DATS/CATS/JS/unsafe.dats"
+#staload _ = "prelude/DATS/CATS/JS/basics0.dats"
+#staload _ = "prelude/DATS/CATS/JS/basics1.dats"
 //
 #staload _ = "prelude/DATS/CATS/JS/prelude.dats"
 //
@@ -49,7 +45,7 @@ the prelude library for xats2js
 //
 #staload _ = "prelude/DATS/CATS/JS/g_print.dats"
 //
-#staload _ = "prelude/DATS/CATS/JS/jsbasics.dats"
+#staload _ = "prelude/DATS/CATS/JS/unsafex.dats"
 //
 (* ****** ****** *)
 

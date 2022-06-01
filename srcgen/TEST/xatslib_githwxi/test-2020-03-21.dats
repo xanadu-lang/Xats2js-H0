@@ -8,7 +8,7 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 #staload
-"xatslib/githwxi/DATS/mygist.dats"
+"xatslib/githwxi/DATS/mygist0.dats"
 (* ****** ****** *)
 val bs =
 digitize(16)

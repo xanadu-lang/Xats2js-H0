@@ -8,7 +8,7 @@
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 #staload =
-"prelude/DATS/CATS/JS/jsbasics.dats"
+"prelude/DATS/CATS/JS/basics1.dats"
 (* ****** ****** *)
 val kxs =
 XATS2JS_jsobjmap_make_nil<string>()
