@@ -6,10 +6,10 @@ $(XATS2JSD)\
 #staload DB = "./doublet.dats"
 (* ****** ****** *)
 #staload MY =
-"xatslib/githwxi/DATS/mygist.dats"
+"xatslib/githwxi/DATS/mygist0.dats"
 (* ****** ****** *)
 #staload
-"prelude/DATS/CATS/JS/jsbasics.dats"
+"prelude/DATS/CATS/JS/basics1.dats"
 (* ****** ****** *)
 #extern
 fun

@@ -4,10 +4,10 @@ $(XATS2JSD)\
 /share/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
-"xatslib/githwxi/DATS/gtree1.dats"
+"xatslib/githwxi/DATS/mytree0.dats"
 (* ****** ****** *)
 #staload
-"prelude/DATS/CATS/JS/jsbasics.dats"
+"prelude/DATS/CATS/JS/basics1.dats"
 (* ****** ****** *)
 //
 #typedef word = string

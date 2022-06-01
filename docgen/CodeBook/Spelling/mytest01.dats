@@ -5,16 +5,17 @@ $(XATS2JSD)\
 (* ****** ****** *)
 #staload SP = "./spelling.dats"
 (* ****** ****** *)
-#staload
-"xatslib/libc/DATS/fpath.dats"
-(* ****** ****** *)
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 #staload _ =
 "xatslib\
-/libc/DATS/CATS/JS/Node/basics.dats"
+/libcats\
+/DATS/CATS/JS/Node/basics0.dats"
+(* ****** ****** *)
+#staload
+"xatslib/libcats/DATS/fpath00.dats"
 (* ****** ****** *)
 
 #impltmp

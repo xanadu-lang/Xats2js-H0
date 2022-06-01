@@ -11,6 +11,10 @@ the prelude library for xats2js
 #staload _ = "prelude/DATS/gnum000.dats"
 (* ****** ****** *)
 #staload _ = "prelude/DATS/gseq000.dats"
+(*
+#staload _ = "prelude/DATS/gseqn00.dats"
+*)
+(* ****** ****** *)
 #staload _ = "prelude/DATS/gfor000.dats"
 #staload _ = "prelude/DATS/gfun000.dats"
 (* ****** ****** *)

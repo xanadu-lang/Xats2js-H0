@@ -6,7 +6,7 @@ $(XATS2JSD)\
 #staload SP = "./spelling.dats"
 (* ****** ****** *)
 #staload
-"xatslib/githwxi/DATS/mygist.dats"
+"xatslib/githwxi/DATS/mygist0.dats"
 (* ****** ****** *)
 #extern
 fun

@@ -8,7 +8,7 @@
 /share/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
-"xatslib/githwxi/DATS/mygist.dats"
+"xatslib/githwxi/DATS/mygist0.dats"
 (* ****** ****** *)
 //
 #typedef

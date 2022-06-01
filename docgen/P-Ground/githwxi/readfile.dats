@@ -3,16 +3,18 @@
 $(XATS2JSD)\
 /share/xats2js_prelude.hats"
 (* ****** ****** *)
-#staload
-"xatslib/libc/DATS/fpath.dats"
-(* ****** ****** *)
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
+#staload
+"xatslib\
+/libcats/DATS/fpath00.dats"
+(* ****** ****** *)
 #staload _ =
 "xatslib\
-/libc/DATS/CATS/JS/Node/basics.dats"
+/libcats\
+/DATS/CATS/JS/Node/basics0.dats"
 (* ****** ****** *)
 
 val () =
