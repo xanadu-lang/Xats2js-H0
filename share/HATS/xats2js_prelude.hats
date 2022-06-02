@@ -28,16 +28,17 @@ the prelude library for xats2js
 (* ****** ****** *)
 #staload _ = "prelude/DATS/list000.dats"
 #staload _ = "prelude/DATS/optn000.dats"
-#staload _ = "prelude/DATS/stream0.dats"
+#staload _ = "prelude/DATS/strm000.dats"
 (* ****** ****** *)
 #staload _ = "prelude/DATS/synoug0.dats"
 (* ****** ****** *)
 #staload _ = "prelude/DATS/unsafex.dats"
 (* ****** ****** *)
 #staload _ = "prelude/DATS/VT/gseq000_vt.dats"
+(* ****** ****** *)
 #staload _ = "prelude/DATS/VT/list000_vt.dats"
 #staload _ = "prelude/DATS/VT/optn000_vt.dats"
-#staload _ = "prelude/DATS/VT/stream0_vt.dats"
+#staload _ = "prelude/DATS/VT/strm000_vt.dats"
 (* ****** ****** *)
 //
 #staload _ = "prelude/DATS/CATS/JS/basics0.dats"
