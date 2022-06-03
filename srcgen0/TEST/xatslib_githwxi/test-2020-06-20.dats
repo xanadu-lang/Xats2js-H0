@@ -5,7 +5,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -175,9 +175,9 @@ node_childlst
 ( xs
 : node
 )
-: stream_vt(node) =
+: strm_vt(node) =
 (
-stream_vt_maplist0
+strm_vt_maplist0
 (list_nchoose2(xs, 2))
 ) where
 {
@@ -186,7 +186,7 @@ x0 = expr
 #typedef
 xs = list(x0)
 #vwtpdef
-xss = stream_vt(xs)
+xss = strm_vt(xs)
 #impltmp
 maplist0$fopr
 <(xs,xs)><xs>
@@ -214,9 +214,9 @@ end // end of [map0$fopr]
 fun
 nodes_childlst
 ( xss
-: stream_vt(node)
+: strm_vt(node)
 )
-: stream_vt(node) =
+: strm_vt(node) =
 $llazy
 (
 case+ !xss of
@@ -226,7 +226,7 @@ strmcon_vt_nil()
 |
 strmcon_vt_cons(xs, xss) => !
 (
-stream_vt_append
+strm_vt_append
 (node_childlst(xs), nodes_childlst(xss))
 )
 )
@@ -234,7 +234,7 @@ stream_vt_append
 fun
 nodes_childlst(xss) =
 (
-stream_vt_mapstrm0(xss)
+strm_vt_mapstrm0(xss)
 ) where
 {
 #impltmp mapstrm0$fopr<node> = node_childlst
@@ -248,7 +248,7 @@ play
 , n2: int
 , n3: int
 , n4: int)
-: stream_vt(expr) =
+: strm_vt(expr) =
 (
 let
 val
@@ -259,7 +259,7 @@ val
 xss = nodes_childlst(xss)
 in
 (
-stream_vt_mapoptn0<xs><x0>(xss)
+strm_vt_mapoptn0<xs><x0>(xss)
 ) where
 {
 //

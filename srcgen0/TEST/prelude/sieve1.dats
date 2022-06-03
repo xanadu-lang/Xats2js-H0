@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -10,9 +10,9 @@
 
 #impltmp
 <x0>(*tmp*)
-stream_filter(xs) =
+strm_filter(xs) =
 (
-stream_mapoptn(xs)
+strm_mapoptn(xs)
 ) where
 {
 #impltmp
@@ -27,7 +27,7 @@ then optn_vt_cons(x0) else optn_vt_nil()
 fun
 sieve
 ( xs
-: stream(int)) =
+: strm(int)) =
 $lazy
 (
 let
@@ -38,7 +38,7 @@ case- xs of
 strmcon_cons(x0, xs) =>
 (
 strmcon_cons
-(x0, sieve(stream_filter(xs)))
+(x0, sieve(strm_filter(xs)))
 )
 where
 #impltmp

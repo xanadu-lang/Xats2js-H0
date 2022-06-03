@@ -1,16 +1,17 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
+
 fun
 sieve
 ( xs
-: stream_vt(int)) =
+: strm_vt(int)) =
 $llazy
 (
 g_free(xs);
@@ -22,7 +23,7 @@ case- xs of
 ~strmcon_vt_cons(x0, xs) =>
 (
  strmcon_vt_cons
- (x0, sieve(stream_vt_filter0(xs)))
+ (x0, sieve(strm_vt_filter0(xs)))
 ) where
 {
 #impltmp

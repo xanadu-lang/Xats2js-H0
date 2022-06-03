@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -85,7 +85,7 @@ and b = abc[1]
 and c = abc[2]
 //
 val
-abc = string_make_list(abc)
+abc = strn_make_list(abc)
 val a = abc[0]
 and b = abc[1]
 and c = abc[2]
@@ -96,7 +96,7 @@ val xyz =
 let
 val x = sint('x')
 in
-string_tabulate_cfr
+strn_tabulate_cfr
 (3, lam(i) => char(x+i))
 end // end of [val]
 val () =
@@ -113,7 +113,7 @@ gseq_map_add
 {
 #typedef x0 = char
 #typedef y0 = sint
-#typedef xs = string
+#typedef xs = strn
 #impltmp map$fopr<x0><y0>(c) = sint(c)
 }
 //
@@ -162,14 +162,8 @@ val (  ) =
 print("wrds = ");
 let
 #impltmp
-g_print
-<string>(cs) =
-( print('"')
-; print(cs)
-; print('"'))
-in
-  print0(wrds)
-end ; println((*void*)) )
+g_print<strn>(cs) =
+(print('"'); print(cs); print('"')) in print(wrds) end ; println((*void*)) )
 //
 (* ****** ****** *)
 

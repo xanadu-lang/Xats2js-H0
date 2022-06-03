@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -49,7 +49,7 @@ val xs3 = list_concat<int>(xss)
 
 val xs1 = list_copy_vt(xs1)
 val xs2 = list_copy_vt(xs2)
-val xs3 = list_vt_append(xs1, xs2)
+val xs3 = list_vt_append0(xs1, xs2)
 
 (* ****** ****** *)
 
@@ -69,13 +69,13 @@ list_vt_rappend11<int>(ys1, ys2)
 
 (* ****** ****** *)
 
-val ln1 = list_vt_length<int>(ys1)
-val ln2 = list_vt_length<int>(ys2)
-val ln3 = list_vt_length<int>(ys3)
+val ln1 = list_vt_length1<int>(ys1)
+val ln2 = list_vt_length1<int>(ys2)
+val ln3 = list_vt_length1<int>(ys3)
 
 (* ****** ****** *)
 
-val ys4 = list_vt_mergesort<int>(ys3)
+val ys4 = list_vt_mergesort0<int>(ys3)
 
 (* ****** ****** *)
 
@@ -89,13 +89,13 @@ val zss =
 list_vt_cons(zs1,
 list_vt_cons(zs2,
 list_vt_cons(zs3, list_vt_nil())))
-val zs4 = list_vt_concat<int>(zss)
+val zs4 = list_vt_concat0<int>(zss)
 
 (* ****** ****** *)
 
 val len =
-stream_vt_length(list_vt_permutize<int>(zs4))
+strm_vt_length(list_vt_permutize0<int>(zs4))
 
 (* ****** ****** *)
 
-(* end of [lists.dats] *)
+(* end of [TEST_prelude_lists.dats] *)

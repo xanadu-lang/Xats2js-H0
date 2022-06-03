@@ -6,12 +6,13 @@ For testing xdebug
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
+
 val line = "\"\
 Here is a lone string \
 spreaded over multiple lines!\"\

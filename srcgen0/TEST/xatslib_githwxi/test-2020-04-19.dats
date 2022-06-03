@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -20,8 +20,8 @@ list_cons(5, list_nil())))))
 
 (* ****** ****** *)
 //
-val xss = list_nchoose1(xs, 2)
-val len = stream_vt_length(xss)
+val xss = list_nchoose1(xs,2)
+val len = strm_vt_length(xss)
 //
 val (  ) =
 ( g_print("len = ")
@@ -29,8 +29,8 @@ val (  ) =
 //
 (* ****** ****** *)
 //
-val xss2 = list_nchoose2(xs, 2)
-val len2 = stream_vt_length(xss2)
+val xss2 = list_nchoose2(xs,2)
+val len2 = strm_vt_length(xss2)
 //
 val (  ) =
 ( g_print("len2 = ")

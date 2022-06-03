@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -17,7 +17,7 @@ cons with strmcon_cons
 
 val
 xs =
-stream_sieve_vt(from(2)) where
+strm_sieve_vt(from(2)) where
 {
 //
 fun
@@ -49,7 +49,7 @@ cons(x5, xs) = $eval(xs) // x5 = 13
 
 val () =
 (
-stream_vt_print<int>(xs); g_print("\n")
+strm_vt_print<int>(xs); g_print("\n")
 ) (* end of [val] *)
 
 (* ****** ****** *)

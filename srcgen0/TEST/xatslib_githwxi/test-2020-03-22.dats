@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -21,7 +21,7 @@ list_cons(5, list_nil())))))
 (* ****** ****** *)
 //
 val xss = list_permutize(xs)
-val len = stream_vt_length(xss)
+val len = strm_vt_length(xss)
 //
 val ( ) =
 ( g_print("len = ")

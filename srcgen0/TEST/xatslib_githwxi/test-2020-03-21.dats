@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -21,7 +21,7 @@ val
 ds1 = digitize(31415926)
 val
 ds2 =
-stream_vt_listize(rdigitize(31415926))
+strm_vt_listize(rdigitize(31415926))
 //
 (* ****** ****** *)
 //
@@ -47,7 +47,7 @@ let
 fun
 auxloop
 ( ds
-: stream_vt(int)
+: strm_vt(int)
 ) : list_vt(int) =
 (
 case+ !ds of

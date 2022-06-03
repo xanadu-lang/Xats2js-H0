@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -10,18 +10,23 @@
 #staload
 "xatslib/githwxi/DATS/mygist0.dats"
 (* ****** ****** *)
-
+//
+val cs =
+listize(cs) where
+{
 val cs =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-val cs = listize(cs)
+}
 val () = println("cs = ", cs)
-
+//
 (* ****** ****** *)
 val
-the_input = "1\n2\n3\n"
-val
 the_lines =
-string_split_lines(the_input)
+(
+strn_split_lines(text)) where
+{
+val text = "1\n2\n3\n4\n5\n6\n"
+}
 (* ****** ****** *)
 val () =
 loop(1, the_lines) where
@@ -29,7 +34,7 @@ loop(1, the_lines) where
 fun
 loop
 ( i0: int
-, xs: stream_vt(string)): void =
+, xs: strm_vt(strn)): void =
 (
 case+ !xs of
 | ~

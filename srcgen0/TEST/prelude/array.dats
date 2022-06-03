@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
 "prelude/DATS/CATS/JS/g_print.dats"
@@ -32,7 +32,8 @@ val y2 = get_at(B1, 2)
 (* ****** ****** *)
 
 val () =
-rforeach(length(B1)) where
+gseq_rforeach
+(gseq_length(B1)) where
 {
 #impltmp
 a1ref_length<int>(_) = 10

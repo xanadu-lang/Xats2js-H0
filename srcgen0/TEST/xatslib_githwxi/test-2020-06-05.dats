@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include
 "./../../..\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -14,9 +14,10 @@ val css =
 gseq_permutize(cs1)
 val ( ) =
 ( print("css=")
-; gl_print0(css); println()) where
+; gl_print0(css); println()
+) where
 {
-#impltmp stream_vt_print$len<>() = 6
+#impltmp strm_vt_print$len<>() = 6
 }
 //
 (* ****** ****** *)
