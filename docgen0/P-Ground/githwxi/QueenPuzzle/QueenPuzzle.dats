@@ -13,7 +13,7 @@
 #include
 "\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -50,8 +50,8 @@ board_nil() = list_nil()
 board_cons(x0, xs) = list_cons(x0, xs)
 
 #impltmp
-gseq_streamize
-<board><int>(xs) = list_streamize<int>(xs)
+gseq_strmize
+<board><int>(xs) = list_strmize<int>(xs)
 
 end (* end of [local] *)
 

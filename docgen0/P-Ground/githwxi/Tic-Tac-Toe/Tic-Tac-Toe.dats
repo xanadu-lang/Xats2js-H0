@@ -12,7 +12,7 @@
 #include
 "\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 //
 datatype
@@ -48,7 +48,7 @@ a1ref_make_nval<int>(3*3, 0)
 (* ****** ****** *)
 //
 fun
-player2string(p: int) =
+player_name(p: int): string =
 case+ p of
 | X => "X" | O => "O" | _ => ""
 //
@@ -57,18 +57,18 @@ case+ p of
 #extern
 fun
 theSquares_get
-  (i: int, j: int): int = $exname()
+(i: int, j: int): int = $exname()
 #extern
 fun
 theSquares_get_text
-  (i: int, j: int): string = $exname()
+(i: int, j: int): string = $exname()
+//
 #implfun
 theSquares_get
-  (i, j) = theSquares[3*i+j]
+(i, j) = theSquares[3*i+j]
 #implfun
 theSquares_get_text
-  (i, j) =
-  player2string(theSquares_get(i, j))
+(i, j) = player_name(theSquares_get(i, j))
 //
 (* ****** ****** *)
 //
@@ -98,8 +98,8 @@ theWinner[] != 0
 )
 then
 (
-string_append
-("The Winner: ", player2string(theWinner[]))
+strn_append
+("The Winner: ", player_name(theWinner[]))
 )
 else
 (
@@ -113,8 +113,8 @@ then
 )
 else
 (
-string_append
-("Next Player: ", player2string(thePlayer[]))
+strn_append
+("Next Player: ", player_name(thePlayer[]))
 )
 )
 //

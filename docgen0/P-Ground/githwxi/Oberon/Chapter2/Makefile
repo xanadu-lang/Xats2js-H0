@@ -14,11 +14,11 @@ MYROOT=./../../../../..
 XATS2JS=$(MYROOT)/bin/xats2js
 ######
 XATS2JS_PRELUDE=\
-"$(MYROOT)/share/runtime/xats2js_prelude.js"
+"$(MYROOT)/shared0/runtime/xats2js_prelude.js"
 XATS2JS_PRELUDE_NODE=\
-"$(MYROOT)/share/runtime/xats2js_prelude_node.js"
+"$(MYROOT)/shared0/runtime/xats2js_prelude_node.js"
 XATS2JS_XATSLIB_NODE=\
-"$(MYROOT)/share/runtime/xats2js_xatslib_node.js"
+"$(MYROOT)/shared0/runtime/xats2js_xatslib_node.js"
 ######
 # ListRN:: ; $(XATS2JS) -d ListRN.dats
 # RandomNumbers:: ; $(XATS2JS) -d RandomNumbers.dats

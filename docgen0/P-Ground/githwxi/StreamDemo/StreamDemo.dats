@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #define none optn_nil
 #define some optn_cons
@@ -15,7 +15,7 @@ StreamDemo$dir(): int
 fun
 <a:t0>
 StreamDemo_moves
-(xs: stream(a)): stream(optn(a))
+(xs: strm(a)): strm(optn(a))
 //
 (* ****** ****** *)
 
@@ -37,9 +37,10 @@ end
 (* ****** ****** *)
 fun
 aux0
-( ys: list(a)
-, zs: list(a))
-: stream(optn(a)) =
+( ys
+: list(a)
+, zs
+: list(a)): strm(optn(a)) =
 $lazy
 (
 let
@@ -81,10 +82,11 @@ end ) (*let*) // end of [aux0]
 fun
 aux1
 ( xs
-: stream(a)
-, ys: list(a)
-, zs: list(a))
-: stream(optn(a)) =
+: strm(a)
+, ys
+: list(a)
+, zs
+: list(a)): strm(optn(a)) =
 $lazy
 (
 let

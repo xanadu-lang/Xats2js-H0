@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload "./StreamDemo.dats"
 (* ****** ****** *)
@@ -12,14 +12,14 @@ helper(fromto(2)) where
 {
 fun
 fromto
-(n: int): stream(int) =
+(n: int): strm(int) =
 $lazy
 (
 strmcon_cons(n, fromto(n+1))
 )
 fun
 helper
-(xs: stream(int)): stream(int) =
+(xs: strm(int)): strm(int) =
 $lazy
 (
 let
@@ -27,7 +27,7 @@ val-
 strmcon_cons(x0, xs) = !xs
 in
 strmcon_cons
-(x0, helper(stream_filter(xs))) where
+(x0, helper(strm_filter(xs))) where
 {
 #impltmp filter$test<int>(x1) = (x1 % x0 > 0)
 }

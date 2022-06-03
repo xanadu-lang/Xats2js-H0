@@ -8,14 +8,14 @@ CAT=cat
 CPF=cp -f
 ECHO=echo
 ######
-SHARE=./../../../../share
+SHARED=./../../../../shared0
 XATSOPT=./../../../../xatsopt
 XATS2JS="./../../../../bin/xats2js"
 ######
 XATS2JS_PRELUDE=\
-"$(SHARE)/runtime/xats2js_prelude.js"
+"$(SHARED)/runtime/xats2js_prelude.js"
 XATS2JS_XATSLIB_NODE=\
-"$(SHARE)/runtime/xats2js_xatslib_node.js"
+"$(SHARED)/runtime/xats2js_xatslib_node.js"
 ######
 test:: \
 StreaxDemo2.html

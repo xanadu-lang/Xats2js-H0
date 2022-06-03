@@ -8,11 +8,11 @@ XJSHOME =\
 XATS2JS ="$(XJSHOME)/bin/xats2js"
 ############
 XATS2JS_PRELUDE=\
-"$(XJSHOME)/share/runtime/xats2js_prelude.js"
+"$(XJSHOME)/shared0/runtime/xats2js_prelude.js"
 XATS2JS_PRELUDE_NODE=\
-"$(XJSHOME)/share/runtime/xats2js_prelude_node.js"
+"$(XJSHOME)/shared0/runtime/xats2js_prelude_node.js"
 XATS2JS_XATSLIB_LIBC=\
-"$(XJSHOME)/share/runtime/xats2js_xatslib_libc.js"
+"$(XJSHOME)/shared0/runtime/xats2js_xatslib_libc.js"
 ############
 all:: prelude
 ############
