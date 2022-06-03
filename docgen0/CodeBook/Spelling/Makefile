@@ -10,11 +10,11 @@ NODE=node
 XATS2JS=$(XATS2JSD)/bin/xats2js
 ######
 XATS2JS_PRELUDE=\
-"$(XATS2JSD)/share/runtime/xats2js_prelude.js"
+"$(XATS2JSD)/shared0/runtime/xats2js_prelude.js"
 XATS2JS_PRELUDE_NODE=\
-"$(XATS2JSD)/share/runtime/xats2js_prelude_node.js"
+"$(XATS2JSD)/shared0/runtime/xats2js_prelude_node.js"
 XATS2JS_XATSLIB_NODE=\
-"$(XATS2JSD)/share/runtime/xats2js_xatslib_node.js"
+"$(XATS2JSD)/shared0/runtime/xats2js_xatslib_node.js"
 ######
 #
 # spelling:: ; \

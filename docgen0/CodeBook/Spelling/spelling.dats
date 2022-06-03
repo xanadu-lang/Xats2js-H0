@@ -1,12 +1,12 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #extern
 fun<>
 spelling
-((*void*)): stream_vt(string)
+((*void*)): strm_vt(strn)
 (* ****** ****** *)
 //
 #extern
@@ -16,18 +16,18 @@ spelling$char
 #extern
 fun<>
 spelling$chars
-((*void*)): string
+((*void*)): strn
 #extern
 fun<>
 spelling$words
-((*void*)): stream_vt(string)
+((*void*)): strm_vt(strn)
 //
 (* ****** ****** *)
 
 fun
 wtest1
 ( xs
-: string
+: strn
 , c0: char): bool =
 gseq_exists(xs) where
 {
@@ -39,8 +39,8 @@ exists$test<char>(x0) = (c0 = x0)
 
 fun
 wtest2
-( xs: string
-, cs: string): bool =
+( xs: strn
+, cs: strn): bool =
 gseq_forall(xs) where
 {
 #impltmp
@@ -52,13 +52,13 @@ forall$test<char>(x0) = wtest1(cs, x0)
 #impltmp
 spelling<>() =
 (
-stream_vt_filter0(spelling$words<>())
+strm_vt_filter0(spelling$words<>())
 ) where
 {
 val c0 = spelling$char<>()
 val cs = spelling$chars<>()
 #impltmp
-filter0$test<string>(w0) =
+filter0$test<strn>(w0) =
 if wtest1(w0, c0) then wtest2(w0, cs) else false
 }
 

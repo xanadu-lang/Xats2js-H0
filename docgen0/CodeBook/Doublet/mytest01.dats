@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload DB = "./doublet.dats"
 (* ****** ****** *)
@@ -34,7 +34,7 @@ println
 *)
 //
 val ws =
-fpath_streamize_line
+fpath_strmize_line
 ("/usr/share/dict/words")
 //
 val
@@ -42,9 +42,9 @@ theDict =
 XATS2JS_jsobjmap_make_nil()
 val
 ((*void*)) =
-stream_vt_foreach0(ws) where
+strm_vt_foreach0(ws) where
 {
-#typedef wx = string
+#typedef wx = strn
 #impltmp
 foreach0$work<wx>(wx) =
 XATS2JS_jsobjmap_insert_any(theDict, wx, 0)

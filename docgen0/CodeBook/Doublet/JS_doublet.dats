@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload DB = "./doublet.dats"
 (* ****** ****** *)
@@ -14,8 +14,8 @@ $(XATS2JSD)\
 #extern
 fun
 JS_doublet_dict
-((*void*))
-: string = $exname()
+(
+): strn = $exname()
 (* ****** ****** *)
 #implfun
 $DB.theDict_make
@@ -30,7 +30,7 @@ println
 *)
 //
 val ws =
-$MY.string_split_lines
+$MY.strn_split_lines
 (  JS_doublet_dict()  )
 //
 val
@@ -38,10 +38,10 @@ theDict =
 XATS2JS_jsobjmap_make_nil()
 val
 ((*void*)) =
-stream_vt_foreach0(ws) where
+strm_vt_foreach0(ws) where
 {
 //
-#typedef wx = string
+#typedef wx = strn
 //
 #impltmp
 foreach0$work<wx>(wx) =
@@ -79,7 +79,7 @@ JS_doublet_word1() where
 #extern
 fun
 JS_doublet_word1
-((*void*)): string = $exname()
+((*void*)): strn = $exname()
 }
 val w2 =
 JS_doublet_word2() where
@@ -87,7 +87,7 @@ JS_doublet_word2() where
 #extern
 fun
 JS_doublet_word2
-((*void*)): string = $exname()
+((*void*)): strn = $exname()
 }
 val opt = $DB.doublet_play(w1, w2)
 in

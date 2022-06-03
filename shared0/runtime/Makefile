@@ -93,7 +93,7 @@ $(ECHO) "/* ****** ****** */\n" >> xats2js_xatslib_node.js
 #
 xats2js_xatslib_node:: ; \
 $(CAT) \
-$(XATSOPT)/xatslib/libc/DATS/CATS/JS/Node/prelude.cats >> xats2js_xatslib_node.js
+$(XATSOPT)/xatslib/libcats/DATS/CATS/JS/Node/prelude.cats >> xats2js_xatslib_node.js
 #
 ######
 clean:: ; rm -f *~

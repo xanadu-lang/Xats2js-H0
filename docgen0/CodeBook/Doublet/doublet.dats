@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
 "xatslib/githwxi/DATS/mytree0.dats"
@@ -10,7 +10,8 @@ $(XATS2JSD)\
 "prelude/DATS/CATS/JS/basics1.dats"
 (* ****** ****** *)
 //
-#typedef word = string
+#typedef int0 = sint
+#typedef word = strn
 //
 (* ****** ****** *)
 //
@@ -23,31 +24,31 @@ doublet_play
 #extern
 fun
 theDict_make():
-jsobjmap(string, int) = $exname()
+jsobjmap(strn, int0) = $exname()
 (* ****** ****** *)
 //
 #extern
 fun
-string_fset_at
+strn_fset_at
 {n:nat}
 ( cs
-: string(n)
+: strn(n)
 , i0
 : nintlt(n)
-, c0: cgtz): string(n)
+, c0: cgtz): strn(n)
 #implfun
-string_fset_at
+strn_fset_at
   (cs, i0, c0) =
 (
-string_tabulate(length(cs))
+strn_tabulate(length(cs))
 ) where
 {
 #impltmp
 tabulate$fopr<cgtz>(i1) =
 if
 (i0 = i1)
-then c0 else string_get_at(cs, i1)
-} (* end of [string_fset_at] *)
+then c0 else strn_get_at(cs, i1)
+} (* end of [strn_fset_at] *)
 //
 (* ****** ****** *)
 
@@ -59,23 +60,23 @@ fun
 helper_1
 {n:nat}
 ( cs
-: string(n)
+: strn(n)
 )
-: stream_vt(string(n))
+: strm_vt(strn(n))
 (* ****** ****** *)
 fun
 helper_2
 {n:nat}
 ( cs
-: string(n)
+: strn(n)
 , i0
 : nintlt(n)
 )
-: list_vt(string(n)) =
+: list_vt(strn(n)) =
 let
 val N = 26
 val c0 =
-string_get_at(cs, i0)
+strn_get_at(cs, i0)
 val alpha =
 "abcdefghijklmnopqrstuvwxyz"
 in
@@ -89,7 +90,7 @@ in loop(j0, r0) end where
 #typedef
   j0 = nintlte( 26 )
 #vwtpdef
-  r0 = list_vt( string(n) )
+  r0 = list_vt( strn(n) )
 //
 fnx
 loop
@@ -100,13 +101,13 @@ then r0 else
 let
   val j1 = pred(j0)
   val c1 =
-  string_get_at(alpha, j1)
+  strn_get_at(alpha, j1)
 in
   if
   (c0 = c1)
   then loop(j1, r0) else let
     val cs =
-    string_fset_at(cs, i0, c1)
+    strn_fset_at(cs, i0, c1)
   in
     loop(j1, list_vt_cons(cs, r0))
   end
@@ -118,15 +119,15 @@ end // end of [helper_2]
 #implfun
 helper_1
 {n}(cs) =
-stream_vt_maplist0
+strm_vt_maplist0
 (
-gint_streamize_nint(length(cs))
+gint_strmize_nint(length(cs))
 ) where
 {
 #typedef
 x0 = nintlt(n)
 #typedef
-y0 = string(n)
+y0 = strn(n)
 #impltmp
 maplist0$fopr<x0><y0>(i0) = helper_2(cs, i0)
 } (* end of [helper_1] *)
@@ -202,7 +203,7 @@ else let
 val ws = helper_1(wx)
 //
 val ws =
-stream_vt_filter0(ws) where
+strm_vt_filter0(ws) where
 {
 #impltmp
 filter0$test<word> = word_legalq
@@ -213,7 +214,7 @@ map0$fopr
 <word><node>(wy) = list_cons(wy, nx)
 //
 in
-  listize(stream_vt_map0(ws))
+  listize(strm_vt_map0(ws))
 end // end of [else]
 //
 end // end of [gtree_node_childlst]
@@ -227,7 +228,7 @@ in(* in-of-let *)
 let
 fnx
 auxsrch
-(nxs: stream_vt(node)) =
+(nxs: strm_vt(node)) =
 (
 case+ !nxs of
 | ~
@@ -251,7 +252,7 @@ end // end of [strmcon_vt_cons]
 )
 in
 auxsrch
-(gtree_bfs_streamize<node>(list_sing(w1)))
+(gtree_bfs_strmize<node>(list_sing(w1)))
 end // end of [let]
 
 (* ****** ****** *)

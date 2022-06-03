@@ -76,11 +76,10 @@ XATS2JS_NODE_gflt_print_dflt
 }
 /* ****** ****** */
 function
-XATS2JS_NODE_string_print
-  (cs)
+XATS2JS_NODE_strn_print(cs)
 {
   return XATS2JS_NODE_g_print(cs);
 }
 /* ****** ****** */
 
-/* end of [XATS2JS_NODE_g_print.cats] */
+/* end of [prelude_DATS_CATS_JS_NODE_g_print.cats] */

@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload SP = "./spelling.dats"
 (* ****** ****** *)
@@ -17,20 +17,18 @@ $(XATS2JSD)\
 #staload
 "xatslib/libcats/DATS/fpath00.dats"
 (* ****** ****** *)
-
+//
 #impltmp
 $SP.spelling$char<>() = 'a'
 #impltmp
 $SP.spelling$chars<>() = "acfilnu"
-
+//
 (* ****** ****** *)
-
+//
 #impltmp
-$SP.spelling$words<>
-((*void*)) =
-fpath_streamize_line
-("/usr/share/dict/words")
-
+$SP.spelling$words<>() =
+fpath_strmize_line("/usr/share/dict/words")
+//
 (* ****** ****** *)
 
 local
@@ -50,16 +48,16 @@ theWords =
 listize(theWords)
 val
 theWords =
-mergesort(theWords) where
+mergesort0(theWords) where
 {
 #impltmp
-g_cmp<string>(x1, x2) =
+g_cmp<strn>(x1, x2) =
 let
 val
 sgn =
 g_cmp(length(x1), length(x2))
 in
-if sgn != 0 then -sgn else string_cmp(x1, x2)
+if sgn != 0 then -sgn else strn_cmp(x1, x2)
 end (*let*) // end of [#impltmp g_cmp]
 }
 //

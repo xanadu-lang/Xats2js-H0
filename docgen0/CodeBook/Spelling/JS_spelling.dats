@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload SP = "./spelling.dats"
 (* ****** ****** *)
@@ -10,33 +10,32 @@ $(XATS2JSD)\
 (* ****** ****** *)
 #extern
 fun
-JS_spelling_arg0(): string = $exname()
+JS_spelling_arg0(): strn = $exname()
 #extern
 fun
-JS_spelling_arg1(): string = $exname()
+JS_spelling_arg1(): strn = $exname()
 #extern
 fun
-JS_spelling_dict(): string = $exname()
+JS_spelling_dict(): strn = $exname()
 (* ****** ****** *)
 #impltmp
 $SP.spelling$char<>() =
 let
 val cs =
 JS_spelling_arg0() in
-char_lower(string_head_raw(cs))
+char_lower(strn_head_raw(cs))
 end
 #impltmp
 $SP.spelling$chars<>() =
-string_lower(JS_spelling_arg1())
+strn_lower(JS_spelling_arg1())
 (* ****** ****** *)
 #impltmp
 $SP.spelling$words<>() =
-string_split_lines(JS_spelling_dict())
+strn_split_lines(JS_spelling_dict())
 (* ****** ****** *)
 val
 theWords_r =
-a0ref_make
-<list(string)>(list_nil())
+a0ref_make<list(strn)>( list_nil() )
 (* ****** ****** *)
 #extern
 fun
@@ -55,32 +54,32 @@ $SP.spelling$chars<>()
 //
 val
 theWords =
-stream_vt_filter0
+strm_vt_filter0
 ($SP.spelling<>()) where
 {
 #impltmp
-filter0$test<string>(xs) = length(xs) >= 6
+filter0$test<strn>(xs) = length(xs) >= 6
 }
 val
 theWords =
 listize(theWords)
 val
 theWords =
-mergesort(theWords) where
+mergesort0(theWords) where
 {
 #impltmp
-g_cmp<string>(x1, x2) =
+g_cmp<strn>(x1, x2) =
 let
 val
 sgn =
 g_cmp(length(x1), length(x2))
 in
-if sgn != 0 then -sgn else string_cmp(x1, x2)
+if sgn != 0 then -sgn else strn_cmp(x1, x2)
 end (*let*) // end of [#impltmp g_cmp]
 }
 //
 in
-  theWords_r[] := list_vt2t(reverse(theWords))
+theWords_r[] := list_vt2t(reverse0(theWords))
 end // end of [ATS_spelling_call]
 
 (* ****** ****** *)
@@ -115,10 +114,10 @@ println
 ("Found ", ln, " words:")
 //
 val () =
-iforeach(theWords_r[]) where
+gseq_iforeach(theWords_r[]) where
 {
-  #impltmp
-  iforeach$work<string>(i, word) = println(i+1, ":", word)
+#impltmp
+iforeach$work<strn>(i, word) = println(i+1, ":", word)
 }
 end // end of [ATS_theWords_print2]
 
