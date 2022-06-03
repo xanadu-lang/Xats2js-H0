@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/share/xats2js_prelude.hats"
+/shared0/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -20,10 +20,10 @@ $(XATS2JSD)\
 val () =
 let
 val cs =
-fpath_streamize_char
+fpath_strmize_char
 ("./readfile.dats")
 in
-stream_vt_foreach0(cs)
+glseq_foreach0(cs)
 where
 {
 #impltmp
@@ -37,10 +37,10 @@ val () =
 let
 val
 lines =
-fpath_streamize_line("./readfile.dats")
+fpath_strmize_line("./readfile.dats")
 in
 (
-iforeach0(lines)
+glseq_iforeach0(lines)
 ) where
 {
   #impltmp
