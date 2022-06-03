@@ -8,7 +8,7 @@
 ######
 
 make_all() {
-    make -C srcgen all
+    make -C srcgen0 all
 }
 
 ######
@@ -18,8 +18,8 @@ make_all() {
 ######
 
 clone_xatsopt() {
-    if [ ! -d xatsopt/srcgen ]; then
-	git clone https://github.com/xanadu-lang/xatsopt.git
+    if [ ! -d modules/xatsopt ]; then
+	(cd modules && git clone https://github.com/xanadu-lang/xatsopt.git)
     fi
 }
 
@@ -30,7 +30,7 @@ XATS2JS_SCRIPT='#!/bin/sh
 XATS2JS='${PWD}/bin/xats2js'
 
 if [ ! "$XATSHOME" ] ; then
-  export XATSHOME='${PWD}/xatsopt'
+  export XATSHOME='${PWD}/modules/xatsopt'
 fi
 
 if [ -f "$XATS2JS" ] ; then

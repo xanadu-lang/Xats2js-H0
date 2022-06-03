@@ -1,0 +1,37 @@
+######
+#
+# For testing xats2js
+#
+######
+all::
+######
+MAKE=make
+######
+all:: \
+mytest0
+mytest0:: ; \
+make -C mytest0 \
+  -f Makefile test cleanall > /dev/null
+######
+all:: \
+test_output
+test_output:: ; \
+$(MAKE) -f Makefile_output test cleanall > /dev/null
+######
+all:: \
+test_nodejs
+test_nodejs:: ; \
+$(MAKE) -f Makefile_nodejs test cleanall > /dev/null
+######
+#
+# HX: for cleaning up
+#
+######
+clean:: ; rm -f *~
+######
+cleanall:: clean
+cleanall:: ; rm -f output
+cleanall:: ; rm -f output_dats.js
+cleanall:: ; $(MAKE) -C mytest0 -f Makefile cleanall
+######
+###### end of [Makefile_test] ######
