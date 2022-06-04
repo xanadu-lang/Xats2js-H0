@@ -18,7 +18,7 @@
 #extern
 fun
 JS_fromto
-(n: int): strm_vt(int) = $exname()
+(n: int): strm_vt(int) = $extnam()
 //
 (* ****** ****** *)
 

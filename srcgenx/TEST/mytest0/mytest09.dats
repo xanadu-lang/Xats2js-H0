@@ -18,11 +18,11 @@
 #extern
 fun
 JS_fromto
-(n: int): strm_vt(int) = $exname()
+(n: int): strm_vt(int) = $extnam()
 #extern
 fun
 JS_sieve_helper
-(ns: strm_vt(int)): strm_vt(int) = $exname()
+(ns: strm_vt(int)): strm_vt(int) = $extnam()
 //
 (* ****** ****** *)
 
