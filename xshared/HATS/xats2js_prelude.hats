@@ -9,7 +9,7 @@ the prelude library for xats2js
 "prelude/HATS/prelude_dats.hats"
 (* ****** ****** *)
 #include
-"prelude/HATS/JS/prelude_dats.hats"
+"prelude/HATS/CATS/JS/prelude_dats.hats"
 (* ****** ****** *)
 
 (* end of [XATS2JS_xshared_xats2js_prelude.hats] *)
