@@ -26,9 +26,9 @@ val keys =
 println("kxs['z'] = ", XATS2JS_jsobjmap_keyq(kxs, "z"))
 (* ****** ****** *)
 val () =
-println("kxs['a'] = ", XATS2JS_jsobjmap_search_opt(kxs, "a"))
+println0("kxs['a'] = ", XATS2JS_jsobjmap_search_opt(kxs, "a"))
 val () =
-println("kxs['z'] = ", XATS2JS_jsobjmap_search_opt(kxs, "z"))
+println1("kxs['z'] = ", XATS2JS_jsobjmap_search_opt(kxs, "z"))
 (* ****** ****** *)
 
 (* end of [mytest_mytest10.dats] *)

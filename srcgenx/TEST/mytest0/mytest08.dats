@@ -24,7 +24,7 @@ JS_fromto
 
 val theNats = JS_fromto(0)
 val ((*void*)) =
-(print("theNats = "); print(theNats); println())
+(print0("theNats = "), print0(theNats); println())
 
 (* ****** ****** *)
 

@@ -154,16 +154,20 @@ group$test
 ('A' <= c0)*(c0 <= 'Z')
 )
 in
-val wrds = gseq_group(text)
+val wrds =
+gseq_group<strn><cgtz>(text)
 end // local
 //
 val (  ) =
 (
 print("wrds = ");
 let
+//
+fn0
+g_print_strn(cs) = g_print<strn>(cs)
 #impltmp
 g_print<strn>(cs) =
-(print('"'); print(cs); print('"')) in print(wrds) end ; println((*void*)) )
+(print('"'); g_print_strn(cs); print('"')) in print0(wrds) end ; println((*void*)) )
 //
 (* ****** ****** *)
 

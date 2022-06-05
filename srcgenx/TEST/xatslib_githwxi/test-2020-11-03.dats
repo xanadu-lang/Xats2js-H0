@@ -17,7 +17,7 @@ listize(cs) where
 val cs =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 }
-val () = println("cs = ", cs)
+val () = println0("cs = ", cs)
 //
 (* ****** ****** *)
 val
@@ -41,7 +41,7 @@ case+ !xs of
 strmcon_vt_nil() => ()
 | ~
 strmcon_vt_cons(x0, xs) =>
-(println("line#", i0, " = ", x0); loop(i0+1, xs))
+(println0("line#", i0, " = ", x0); loop(i0+1, xs))
 )
 }
 (* ****** ****** *)

@@ -29,7 +29,7 @@ JS_sieve_helper
 val thePrimes =
 JS_sieve_helper(JS_fromto(2))
 val ((*void*)) =
-(print("thePrimes = "); print(thePrimes); println())
+(print0("thePrimes = ");print0(thePrimes);println())
 
 (* ****** ****** *)
 
