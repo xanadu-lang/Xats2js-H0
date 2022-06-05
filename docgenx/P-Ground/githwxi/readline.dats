@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
@@ -11,7 +11,7 @@ $(XATS2JSD)\
 #extern
 fun
 myline_process
-(line: string): void = $exname()
+(line: string): void = $extnam()
 //
 #implfun
 myline_process(line) =

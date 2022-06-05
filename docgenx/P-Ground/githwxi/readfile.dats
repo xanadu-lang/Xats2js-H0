@@ -1,20 +1,21 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
-#staload
-"xatslib\
-/libcats/DATS/fpath00.dats"
-(* ****** ****** *)
 #staload _ =
 "xatslib\
-/libcats\
+/githwxi\
 /DATS/CATS/JS/Node/basics0.dats"
+(* ****** ****** *)
+#staload
+"xatslib/githwxi/SATS/githwxi.sats"
+#staload _ =
+"xatslib/githwxi/DATS/f00path.dats"
 (* ****** ****** *)
 
 val () =

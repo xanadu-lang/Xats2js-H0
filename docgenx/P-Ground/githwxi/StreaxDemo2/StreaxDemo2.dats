@@ -4,7 +4,7 @@ REQ = "./required.dats"
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #define none optn_nil
 #define some optn_cons
@@ -173,16 +173,16 @@ theStream_moves_ref = a0ref_make(theStream_moves)
 //
 #extern
 fun
-StreaxDemo2_control_next(): void = $exname()
+StreaxDemo2_control_next(): void = $extnam()
 #extern
 fun
-StreaxDemo2_control_prev(): void = $exname()
+StreaxDemo2_control_prev(): void = $extnam()
 #extern
 fun
-JS_StreaxDemo2_show_none(): void = $exname()
+JS_StreaxDemo2_show_none(): void = $extnam()
 #extern
 fun
-JS_StreaxDemo2_show_some(x0: int): void = $exname()
+JS_StreaxDemo2_show_some(x0: int): void = $extnam()
 //
 (* ****** ****** *)
 //

@@ -12,7 +12,7 @@
 #include
 "\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 //
 datatype
@@ -57,11 +57,11 @@ case+ p of
 #extern
 fun
 theSquares_get
-(i: int, j: int): int = $exname()
+(i: int, j: int): int = $extnam()
 #extern
 fun
 theSquares_get_text
-(i: int, j: int): string = $exname()
+(i: int, j: int): string = $extnam()
 //
 #implfun
 theSquares_get
@@ -75,21 +75,21 @@ theSquares_get_text
 #extern
 fun
 thePlayer_get
-((*void*)): int = $exname()
+((*void*)): int = $extnam()
 #implfun
 thePlayer_get() = thePlayer[]
 //
 #extern
 fun
 theWinner_get
-((*void*)): int = $exname()
+((*void*)): int = $extnam()
 #implfun
 theWinner_get() = theWinner[]
 //
 #extern
 fun
 theStatus_get
-((*void*)): string = $exname()
+((*void*)): string = $extnam()
 #implfun
 theStatus_get() =
 if
@@ -233,14 +233,14 @@ end // end of [theState_update]
 #extern
 fun
 alert
-(rep: string): void = $exname()
+(rep: string): void = $extnam()
 //
 (* ****** ****** *)
 //
 #extern
 fun
 Square_handle_click
-  (i: int, j: int): void = $exname()
+  (i: int, j: int): void = $extnam()
 //
 (*
 #implfun

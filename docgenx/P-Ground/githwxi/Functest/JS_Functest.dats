@@ -3,16 +3,16 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #extern
 fun
 JS_factorial_main
-((*void*)): void = $exname()
+((*void*)): void = $extnam()
 #extern
 fun
 JS_ackermann_main
-((*void*)): void = $exname()
+((*void*)): void = $extnam()
 (* ****** ****** *)
 
 fun
@@ -62,7 +62,7 @@ Functest$arg0<int> =
 {
 #extern
 fun
-JS_factorial_arg0_int(): int = $exname()
+JS_factorial_arg0_int(): int = $extnam()
 }
 
 (* ****** ****** *)
@@ -93,7 +93,7 @@ Functest$arg0<int> =
 {
 #extern
 fun
-JS_ackermann_arg0_int(): int = $exname()
+JS_ackermann_arg0_int(): int = $extnam()
 }
 
 #impltmp
@@ -104,7 +104,7 @@ Functest$arg1<int> =
 {
 #extern
 fun
-JS_ackermann_arg1_int(): int = $exname()
+JS_ackermann_arg1_int(): int = $extnam()
 }
 
 (* ****** ****** *)

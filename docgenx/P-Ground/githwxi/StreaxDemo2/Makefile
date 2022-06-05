@@ -8,7 +8,7 @@ CAT=cat
 CPF=cp -f
 ECHO=echo
 ######
-SHARED=./../../../../shared0
+SHARED=./../../../../xshared
 XATSOPT=./../../../../xatsopt
 XATS2JS="./../../../../bin/xats2js"
 ######

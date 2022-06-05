@@ -5,7 +5,7 @@
 (* ****** ****** *)
 #include
 "./../../../..\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
 "xatslib/githwxi/DATS/mygist0.dats"
@@ -313,7 +313,7 @@ val xs = list_cons(Int(n1), xs)
 fun
 Game_of_24_play_print
 ( n1: int, n2: int
-, n3: int, n4: int): void = $exname()
+, n3: int, n4: int): void = $extnam()
 //
 (* ****** ****** *)
 

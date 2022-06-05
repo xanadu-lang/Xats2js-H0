@@ -8,7 +8,7 @@ CPF=cp -f
 ECHO=echo
 NODE=node
 ######
-SHARED=./../../../../shared0
+SHARED=./../../../../xshared
 XATSOPT=./../../../../xatsopt
 XATS2JS="./../../../../bin/xats2js"
 ######

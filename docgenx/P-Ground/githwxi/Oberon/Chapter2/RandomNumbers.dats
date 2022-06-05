@@ -5,7 +5,7 @@ Programming in OBERON, page 12
 #include
 "\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload _ =
 "prelude\

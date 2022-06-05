@@ -9,7 +9,7 @@ ECHO=echo
 MAKE=make
 NODE=node
 ######
-SHARED=./../../../shared0
+SHARED=./../../../xshared
 XATSOPT=./../../../xatsopt
 XATS2JS="./../../../bin/xats2js"
 ######

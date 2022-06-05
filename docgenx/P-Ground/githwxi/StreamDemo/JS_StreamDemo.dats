@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload "./StreamDemo.dats"
 (* ****** ****** *)
@@ -66,16 +66,16 @@ a0ref_make(thePrimes_moves)
 //
 #extern
 fun
-JS_StreamDemo_next(): void = $exname()
+JS_StreamDemo_next(): void = $extnam()
 #extern
 fun
-JS_StreamDemo_prev(): void = $exname()
+JS_StreamDemo_prev(): void = $extnam()
 #extern
 fun
-JS_StreamDemo_show_none(): void = $exname()
+JS_StreamDemo_show_none(): void = $extnam()
 #extern
 fun
-JS_StreamDemo_show_some(x0: int): void = $exname()
+JS_StreamDemo_show_some(x0: int): void = $extnam()
 //
 #implfun
 JS_StreamDemo_next() =
