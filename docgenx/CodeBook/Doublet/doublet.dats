@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload
 "xatslib/githwxi/DATS/mytree0.dats"
@@ -24,7 +24,7 @@ doublet_play
 #extern
 fun
 theDict_make():
-jsobjmap(strn, int0) = $exname()
+jsobjmap(strn, int0) = $extnam()
 (* ****** ****** *)
 //
 #extern

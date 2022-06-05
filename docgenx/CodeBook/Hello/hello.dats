@@ -1,11 +1,11 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #extern
 fun
-ATS_hello(): void = $exname()
+ATS_hello(): void = $extnam()
 #implfun
 ATS_hello() = print("Hello, world!")
 (* ****** ****** *)

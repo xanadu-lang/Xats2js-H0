@@ -11,11 +11,13 @@ $(XATS2JSD)\
 (* ****** ****** *)
 #staload _ =
 "xatslib\
-/libcats\
+/githwxi\
 /DATS/CATS/JS/Node/basics0.dats"
 (* ****** ****** *)
 #staload
-"xatslib/libcats/DATS/fpath00.dats"
+"xatslib/githwxi/SATS/githwxi.sats"
+#staload _ =
+"xatslib/githwxi/DATS/f00path.dats"
 (* ****** ****** *)
 //
 #impltmp

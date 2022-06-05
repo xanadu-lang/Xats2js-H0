@@ -10,13 +10,13 @@ $(XATS2JSD)\
 (* ****** ****** *)
 #extern
 fun
-JS_spelling_arg0(): strn = $exname()
+JS_spelling_arg0(): strn = $extnam()
 #extern
 fun
-JS_spelling_arg1(): strn = $exname()
+JS_spelling_arg1(): strn = $extnam()
 #extern
 fun
-JS_spelling_dict(): strn = $exname()
+JS_spelling_dict(): strn = $extnam()
 (* ****** ****** *)
 #impltmp
 $SP.spelling$char<>() =
@@ -39,7 +39,7 @@ a0ref_make<list(strn)>( list_nil() )
 (* ****** ****** *)
 #extern
 fun
-ATS_spelling_call(): void = $exname()
+ATS_spelling_call(): void = $extnam()
 (* ****** ****** *)
 #implfun
 ATS_spelling_call() =
@@ -85,10 +85,10 @@ end // end of [ATS_spelling_call]
 (* ****** ****** *)
 #extern
 fun
-ATS_theWords_print1(): void = $exname()
+ATS_theWords_print1(): void = $extnam()
 #extern
 fun
-ATS_theWords_print2(): void = $exname()
+ATS_theWords_print2(): void = $extnam()
 (* ****** ****** *)
 
 #implfun

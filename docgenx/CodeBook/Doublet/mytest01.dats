@@ -1,7 +1,7 @@
 (* ****** ****** *)
 #include"\
 $(XATS2JSD)\
-/shared0/xats2js_prelude.hats"
+/xshared/xats2js_prelude.hats"
 (* ****** ****** *)
 #staload DB = "./doublet.dats"
 (* ****** ****** *)
@@ -14,11 +14,13 @@ $(XATS2JSD)\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
 #staload
-"xatslib/libcats/DATS/fpath00.dats"
+"xatslib/githwxi/SATS/githwxi.sats"
+#staload _ =
+"xatslib/githwxi/DATS/f00path.dats"
 (* ****** ****** *)
 #staload _ =
 "xatslib\
-/libcats/DATS/CATS/JS/Node/basics0.dats"
+/githwxi/DATS/CATS/JS/Node/basics0.dats"
 (* ****** ****** *)
 #implfun
 $DB.theDict_make
