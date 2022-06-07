@@ -10,7 +10,7 @@ Basics for Xats2js
 */
 /* ****** ****** */
 //
-// prelude/bool.sats
+//prelude/bool000.sats
 //
 /* ****** ****** */
 function
@@ -28,7 +28,7 @@ XATS2JS_bool_mul
 { return (b1 && b2); }
 /* ****** ****** */
 //
-// prelude/char.sats
+//prelude/char000.sats
 //
 /* ****** ****** */
 function
@@ -69,8 +69,15 @@ return (c1!==c2); // noteq
 }
 /* ****** ****** */
 //
-// prelude/gint.sats
+//prelude/gint000.sats
 //
+/* ****** ****** */
+function
+XATS2JS_gint_neg_sint
+  (x0)
+{
+  return (-x0); // neg
+}
 /* ****** ****** */
 function
 XATS2JS_gint_abs_sint
@@ -79,19 +86,12 @@ XATS2JS_gint_abs_sint
 if
 (x0 >= 0)
 {
-  return x0; // abs
+  return ( x0); // abs
 }
 else
 {
-  return -x0; // abs
+  return (-x0); // abs
 }
-}
-/* ****** ****** */
-function
-XATS2JS_gint_neg_sint
-  (x0)
-{
-return (-x0); // neg
 }
 /* ****** ****** */
 function
@@ -105,6 +105,50 @@ XATS2JS_gint_pred_sint
   (x0)
 {
 return (x0 - 1); // -1
+}
+/* ****** ****** */
+function
+XATS2JS_gint_lnot_uint
+  (x0)
+{
+  return (~x0); // lnot
+}
+function
+XATS2JS_gint_lor2_uint
+  (x0, y0)
+{
+  return (x0|y0); // lor2
+}
+function
+XATS2JS_gint_land_uint
+  (x0, y0)
+{
+  return (x0&y0); // land
+}
+function
+XATS2JS_gint_lxor_uint
+  (x0, y0)
+{
+  return (x0^y0); // lxor
+}
+/* ****** ****** */
+function
+XATS2JS_gint_asrn_sint
+  (x0, n0)
+{
+return (x0>>n0); // asrn
+}
+function
+XATS2JS_gint_lsln_uint
+  (x0, n0)
+{
+return (x0<<n0); // lsln
+}
+function
+XATS2JS_gint_lsrn_uint
+  (x0, n0)
+{
+return (x0>>>n0); // lsrn
 }
 /* ****** ****** */
 function
@@ -188,28 +232,43 @@ XATS2JS_gint_div_sint_sint
   (x1, x2)
 { 
 //
-  let q0 = x1 / x2;
+let q0 = x1 / x2;
 //
-  if
-  (q0 >= 0)
-  {
-    return Math.floor(q0);
-  }
-  else
-  {
-    return Math.ceil( q0 );
-  }
+if
+(q0 >= 0)
+{
+  return Math.floor( q0 );
+}
+else
+{
+  return Math.ceil(  q0  );
+}
 }
 /* ****** ****** */
 //
-// prelude/gflt.sats
+// HX-2022-06-06:
+//
+function
+XATS2JS_gint_sint2uint(x0){return x0;}
+function
+XATS2JS_gint_uint2sint(x0){return x0;}
+/* ****** ****** */
+//
+//prelude/gflt000.sats
 //
 /* ****** ****** */
 function
 XATS2JS_gflt_i_dflt
   (x0)
 {
-  return x0; // int
+  return x0 ; // (i)
+}
+/* ****** ****** */
+function
+XATS2JS_gflt_neg_dflt
+  (x0)
+{
+  return (-x0); // neg
 }
 /* ****** ****** */
 function
@@ -219,19 +278,12 @@ XATS2JS_gflt_abs_dflt
 if
 (x0 >= 0.0)
 {
-  return x0; // abs
+  return ( x0); // abs
 }
 else
 {
-  return -x0; // abs
+  return (-x0); // abs
 }
-}
-/* ****** ****** */
-function
-XATS2JS_gflt_neg_dflt
-  (x0)
-{
-return (-x0); // neg
 }
 /* ****** ****** */
 function
@@ -324,24 +376,24 @@ XATS2JS_gflt_div_dflt_dflt
 }
 /* ****** ****** */
 //
-// prelude/string.sats
+//prelude/strn000.sats
 //
 /* ****** ****** */
 //
 // HX-2020-09-28:
 // Please note that:
-// A string is a JS-string
-// A string_vt is a JS-array
+// A (strn)-val is a JS-string
+// A (strn_vt)-val is a JS-array
 //
 /* ****** ****** */
 function
 XATS2JS_strn_vt2t
   (cs)
 {
-cs.pop(); // remove the last '0'
+cs.pop(); // pop the last '\0'
 let res = // from array to string
 String.fromCharCode.apply(null, cs);
-return res; // XATS2JS_strn_vt2t
+return res; // [XATS2JS_strn_vt2t]
 }
 /* ****** ****** */
 //
@@ -509,10 +561,8 @@ XATS2JS_strn_forall_cfr
   (cs, f0)
 {
 let i0;
-let
-res = true;
-let
-len = cs.length
+let res = true;
+let len = cs.length;
 for
 ( i0 = 0
 ; i0 < len; i0 += 1)
@@ -585,7 +635,7 @@ return res; // strn_vt_rforall_cfr
 }
 /* ****** ****** */
 
-/* end of [prelude_DATS_CATS_JS_basics.cats] */
+/* end of [ATS3/XANADU_prelude_DATS_CATS_JS_basics0.cats] */
 /* ****** ****** */
 /*
 Runtime for Xats2js
@@ -931,7 +981,7 @@ if
 
 /* ****** ****** */
 
-/* end of [prelude_DATS_CATS_JS_runtime.cats] */
+/* end of [ATS3/XANADU_prelude_DATS_CATS_JS_runtime.cats] */
 /* ****** ****** */
 /*
 Basics for Xats2js
@@ -1408,262 +1458,316 @@ if(itm0===undefined)
 // ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1457(line=109,offs=1)--1499(line=110,offs=34))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1585(line=118,offs=1)--1656(line=122,offs=33))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1585(line=118,offs=1)--1644(line=120,offs=33))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1657(line=123,offs=1)--1705(line=124,offs=40))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1653(line=122,offs=1)--1712(line=124,offs=33))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1716(line=126,offs=1)--1766(line=128,offs=23))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1740(line=129,offs=1)--1815(line=133,offs=37))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1816(line=134,offs=1)--1864(line=135,offs=40))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1781(line=129,offs=1)--1831(line=131,offs=23))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1899(line=140,offs=1)--1972(line=144,offs=34))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1880(line=136,offs=1)--1951(line=140,offs=33))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1981(line=146,offs=1)--2054(line=150,offs=34))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2055(line=151,offs=1)--2105(line=152,offs=42))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(1952(line=141,offs=1)--2000(line=142,offs=40))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2106(line=153,offs=1)--2156(line=154,offs=42))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2035(line=147,offs=1)--2110(line=151,offs=37))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2111(line=152,offs=1)--2159(line=153,offs=40))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2191(line=159,offs=1)--2282(line=165,offs=34))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2194(line=158,offs=1)--2267(line=162,offs=34))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2283(line=166,offs=1)--2339(line=167,offs=48))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2276(line=164,offs=1)--2349(line=168,offs=34))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2350(line=169,offs=1)--2400(line=170,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2351(line=170,offs=1)--2442(line=176,offs=34))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2443(line=177,offs=1)--2499(line=178,offs=48))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2401(line=171,offs=1)--2451(line=172,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2511(line=181,offs=1)--2602(line=187,offs=34))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2486(line=177,offs=1)--2546(line=179,offs=34))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2603(line=188,offs=1)--2659(line=189,offs=48))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2555(line=181,offs=1)--2615(line=183,offs=34))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2624(line=185,offs=1)--2684(line=187,offs=34))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2693(line=189,offs=1)--2753(line=191,offs=34))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2757(line=193,offs=1)--2807(line=194,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2671(line=192,offs=1)--2764(line=198,offs=35))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2765(line=199,offs=1)--2823(line=200,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2808(line=195,offs=1)--2858(line=196,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2835(line=203,offs=1)--2928(line=209,offs=35))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2929(line=210,offs=1)--2987(line=211,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2859(line=197,offs=1)--2909(line=198,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2999(line=214,offs=1)--3092(line=220,offs=35))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3093(line=221,offs=1)--3151(line=222,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2910(line=199,offs=1)--2960(line=200,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3184(line=227,offs=1)--3290(line=234,offs=37))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(2995(line=205,offs=1)--3055(line=207,offs=34))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3291(line=235,offs=1)--3349(line=236,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3064(line=209,offs=1)--3124(line=211,offs=34))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3133(line=213,offs=1)--3193(line=215,offs=34))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3197(line=217,offs=1)--3247(line=218,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3382(line=241,offs=1)--3476(line=247,offs=36))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3477(line=248,offs=1)--3535(line=249,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3248(line=219,offs=1)--3298(line=220,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3544(line=251,offs=1)--3638(line=257,offs=36))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3639(line=258,offs=1)--3697(line=259,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3299(line=221,offs=1)--3349(line=222,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3709(line=262,offs=1)--3803(line=268,offs=36))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3384(line=227,offs=1)--3475(line=233,offs=34))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3804(line=269,offs=1)--3862(line=270,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3476(line=234,offs=1)--3532(line=235,offs=48))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3871(line=272,offs=1)--3965(line=278,offs=36))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3544(line=238,offs=1)--3635(line=244,offs=34))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3966(line=279,offs=1)--4024(line=280,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3636(line=245,offs=1)--3692(line=246,offs=48))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4033(line=282,offs=1)--4130(line=288,offs=39))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3704(line=249,offs=1)--3795(line=255,offs=34))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4131(line=289,offs=1)--4189(line=290,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3796(line=256,offs=1)--3852(line=257,offs=48))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4271(line=299,offs=1)--4325(line=301,offs=31))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3864(line=260,offs=1)--3957(line=266,offs=35))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4326(line=302,offs=1)--4370(line=303,offs=36))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(3958(line=267,offs=1)--4016(line=268,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4405(line=308,offs=1)--4463(line=310,offs=33))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4028(line=271,offs=1)--4121(line=277,offs=35))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4464(line=311,offs=1)--4512(line=312,offs=40))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4122(line=278,offs=1)--4180(line=279,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4524(line=315,offs=1)--4582(line=317,offs=33))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4192(line=282,offs=1)--4285(line=288,offs=35))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4583(line=318,offs=1)--4631(line=319,offs=40))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4286(line=289,offs=1)--4344(line=290,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4666(line=324,offs=1)--4725(line=326,offs=33))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4377(line=295,offs=1)--4483(line=302,offs=37))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4726(line=327,offs=1)--4776(line=328,offs=42))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4484(line=303,offs=1)--4542(line=304,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4785(line=330,offs=1)--4844(line=332,offs=33))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4575(line=309,offs=1)--4669(line=315,offs=36))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4845(line=333,offs=1)--4895(line=334,offs=42))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4670(line=316,offs=1)--4728(line=317,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4930(line=339,offs=1)--5000(line=341,offs=41))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4737(line=319,offs=1)--4831(line=325,offs=36))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5009(line=343,offs=1)--5079(line=345,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5088(line=347,offs=1)--5158(line=349,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5167(line=351,offs=1)--5238(line=353,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5247(line=355,offs=1)--5318(line=357,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5327(line=359,offs=1)--5398(line=361,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5402(line=363,offs=1)--5458(line=364,offs=48))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4832(line=326,offs=1)--4890(line=327,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5459(line=365,offs=1)--5515(line=366,offs=48))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4902(line=330,offs=1)--4996(line=336,offs=36))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(4997(line=337,offs=1)--5055(line=338,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5516(line=367,offs=1)--5572(line=368,offs=48))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5064(line=340,offs=1)--5158(line=346,offs=36))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5159(line=347,offs=1)--5217(line=348,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5573(line=369,offs=1)--5631(line=370,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5226(line=350,offs=1)--5323(line=356,offs=39))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5324(line=357,offs=1)--5382(line=358,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5632(line=371,offs=1)--5690(line=372,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5464(line=367,offs=1)--5518(line=369,offs=31))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5519(line=370,offs=1)--5563(line=371,offs=36))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5691(line=373,offs=1)--5749(line=374,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5598(line=376,offs=1)--5656(line=378,offs=33))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5657(line=379,offs=1)--5705(line=380,offs=40))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5784(line=379,offs=1)--5855(line=381,offs=41))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5717(line=383,offs=1)--5775(line=385,offs=33))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5856(line=382,offs=1)--5914(line=383,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5776(line=386,offs=1)--5824(line=387,offs=40))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5949(line=388,offs=1)--6020(line=390,offs=41))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5859(line=392,offs=1)--5918(line=394,offs=33))
 
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6029(line=392,offs=1)--6100(line=394,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6109(line=396,offs=1)--6180(line=398,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6189(line=400,offs=1)--6260(line=402,offs=41))
-
-
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6264(line=404,offs=1)--6322(line=405,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5919(line=395,offs=1)--5969(line=396,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6323(line=406,offs=1)--6381(line=407,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(5978(line=398,offs=1)--6037(line=400,offs=33))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6038(line=401,offs=1)--6088(line=402,offs=42))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6382(line=408,offs=1)--6440(line=409,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6123(line=407,offs=1)--6193(line=409,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6202(line=411,offs=1)--6272(line=413,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6281(line=415,offs=1)--6351(line=417,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6360(line=419,offs=1)--6431(line=421,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6440(line=423,offs=1)--6511(line=425,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6520(line=427,offs=1)--6591(line=429,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6595(line=431,offs=1)--6651(line=432,offs=48))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6441(line=410,offs=1)--6499(line=411,offs=50))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6652(line=433,offs=1)--6708(line=434,offs=48))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6583(line=420,offs=1)--6694(line=430,offs=18))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6709(line=435,offs=1)--6765(line=436,offs=48))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6716(line=433,offs=1)--6834(line=442,offs=20))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6766(line=437,offs=1)--6824(line=438,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6835(line=443,offs=1)--6956(line=452,offs=21))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6825(line=439,offs=1)--6883(line=440,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6978(line=455,offs=1)--7091(line=465,offs=16))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6884(line=441,offs=1)--6942(line=442,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7092(line=466,offs=1)--7205(line=476,offs=16))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(6977(line=447,offs=1)--7048(line=449,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7049(line=450,offs=1)--7107(line=451,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7206(line=477,offs=1)--7319(line=487,offs=16))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7142(line=456,offs=1)--7213(line=458,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7222(line=460,offs=1)--7293(line=462,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7302(line=464,offs=1)--7373(line=466,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7382(line=468,offs=1)--7453(line=470,offs=41))
+
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7457(line=472,offs=1)--7515(line=473,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7340(line=489,offs=1)--7456(line=499,offs=17))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7516(line=474,offs=1)--7574(line=475,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7457(line=500,offs=1)--7573(line=510,offs=17))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7575(line=476,offs=1)--7633(line=477,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7574(line=511,offs=1)--7690(line=521,offs=17))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7634(line=478,offs=1)--7692(line=479,offs=50))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7711(line=523,offs=1)--7827(line=533,offs=17))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7776(line=488,offs=1)--7887(line=498,offs=18))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7848(line=535,offs=1)--7969(line=544,offs=22))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7909(line=501,offs=1)--8027(line=510,offs=20))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(7990(line=546,offs=1)--8111(line=555,offs=22))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8028(line=511,offs=1)--8149(line=520,offs=21))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8132(line=557,offs=1)--8253(line=566,offs=22))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8171(line=523,offs=1)--8284(line=533,offs=16))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8274(line=568,offs=1)--8391(line=577,offs=20))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8285(line=534,offs=1)--8398(line=544,offs=16))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8395(line=579,offs=1)--8528(line=588,offs=24))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8399(line=545,offs=1)--8512(line=555,offs=16))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8529(line=589,offs=1)--8662(line=598,offs=24))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8533(line=557,offs=1)--8649(line=567,offs=17))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8686(line=601,offs=1)--8821(line=612,offs=20))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8650(line=568,offs=1)--8766(line=578,offs=17))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8842(line=614,offs=1)--9051(line=629,offs=9))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8767(line=579,offs=1)--8883(line=589,offs=17))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9096(line=631,offs=1)--9231(line=640,offs=24))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(8904(line=591,offs=1)--9020(line=601,offs=17))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9252(line=642,offs=1)--9407(line=652,offs=25))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9041(line=603,offs=1)--9162(line=612,offs=22))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9428(line=654,offs=1)--9640(line=666,offs=27))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9183(line=614,offs=1)--9304(line=623,offs=22))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9699(line=668,offs=1)--9911(line=680,offs=27))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9325(line=625,offs=1)--9446(line=634,offs=22))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9467(line=636,offs=1)--9584(line=645,offs=20))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9588(line=647,offs=1)--9721(line=656,offs=24))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9722(line=657,offs=1)--9855(line=666,offs=24))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(9879(line=669,offs=1)--10014(line=680,offs=20))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(10035(line=682,offs=1)--10244(line=697,offs=9))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(10289(line=699,offs=1)--10424(line=708,offs=24))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(10445(line=710,offs=1)--10600(line=720,offs=25))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(10621(line=722,offs=1)--10833(line=734,offs=27))
+// L1DCLnone0()
+
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics0.dats@(10892(line=736,offs=1)--11104(line=748,offs=27))
 // L1DCLnone0()
 
 // ./../../modules/xatsopt/prelude/DATS/CATS/JS/prelude.dats@(67(line=6,offs=1)--122(line=8,offs=27))

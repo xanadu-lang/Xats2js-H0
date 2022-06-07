@@ -489,6 +489,42 @@ xemit01_lvb00
 //
 (* ****** ****** *)
 //
+local
+fun
+aux1
+(rep: string): int =
+aux2(10(*bas*), rep)
+and
+aux2
+( bas: int
+, rep: string): int =
+auxrep
+(bas, string2ptr(rep), 0)
+and
+auxrep
+( b0: int
+, p0: ptr
+, r0: int): int =
+let
+val c0 =
+$UN.ptr0_get<char>(p0)
+in(* in-of-let *)
+//
+if
+isdigit(c0)
+then
+(
+auxrep(b0, p0, r0)) where
+{
+val p0 = ptr_succ<char>(p0)
+val r0 = b0 * r0 + (c0 - '0')
+}
+else (r0) //else//end-of(if)
+//
+end (*let*) // end of [auxrep]
+
+in//local
+
 implement
 xemit01_lvint
 (out, tok) =
@@ -500,9 +536,21 @@ in
 case- tnd of 
 |
 T_INT1
-( rep ) => fprint(out, rep)
+( rep ) =>
+fprint(out, rep)
+|
+T_INT2
+(bas, rep) =>
+fprint(out, aux2(bas, rep))
+(*
+|
+T_INT3
+(bas, rep, _) => fprint(out, rep)
+*)
 //
 end // end of [xemit01_lvint]
+//
+end (*local*) // end of [local]
 //
 (* ****** ****** *)
 //
@@ -4226,4 +4274,4 @@ end // end of [local]
 
 (* ****** ****** *)
 
-(* end of [xats_intrep1_xemit.dats] *)
+(* end of [xats_intrep1_xemit0.dats] *)
