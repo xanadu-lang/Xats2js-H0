@@ -28,4 +28,4 @@ val ((*void*)) =
 
 (* ****** ****** *)
 
-(* end of [mytest0_mytest08.dats] *)
+(* end of [mytests_mytest08.dats] *)

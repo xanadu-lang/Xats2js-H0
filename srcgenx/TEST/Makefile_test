@@ -8,9 +8,9 @@ all::
 MAKE=make
 ######
 all:: \
-mytest0
-mytest0:: ; \
-make -C mytest0 \
+mytests
+mytests:: ; \
+make -C mytests \
   -f Makefile test cleanall > /dev/null
 ######
 all:: \

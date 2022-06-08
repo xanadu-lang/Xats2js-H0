@@ -33,4 +33,4 @@ val ((*void*)) =
 
 (* ****** ****** *)
 
-(* end of [mytest0_mytest09.dats] *)
+(* end of [mytests_mytest09.dats] *)

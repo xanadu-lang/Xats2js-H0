@@ -103,6 +103,17 @@ $(CAT) $(XATS2JS_PRELUDE_NODE) >> output_dats.js && \
 $(XATS2JS) --output-a output_dats.js -d $(MYTEST)/mytest10.dats && $(NODE) output_dats.js
 ######
 test:: \
+mytest11
+mytest11:: ; \
+$(CAT) $(XATS2JS_PRELUDE) > output_dats.js && \
+$(CAT) $(XATS2JS_PRELUDE_NODE) >> output_dats.js && \
+$(XATS2JS) --output-a output_dats.js -d $(MYTEST)/mytest11.dats && $(NODE) output_dats.js
+######
+
+
+
+######
+test:: \
 Zoe_Tally
 Zoe_Tally:: ; \
 $(CAT) $(XATS2JS_PRELUDE) > output_dats.js && \

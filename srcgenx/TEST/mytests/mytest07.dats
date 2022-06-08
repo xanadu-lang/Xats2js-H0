@@ -44,4 +44,4 @@ println
 
 (* ****** ****** *)
 
-(* end of [mytest0_mytest07.dats] *)
+(* end of [mytests_mytest07.dats] *)

@@ -31,4 +31,4 @@ val () =
 println1("kxs['z'] = ", XATS2JS_jsobjmap_search_opt(kxs, "z"))
 (* ****** ****** *)
 
-(* end of [mytest_mytest10.dats] *)
+(* end of [mytests_mytest10.dats] *)

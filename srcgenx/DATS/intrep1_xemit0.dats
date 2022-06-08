@@ -542,11 +542,10 @@ fprint(out, rep)
 T_INT2
 (bas, rep) =>
 fprint(out, aux2(bas, rep))
-(*
 |
 T_INT3
-(bas, rep, _) => fprint(out, rep)
-*)
+(bas, rep, _) =>
+fprint(out, aux2(bas, rep))
 //
 end // end of [xemit01_lvint]
 //
@@ -2835,6 +2834,7 @@ aux_implmnt30
 : FILEref
 , dcl2: l1dcl): void =
 let
+//
 (*
 HX-2020-11-18:
 argless implementation
@@ -2845,86 +2845,31 @@ L1DCLimplmnt3
 ( knd0
 , mopt
 , limp) =
-  dcl2.node((*void*))
-//
-val+
-L1IMPLMNT(rcd) = limp
-//
-val hdc1 = rcd.hdc(*void*)
-//
-val () =
-fprint!
-( out
-, "// ", hdc1, ": argless\n")
-//
-val () =
-fprint!
-(out, "// { // val-implmnt\n")
-//
-val () =
-xemit01_l1blk(out, rcd.def_blk)
-//
-val () =
-fprintln!
-( out
-, "// } // val-implmnt // ", hdc1)
-//
-in
-  // nothing
-end (*let*) // end of [aux_implmnt30]
-(*
-(*
-HX-2022-01-22:
-abandoning the following way of
-handling argless implementations
-*)
-and
-aux_implmnt30
-( out
-: FILEref
-, dcl2: l1dcl): void =
-let
-//
-(*
-HX-2020-11-18:
-argless implementation
-*)
-//
-val-
-L1DCLimplmnt
-( knd0
-, mopt
-, limp) =
 dcl2.node((*void*))
 //
 val+
-LIMPLMNT(rcd) = limp
+L1IMPLMNT(rcd) = limp
 //
 val () =
 xemit01_txtln
 (out, "// { // val-implmnt")
 //
-(*
-//
-// HX: there are no tmps!
-//
 val () =
 xemit01_ftmpdecs(out, rcd.lts)
-*)
 //
 val () =
 xemit01_l1blk(out, rcd.def_blk)
 //
 val () =
 xemit01_txtln
-(out, "// } // val-implmnt")
+( out, "// } // val-implmnt" )
 //
 val () =
 xemit01_txtln
-(out, "const // implval/fun")
+( out, "const // implval/fun" )
 //
 val () =
-aux_h0cst(out, dcl0, rcd.hdc)
+aux_h0cst( out, dcl2, rcd.hdc )
 (*
 val () =
 xemit01_h0cst(out, rcd.hdc(*name*))
@@ -2940,16 +2885,12 @@ None() => ()
 Some(res) =>
 {
 //
-val () =
-xemit01_txt00(out, " = ")
-val () =
-xemit01_l1val( out, res )
-val () =
-xemit01_txt00( out, "\n" )
+val () = xemit01_txt00(out, " = ")
+val () = xemit01_l1val( out, res )
+val () = xemit01_txt00( out, "\n" )
 //
 } (* end of [Some] *)
 end (*let*) // end of [aux_implmnt30]
-*)
 //
 and
 aux_implmnt31
