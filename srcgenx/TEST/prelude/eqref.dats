@@ -7,6 +7,8 @@
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
+#infix0 === !=== of 30 // needed?
+(* ****** ****** *)
 
 val () =
 println("0===0: ", 0===0)
