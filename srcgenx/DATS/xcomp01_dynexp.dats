@@ -2610,6 +2610,9 @@ h0e0.node() of
 | H0Eb00(btf) =>
   l1val_make_node
   (loc0, L1VALb00(btf))
+| H0Ec00(chr) =>
+  l1val_make_node
+  (loc0, L1VALc00(chr))
 | H0Es00(str) =>
   l1val_make_node
   (loc0, L1VALs00(str))

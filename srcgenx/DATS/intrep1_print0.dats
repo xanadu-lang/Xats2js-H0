@@ -234,6 +234,11 @@ case+ x0 of
   fprint!
   ( out
   , "L1PCKb00(", btf1, "; ", l1v2, ")")
+| L1PCKc00
+  (btf1, l1v2) =>
+  fprint!
+  ( out
+  , "L1PCKc00(", btf1, "; ", l1v2, ")")
 | L1PCKs00
   (str1, l1v2) =>
   fprint!
@@ -326,6 +331,9 @@ fprint!(out, "L1VALi00(", int, ")")
 L1VALb00(btf) =>
 fprint!(out, "L1VALb00(", btf, ")")
 |
+L1VALc00(chr) =>
+fprint!(out, "L1VALc00(", chr, ")")
+|
 L1VALs00(str) =>
 fprint!(out, "L1VALs00(", str, ")")
 //
@@ -396,23 +404,23 @@ fprint!(out, "L1VALctag(", l1v1, ")")
 L1VALcarg(l1v1, idx2) =>
 fprint!
 ( out
-, "L1VALcarg(", l1v1, "; ", idx2, ")")
+, "L1VALcarg(", l1v1, ", ", idx2, ")")
 |
 L1VALcofs(l1v1, idx2) =>
 fprint!
 ( out
-, "L1VALcofs(", l1v1, "; ", idx2, ")")
+, "L1VALcofs(", l1v1, ", ", idx2, ")")
 //
 |
 L1VALtarg(l1v1, idx2) =>
 fprint!
 ( out
-, "L1VALtarg(", l1v1, "; ", idx2, ")")
+, "L1VALtarg(", l1v1, ", ", idx2, ")")
 |
 L1VALtptr(l1v1, idx2) =>
 fprint!
 ( out
-, "L1VALtptr(", l1v1, "; ", idx2, ")")
+, "L1VALtptr(", l1v1, ", ", idx2, ")")
 //
 |
 L1VALeval0(l1v1) =>

@@ -482,10 +482,21 @@ implement
 xemit01_lvi00
 ( out
 , int) = fprint(out, int)
+//
 implement
 xemit01_lvb00
 ( out
 , btf) = fprint(out, btf)
+//
+implement
+xemit01_lvc00
+( out
+, chr) =
+(
+ fprint(out, chr) ) where
+{
+  val chr = char2uint0(chr)
+} // end of [xemit01_lvc00]
 //
 (* ****** ****** *)
 //
@@ -692,6 +703,9 @@ xemit01_lvi00(out, int)
 |
 L1VALb00(btf) =>
 xemit01_lvb00(out, btf)
+|
+L1VALc00(chr) =>
+xemit01_lvc00(out, chr)
 (*
 |
 L1VALs00(str) =>
@@ -761,6 +775,14 @@ L1VALflat(l1v1) =>
   xemit01_l1val(out, l1v1)
   val () = fprint(out, ")")
 }
+(*
+|
+L1VALtalf(l1v1) =>
+{
+  val () =
+  xemit01_l1val(out, l1v1)
+}
+*)
 //
 |
 L1VALctag(l1v1) =>

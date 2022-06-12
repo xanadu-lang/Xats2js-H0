@@ -263,6 +263,8 @@ l1pck =
   ( int, l1val )
 | L1PCKb00 of
   ( bool, l1val )
+| L1PCKc00 of
+  ( char, l1val )
 | L1PCKs00 of
   (string, l1val)
 //
@@ -318,6 +320,7 @@ l1val_node =
 //
 | L1VALi00 of (int)
 | L1VALb00 of (bool)
+| L1VALc00 of (char)
 | L1VALs00 of string
 //
 | L1VALint of (token)
@@ -1024,6 +1027,8 @@ fun
 xemit01_lvi00(FILEref, int): void
 fun
 xemit01_lvb00(FILEref, bool): void
+fun
+xemit01_lvc00(FILEref, char): void
 //
 (* ****** ****** *)
 //
