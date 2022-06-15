@@ -129,21 +129,21 @@ h0con_get_dvar(hdc)
 val opt =
 xcomp01_dvarfind(env0, hdv)
 //
-(*
+// (*
 val () =
 println!
-("auxval_fcon: hdc = ", hdc)
+("xcomp01_hdcon: hdc = ", hdc)
 val () =
 println!
-("auxval_fcon: hdv = ", hdv)
-*)
+("xcomp01_hdcon: hdv = ", hdv)
+// *)
 //
 in
 case- opt of
-~Some_vt(l1v) => L1CONval(l1v)
+| ~Some_vt(l1v) => L1CONval(l1v)
 end // end of [else]
 //
-end // end of [xcomp01_hdcon]
+end(*let*)//end-of-[xcomp01_hdcon]
 
 (* ****** ****** *)
 
@@ -1189,7 +1189,7 @@ val-
 H0Etcon
 (hdc, _) = h0e0.node()
 //
-in
+in//let
 //
 let
 val ldc =
