@@ -16,9 +16,9 @@ val () = g_print('\n')
 
 (* ****** ****** *)
 //
-val eol = sint('\n')
+val eol = code('\n')
 (*
-val eol = sint('\012')
+val eol = code('\012')
 *)
 //
 (* ****** ****** *)
@@ -94,7 +94,7 @@ and c = abc[2]
 //
 val xyz =
 let
-val x = sint('x')
+val x = code('x')
 in
 strn_tabulate_cfr
 (3, lam(i) => char(x+i))
@@ -114,7 +114,7 @@ gseq_map_add
 #typedef x0 = char
 #typedef y0 = sint
 #typedef xs = strn
-#impltmp map$fopr<x0><y0>(c) = sint(c)
+#impltmp map$fopr<x0><y0>(c) = code(c)
 }
 //
 val () =
