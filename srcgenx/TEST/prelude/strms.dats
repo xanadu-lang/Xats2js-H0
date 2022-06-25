@@ -49,7 +49,7 @@ cons(x5, xs) = $eval(xs) // x5 = 13
 
 val () =
 (
-strm_vt_print<int>(xs); g_print("\n")
+strm_vt_print0<int>(xs); g_print("\n")
 ) (* end of [val] *)
 
 (* ****** ****** *)
