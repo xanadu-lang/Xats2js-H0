@@ -93,10 +93,15 @@ val () = prerrln("Hello, world!")
 val s =
 "azcbobobegghakl"
 //
+(*
 fun
 vowelq(c: char): bool =
 gseq_memberq<strn><char>("aeiou", c)
-
+*)
+//
+val
+vowelq=fmemq("aeiou")
+//
 val count =
 gseq_foldl(s, 0) where
 {
