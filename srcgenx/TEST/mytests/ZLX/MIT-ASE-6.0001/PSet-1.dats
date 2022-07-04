@@ -100,15 +100,26 @@ gseq_memberq<strn><char>("aeiou", c)
 *)
 //
 val
-vowelq=fmemq("aeiou")
+vowelq =
+fmemberq("aeiou")
 //
+(*
 val count =
 gseq_foldl(s, 0) where
 {
 #impltmp
 foldl$fopr
-<char><sint>(n, c) = if vowelq(c) then n+1 else n+0
+<char><sint>
+(   n, c   ) =
+if vowelq(c) then n+1 else n+0
 }
+*)
+//
+val count =
+gseq_foldl_cfr2
+( s, 0
+, lam(n, c) => n+sint(vowelq(c)))
+//
 val () =
 prerrln("The number of vowels in \"", s, "\": ", count)
 //
@@ -129,6 +140,8 @@ if
 nilq(cs) then n else
 (if bobq(cs) then nbob(cs.tail(), n+1) else nbob(cs.tail(), n+0))
 }
+val () =
+prerrln("The length of \"", s, "\" is: ", length(s))
 val () =
 prerrln("The number of times [bob] occurs in \"", s, "\" is: ", count)
 

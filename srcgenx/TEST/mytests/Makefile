@@ -110,6 +110,11 @@ $(CAT) $(XATS2JS_PRELUDE_NODE) >> output_dats.js && \
 $(XATS2JS) --output-a output_dats.js -d $(MYTEST)/mytest11.dats && $(NODE) output_dats.js
 ######
 
+test:: \
+ZLX-test
+ZLX-test:: ; \
+make -C ZLX -f Makefile > /dev/null
+
 ######
 #
 # HX: for cleaning up
