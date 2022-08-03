@@ -41,6 +41,14 @@ $(CAT) $(XATS2JS_XATSLIB_NODE) >> output_dats.js && \
 $(XATS2JS) --output-a output_dats.js -d $(MYTEST)/MIT-ASE-6.0001/PSet-2.dats && $(NODE) output_dats.js
 ######
 test:: \
+ZLX-PSet-3
+ZLX-PSet-3:: ; \
+$(CAT) $(XATS2JS_PRELUDE) > output_dats.js && \
+$(CAT) $(XATS2JS_PRELUDE_NODE) >> output_dats.js && \
+$(CAT) $(XATS2JS_XATSLIB_NODE) >> output_dats.js && \
+$(XATS2JS) --output-a output_dats.js -d $(MYTEST)/MIT-ASE-6.0001/PSet-3.dats && $(NODE) output_dats.js
+######
+test:: \
 ZLX-Tally
 ZLX-Tally:: ; \
 $(CAT) $(XATS2JS_PRELUDE) > output_dats.js && \

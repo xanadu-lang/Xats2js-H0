@@ -102,6 +102,8 @@ val s_to = "9876543210"
 #typedef itm = sint
 #typedef map = list@(key,itm)
 
+(* ****** ****** *)
+
 val kxs =
 gseq_z2map_strm
 <  strn,strn  >
