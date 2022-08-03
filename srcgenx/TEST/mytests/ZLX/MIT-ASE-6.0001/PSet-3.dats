@@ -104,8 +104,9 @@ case+ !xs of
 strmcon_nil() => x0
 |
 strmcon_cons(x1, xs) =>
-max(gseq_max_ini(rs, x1), helper(x0, xs))
-end
+max
+(gseq_max_ini(rs,x1),helper(x0,xs))
+end (*let*) // end of [helper(x0,xs)]
 
 (* ****** ****** *)
 
