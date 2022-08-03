@@ -125,6 +125,12 @@ fun
 helper(ds: sint): sint =
 let
 //
+#impltmp
+<xs><x0>
+gmap_search$exn() =
+$raise(NotFoundExn()) where
+{
+  excptcon NotFoundExn of () }
 fun
 fopr(d1: sint): sint =
 gmap_search<map><key><itm>(map, d1)
