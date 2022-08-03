@@ -116,7 +116,7 @@ if vowelq(c) then n+1 else n+0
 *)
 //
 val count =
-gseq_foldl_cfr2
+gseq_foldl_c2fr
 ( s, 0
 , lam(n, c) => n+sint(vowelq(c)))
 //
@@ -147,4 +147,4 @@ prerrln("The number of times [bob] occurs in \"", s, "\" is: ", count)
 
 (* ****** ****** *)
 
-(* end of [PSet-1.dats] *)
+(* end of [ZLX/MIT-ASE-6.0001/PSet-1.dats] *)
