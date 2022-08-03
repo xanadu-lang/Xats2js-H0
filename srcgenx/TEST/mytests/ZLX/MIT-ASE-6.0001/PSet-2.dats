@@ -96,6 +96,8 @@ print(decode_ints(s_from, s_to, L))
 val s_fr = "0123456789"
 val s_to = "9876543210"
 
+(* ****** ****** *)
+
 #typedef key = sint
 #typedef itm = sint
 #typedef map = list@(key,itm)
@@ -112,8 +114,12 @@ z2map$fopr
 (    x,y    ) = (x - '0', y - '0')
 }
 
+(* ****** ****** *)
+
 val map =
 gmap_unstrm_vt<map><key><itm>(kxs)
+
+(* ****** ****** *)
 
 fun
 helper(ds: sint): sint =
@@ -121,23 +127,18 @@ let
 //
 fun
 fopr(d1: sint): sint =
-let
-val opt =
-gmap_search_opt
-<map><key><itm>(map, d1)
-in
-case- opt of ~optn_cons(d2) => d2
-end
+gmap_search<map><key><itm>(map, d1)
 in//let
 if (ds = 0)
-then 0 else 10*helper(ds/10) + fopr(ds%10)
+then 0 else 10*helper(ds/10)+fopr(ds%10)
 end (*let*) // helper(ds)
 
 val L1 =
 list(1, 5, 123)
 
 val L2 =
-list_map(L1) where { #implval map$fopr<sint><sint> = helper }
+list_map(L1) where
+{ #impltmp map$fopr<sint><sint> = helper }
 
 val () =
 gmap_print
