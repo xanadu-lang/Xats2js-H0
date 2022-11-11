@@ -65,6 +65,10 @@ $(XATS2JS) \
 #
 xats2js_prelude:: ; \
 $(XATS2JS) \
+--output-a xats2js_prelude.js -d $(XATSOPT)/prelude/DATS/CATS/JS/basics1.dats
+#
+xats2js_prelude:: ; \
+$(XATS2JS) \
 --output-a xats2js_prelude.js -d $(XATSOPT)/prelude/DATS/CATS/JS/prelude.dats
 #
 ######
