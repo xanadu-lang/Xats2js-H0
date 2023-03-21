@@ -1259,7 +1259,7 @@ XATS2JS_a0ref_get0
 //
 function
 XATS2JS_UN_a0ref_set0
-  (A0)
+  (A0, x0)
 {
   return (A0[0] = x0); }
 //
@@ -2384,7 +2384,7 @@ return xtmp12;
 // ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics1.dats@(7013(line=497,offs=1)--7278(line=514,offs=13))
 // L1DCLnone0()
 
-// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics1.dats@(7282(line=516,offs=1)--7412(line=523,offs=9))
+// ./../../modules/xatsopt/prelude/DATS/CATS/JS/basics1.dats@(7343(line=517,offs=1)--7473(line=524,offs=9))
 // L1DCLnone0()
 
 // ./../../modules/xatsopt/prelude/DATS/CATS/JS/prelude.dats@(67(line=6,offs=1)--123(line=8,offs=28))
