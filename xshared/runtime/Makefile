@@ -85,6 +85,10 @@ xats2js_prelude_node:: ; \
 $(CAT) \
 $(XATSOPT)/prelude/DATS/CATS/JS/Node/g_print.cats >> xats2js_prelude_node.js
 #
+xats2js_prelude_node:: ; \
+$(CAT) \
+$(XATSOPT)/prelude/DATS/CATS/JS/Node/process.cats >> xats2js_prelude_node.js
+#
 ######
 xats2js_xatslib_node:: ; \
 $(ECHO) \
