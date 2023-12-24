@@ -98,6 +98,29 @@ xatsopt_strunq
 }
 
 (* ****** ****** *)
+//
+fun
+fprint_xstamp
+(out: FILEref): void =
+(
+  loop(0, time) ) where
+{
+val time =
+$GLO.the_XATSTIME_get()
+//
+fun
+loop
+( i0: int
+, time: int): void =
+if i0 < 6 then
+(
+loop
+(i0+1, time/10)) where
+{
+val () = fprint(out, time%10) }
+} (*where*) // end of [fprint_xstamp(out)]
+//
+(* ****** ****** *)
 implement
 xemit01_int00
 (out, int) =
@@ -108,8 +131,7 @@ implement
 xemit01_btf00
 (out, btf) =
 (
-fprint(out, btf)
-)
+fprint(out, btf))
 (* ****** ****** *)
 implement
 xemit01_txt00
@@ -215,10 +237,25 @@ val () =
 fprint(out, sym)
 //
 val () =
+(
+case+
+hdc.tqas() of
+|
+list_nil() => ()
+|
+list_cons _ =>
+{
+val () =
+fprint(out, "_")
+val () =
+fprint_xstamp(out) }
+)
+//
+val () =
 let
 val
 ntot = loc.beg_ntot()
-in
+in//let
 fprint!(out, "_", ntot, "_")
 end // end of [let]
 //
@@ -673,16 +710,25 @@ fprint!
 end // end of [then]
 else
 let
+//
 val lev = tmp0.lev()
 val stm = tmp0.stamp()
-in
+//
+in//let
 //
 if
 (lev > 0)
 then
-fprint!(out, "xtmp", stm)
+(
+fprint
+(out, "xtmp");
+fprint(out, stm))
 else
-fprint!(out, "xtop", stm)
+(
+fprint
+(out, "xtop");
+fprint(out, stm);
+fprint(out, "_"); fprint_xstamp(out))
 //
 end // end of [else]
 //

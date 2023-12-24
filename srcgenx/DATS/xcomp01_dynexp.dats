@@ -112,7 +112,7 @@ let
 val
 tag = hdc.ctag()
 //
-in
+in//let
 //
 if
 (tag > 0)
@@ -3269,11 +3269,20 @@ var res1
   : l1valopt = None()
 //
 val () =
+case+ hfgs of
+|
+list_nil() =>
+( (*void*) )
+|
+list_cons _ =>
+{
+val () =
 xcomp01_flevinc(env0)
 val () =
 xcomp01_dvaradd_fun0(env0)
 val () =
 xcomp01_ltmpadd_fun0(env0)
+}
 //
 val
 flev =
@@ -3302,12 +3311,25 @@ end // end of [Some]
 in
 let
 //
+val tmps =
+(
+case+ hfgs of
+|
+list_nil() =>
+list_nil()
+|
+list_cons _ =>
+(
+  tmps ) where
+{
 val () =
 xcomp01_flevdec(env0)
 val () =
 xcomp01_dvarpop_fun0( env0 )
 val tmps =
 xcomp01_ltmppop_fun0( env0 )
+}
+) : l1tmplst // end-of-[tmps]
 //
 (*
 val ( ) =
