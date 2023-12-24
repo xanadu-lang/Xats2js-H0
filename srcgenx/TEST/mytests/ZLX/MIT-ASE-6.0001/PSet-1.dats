@@ -101,19 +101,16 @@ gseq_memberq<strn><char>("aeiou", c)
 //
 val
 vowelq =
-fmemberq("aeiou")
-//
-(*
-val count =
-gseq_foldl(s, 0) where
+fmemberq("aeiou") where
 {
 #impltmp
-foldl$fopr
-<char><sint>
-(   n, c   ) =
-if vowelq(c) then n+1 else n+0
+<xs><x0>
+gfun_memberq_gseq(xs) =
+(
+lam(x0)=>gseq_memberq<xs><x0>(xs,x0))
 }
-*)
+//
+(* ****** ****** *)
 //
 val count =
 gseq_foldl_c2fr

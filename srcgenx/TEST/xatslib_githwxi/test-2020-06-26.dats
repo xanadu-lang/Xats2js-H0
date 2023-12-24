@@ -120,7 +120,7 @@ maplist0$fopr<x0><y0>(i0) = helper_2(cs, i0)
 (* ****** ****** *)
 //
 val ((*void*)) =
-println("nword = ", length(helper_1("water")))
+println("nword = ", length0(helper_1("water")))
 //
 (* ****** ****** *)
 

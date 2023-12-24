@@ -32,7 +32,7 @@ fun
 rat(f0: dflt): rat = f0
 //
 #impltmp
-g_i<rat> = gflt_i_dflt<>
+g_si<rat> = gflt_si_dflt<>
 //
 #impltmp
 g_abs<rat> = gflt_abs_dflt<>
@@ -102,7 +102,7 @@ expr_eval
 (x0: expr): rat =
 (
 case+ x0 of
-| Int(i0) => g_i<rat>(i0)
+| Int(i0) => g_si<rat>(i0)
 | Add(x1, x2) =>
   expr_eval(x1) + expr_eval(x2)
 | Sub(x1, x2) =>
@@ -129,7 +129,7 @@ fun
 expr_iseq24
 (x0: expr): bool =
 abs
-(expr_eval(x0)-g_i(24)) < EPSILON
+(expr_eval(x0)-g_si(24)) < EPSILON
 //
 (* ****** ****** *)
 

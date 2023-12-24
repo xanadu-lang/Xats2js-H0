@@ -97,16 +97,19 @@ helper
 , xs: strm(a)): a =
 let
 val rs =
-strm_scanl<a>(xs)
+strm_scanl<a>(xs, x0)
 in//let
 case+ !xs of
-|
-strmcon_nil() => x0
-|
-strmcon_cons(x1, xs) =>
+|strmcon_nil() => x0
+|strmcon_cons(x1, xs) =>
 max
 (gseq_max_ini(rs,x1),helper(x0,xs))
-end (*let*) // end of [helper(x0,xs)]
+end where
+{
+#impltmp
+scanl$fopr
+< a >< a >(r0,x0) = g_max<a>(r0,x0)
+} (*where*) // end of [helper(x0,xs)]
 
 (* ****** ****** *)
 

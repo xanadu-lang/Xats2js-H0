@@ -11,7 +11,7 @@
 val cs1 = "12345"
 //
 val css =
-gseq_permutize(cs1)
+gseq_permutize_lstrm(cs1)
 val ( ) =
 ( print("css=")
 ; gl_print0(css); println()

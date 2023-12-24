@@ -94,7 +94,7 @@ val zs4 = list_vt_concat0<int>(zss)
 (* ****** ****** *)
 
 val len =
-strm_vt_length(list_vt_permutize0<int>(zs4))
+strm_vt_length0(list_vt_permutize0<int>(zs4))
 
 (* ****** ****** *)
 

@@ -105,7 +105,7 @@ val s_to = "9876543210"
 (* ****** ****** *)
 
 val kxs =
-gseq_z2map_strm
+gseq_z2map_lstrm
 <  strn,strn  >
 <  cgtz,cgtz  >(s_fr, s_to) where
 {
@@ -119,7 +119,7 @@ z2map$fopr
 (* ****** ****** *)
 
 val map =
-gmap_unstrm_vt<map><key><itm>(kxs)
+gmap_unstrm_vt<map><key,itm>(kxs)
 
 (* ****** ****** *)
 
@@ -130,12 +130,12 @@ let
 #impltmp
 <xs><x0>
 gmap_search$exn() =
-$raise(NotFoundExn()) where
+$raise(NotFoundExn2()) where
 {
-  excptcon NotFoundExn of () }
+  excptcon NotFoundExn2 of () }
 fun
 fopr(d1: sint): sint =
-gmap_search<map><key><itm>(map, d1)
+gmap_search<map><key,itm>(map, d1)
 in//let
 if (ds = 0)
 then 0 else 10*helper(ds/10)+fopr(ds%10)
@@ -148,9 +148,11 @@ val L2 =
 list_map(L1) where
 { #impltmp map$fopr<sint><sint> = helper }
 
+(* ****** ****** *)
+
 val () =
 gmap_print
-<map><key><itm>(map) where
+<map><key,itm>(map) where
 {
 #impltmp
 g_print$out<>() = g_stderr<>()

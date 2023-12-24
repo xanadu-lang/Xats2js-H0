@@ -54,7 +54,6 @@ a1ref_length<int>(_) = 10
 map$fopr<int><int>(x) = (x)
 }
 //
-val bs = list_vt2t(bs)
 val () = println("bs = ", bs)
 //
 (* ****** ****** *)
@@ -81,7 +80,7 @@ a1ref_make_list(xs) where
 (* ****** ****** *)
 
 val B3 =
-a1ref_make_list_vt(xs) where
+a1ref_make0_llist(xs) where
 {
   val xs =
   list_vt_cons(1,
@@ -99,12 +98,13 @@ a1ref_length<int>(a1ref(int,3))
 *)
 //
 val xss =
-gseq_permutize(B3) where
+gseq_permutize_lstrm
+  (  B3  ) where
 {
-#impltmp a1ref_length<int>(_) = 3
-}
+#impltmp
+a1ref_length<int>(B3) = 3 }
 //
-val len = length(xss)
+val len = length0(xss)
 val ( ) = println("|xss| = ", len)
 //
 (* ****** ****** *)

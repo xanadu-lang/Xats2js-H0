@@ -21,7 +21,7 @@ val
 ds1 = digitize(31415926)
 val
 ds2 =
-strm_vt_listize(rdigitize(31415926))
+strm_vt_listize0(rdigitize(31415926))
 //
 (* ****** ****** *)
 //

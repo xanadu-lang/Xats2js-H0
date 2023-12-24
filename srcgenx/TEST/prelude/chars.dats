@@ -155,7 +155,7 @@ group$test
 )
 in
 val wrds =
-gseq_group<strn><cgtz>(text)
+gseq_group_lstrm<strn><cgtz>(text)
 end // local
 //
 val (  ) =

@@ -7,7 +7,11 @@
 "prelude\
 /DATS/CATS/JS/Node/g_print.dats"
 (* ****** ****** *)
-#infix0 === !=== of 30 // needed?
+//
+#infix0 === !=== of 30
+#symload === with g_eqref
+#symload !=== with g_neqrf
+//
 (* ****** ****** *)
 
 val () =
